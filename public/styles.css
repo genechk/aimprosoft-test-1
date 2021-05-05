@@ -1,0 +1,441 @@
+@font-face {
+  font-family: "Rajdhani Light";
+  src: url("fonts/rajdhani-light-webfont.eot");
+  src: url("fonts/rajdhani-light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rajdhani-light-webfont.woff2") format("woff2"), url("fonts/rajdhani-light-webfont.woff") format("woff"), url("fonts/rajdhani-light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Rajdhani Regular";
+  src: url("fonts/rajdhani-regular-webfont.eot");
+  src: url("fonts/rajdhani-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rajdhani-regular-webfont.woff2") format("woff2"), url("fonts/rajdhani-regular-webfont.woff") format("woff"), url("fonts/rajdhani-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Rajdhani Medium";
+  src: url("fonts/rajdhani-medium-webfont.eot");
+  src: url("fonts/rajdhani-medium-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rajdhani-medium-webfont.woff2") format("woff2"), url("fonts/rajdhani-medium-webfont.woff") format("woff"), url("fonts/rajdhani-medium-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Rajdhani Semibold";
+  src: url("fonts/rajdhani-semibold-webfont.eot");
+  src: url("fonts/rajdhani-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rajdhani-semibold-webfont.woff2") format("woff2"), url("fonts/rajdhani-semibold-webfont.woff") format("woff"), url("fonts/rajdhani-semibold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Rajdhani Bold";
+  src: url("fonts/rajdhani-bold-webfont.eot");
+  src: url("fonts/rajdhani-bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/rajdhani-bold-webfont.woff2") format("woff2"), url("fonts/rajdhani-bold-webfont.woff") format("woff"), url("fonts/rajdhani-bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+html {
+  scroll-behavior: smooth;
+  padding: 0;
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.5em;
+  line-height: 1.6;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+  overflow-x: hidden;
+  max-width: 320px; }
+
+.wrapper {
+  display: flex;
+  flex-direction: column; }
+
+.container {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+
+.navigation .navbar {
+  padding: 1.3rem 0 0 1.6rem;
+  margin: 0;
+  height: 3.7rem;
+  display: flex;
+  justify-content: space-between;
+  background: #000;
+  color: #fff; }
+
+.navigation h1 {
+  margin: 0;
+  margin-top: -1.1rem;
+  letter-spacing: -1.6px;
+  font-family: "Rajdhani Bold";
+  font-size: 3rem; }
+
+.navigation .menu-icon {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem; }
+
+.navigation .user-menu {
+  margin-right: 0.9rem;
+  min-width: 3.6rem;
+  display: flex; }
+
+.navigation .login {
+  display: none; }
+
+.navigation .basket-icon {
+  position: relative;
+  margin: 0; }
+  .navigation .basket-icon .icon {
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    width: 3rem;
+    height: 2.5rem;
+    z-index: 0; }
+  .navigation .basket-icon .items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding-top: 0.1rem;
+    background: #fff;
+    color: #000;
+    font-size: 1.3rem;
+    font-family: "Rajdhani Medium";
+    text-align: center;
+    border-radius: 50%;
+    width: 1.9rem;
+    height: 1.9rem;
+    z-index: 100; }
+
+.messages {
+  width: 100%;
+  background: #d0d0d0; }
+  .messages .message {
+    font-family: "Rajdhani Medium";
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.4px;
+    width: 100%;
+    font-size: 1.4rem; }
+
+.hero .promo {
+  width: 100%;
+  height: 19.5rem;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.8rem; }
+
+.hero .caption,
+.hero .bullets {
+  position: absolute;
+  background: none; }
+
+.hero .caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  left: 1rem; }
+  .hero .caption h2,
+  .hero .caption h3 {
+    margin: 0;
+    padding: 0; }
+  .hero .caption h2 {
+    border-bottom: 1px solid #000;
+    margin-bottom: 0.2rem;
+    font-size: 1.4rem; }
+  .hero .caption h3 {
+    font-family: "Courier New", monospace;
+    letter-spacing: 0.5px;
+    font-size: 1.1rem;
+    margin-bottom: 1.4rem; }
+
+.hero .call-to-action {
+  color: #000;
+  text-transform: uppercase;
+  font-family: "Rajdhani Medium";
+  font-size: 1.6rem;
+  letter-spacing: 0.2px;
+  border: 2px solid #000;
+  padding: 0.2rem 0.8rem; }
+
+.hero .bullets {
+  padding: 0;
+  margin: 0;
+  bottom: 1rem;
+  list-style-type: none;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10; }
+
+.hero .bullet {
+  margin: 0 0.1rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 0.5px solid #929292;
+  background: #fff;
+  border-radius: 50%; }
+  .hero .bullet.active {
+    background: #221f1f; }
+
+.hero .cover {
+  width: 100%;
+  height: 100%;
+  background-image: url("img/hero-cover-01.jpg");
+  background-size: cover;
+  background-size: 175%;
+  background-repeat: no-repeat;
+  background-position: 30% 70%; }
+
+.main .heading {
+  padding-top: 0;
+  padding-left: 1.3rem;
+  margin-bottom: 2.2rem;
+  margin-right: 1.3rem;
+  text-align: center; }
+  .main .heading h2 {
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    color: #393939;
+    position: relative;
+    display: inline; }
+    .main .heading h2::before, .main .heading h2::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0.5rem;
+      width: 4.2rem;
+      height: 0.7rem; }
+    .main .heading h2::before {
+      left: -5.2rem;
+      background-image: url("img/arrow-left.svg"); }
+    .main .heading h2::after {
+      right: -5.2rem;
+      background-image: url("img/arrow-right.svg"); }
+
+.products {
+  width: 100%;
+  margin-bottom: 4.4rem; }
+  .products .slider {
+    padding-left: 0.6rem;
+    width: 1000px;
+    display: flex; }
+  .products .product {
+    margin-right: 0.7rem;
+    margin-left: 0.6rem;
+    min-width: 15.5rem; }
+    .products .product:not(.active) {
+      opacity: 0.5; }
+    .products .product.discount .product-image::before {
+      content: '';
+      top: -14px;
+      left: -5px;
+      display: block;
+      position: absolute;
+      width: 55px;
+      height: 77px;
+      background-image: url("img/ribbon.png"); }
+    .products .product.discount .product-image::after {
+      content: '20%';
+      display: block;
+      position: absolute;
+      top: 4px;
+      left: 2px;
+      font-family: "Rajdhani Bold";
+      letter-spacing: 1px;
+      font-size: 1.7rem;
+      color: #fff;
+      transform: rotate(-45deg); }
+  .products .product-image {
+    position: relative;
+    width: 100%;
+    height: 27.7rem; }
+    .products .product-image .image {
+      width: 100%; }
+  .products .buy {
+    display: none;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Rajdhani Semibold";
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 0.8rem 0;
+    height: 2rem;
+    background: rgba(0, 0, 0, 0.66); }
+  .products .price {
+    text-align: center; }
+    .products .price p {
+      padding: 0 0.8rem;
+      margin-top: 0;
+      margin-bottom: 0; }
+    .products .price .old-price {
+      font-size: 1.5rem;
+      color: #888;
+      text-decoration: line-through;
+      height: 1.8rem; }
+    .products .price .new-price {
+      margin-top: -0.2rem;
+      font-size: 1.7rem;
+      font-family: "Rajdhani Semibold"; }
+
+.categories {
+  margin-bottom: 1.8rem;
+  padding-top: 6.2rem;
+  text-align: center; }
+  .categories:before {
+    margin: auto;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    position: absolute;
+    width: 12.9rem;
+    height: 3rem;
+    background-image: url("img/header-figure.svg"); }
+  .categories .category {
+    margin: 1.1rem 1.3rem;
+    margin-top: 0;
+    padding: 0;
+    position: relative; }
+    .categories .category:last-child {
+      margin-bottom: 0; }
+  .categories .category-link,
+  .categories .category {
+    display: flex; }
+  .categories .category-image {
+    width: 100%; }
+  .categories .category-label {
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Rajdhani Semibold";
+    font-size: 2rem;
+    letter-spacing: 2.5px;
+    color: #fff;
+    text-shadow: 0px 3px 1px #000;
+    position: absolute; }
+
+.instagram {
+  margin-bottom: 2.4rem; }
+  .instagram .heading {
+    margin-bottom: 2.6rem; }
+  .instagram .gallery {
+    display: flex;
+    justify-content: start;
+    width: 1000px;
+    padding-left: 0.6rem; }
+  .instagram .photo {
+    width: 13.3rem;
+    height: 13.3rem;
+    padding-left: 0.7rem;
+    margin-right: 0.7rem; }
+    .instagram .photo:not(.active) {
+      opacity: 0.5; }
+  .instagram .likes {
+    display: none; }
+  .instagram .insta-image {
+    width: 100%; }
+
+.customers {
+  margin-bottom: 2.4rem; }
+  .customers .heading {
+    margin-bottom: 1.4rem; }
+  .customers .customer-cards {
+    display: flex;
+    justify-content: start;
+    width: 1000px;
+    padding-left: 0.5rem; }
+  .customers .customer {
+    width: 17rem;
+    height: 17rem;
+    padding-left: 0.8rem;
+    margin-right: 0.9rem; }
+    .customers .customer:not(.active) {
+      opacity: 0.5; }
+  .customers .customer-image {
+    width: 100%; }
+  .customers .customer-overlay {
+    display: none; }
+
+.newsletter {
+  margin-bottom: 4.4rem;
+  padding: 3.2rem 1.3rem;
+  padding-bottom: 0;
+  text-align: center; }
+  .newsletter .subscription-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column; }
+  .newsletter .news-header,
+  .newsletter .form-field,
+  .newsletter .form-button {
+    text-align: center;
+    margin: 0;
+    margin-right: 2.6rem;
+    margin-bottom: 0.6rem;
+    padding: 0.5rem 1.3rem;
+    font-size: 1.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; }
+  .newsletter .news-header {
+    background: #000;
+    color: #fff; }
+  .newsletter .form-field {
+    color: #000;
+    border: 2px solid #d0d0d0;
+    height: 2.7rem; }
+  .newsletter .form-button {
+    color: #fff;
+    background: #d0d0d0;
+    height: 4rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.4rem;
+    border: none;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.75); }
+  .newsletter label {
+    display: none; }
+
+.footer-menu {
+  background: #f1f1f1;
+  height: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-content: center; }
+  .footer-menu .footer-nav {
+    display: none; }
+  .footer-menu .footer-logo {
+    width: 7.9rem; }
+
+* {
+  font-family: "Rajdhani Regular";
+  text-decoration: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.message {
+  text-transform: uppercase; }
+
+h1,
+h2 {
+  font-family: "Rajdhani Light"; }
+
+.font-bold {
+  font-family: "Rajdhani Bold"; }

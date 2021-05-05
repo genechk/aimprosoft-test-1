@@ -1,0 +1,65 @@
+$font-light: 'Rajdhani Light';
+$font-regular: 'Rajdhani Regular';
+$font-medium: 'Rajdhani Medium';
+$font-semibold: 'Rajdhani Semibold';
+$font-bold: 'Rajdhani Bold';
+$font-monospace: 'Courier New';
+
+@font-face {
+  font-family: $font-light;
+  src: url('fonts/rajdhani-light-webfont.eot');
+  src: url('fonts/rajdhani-light-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/rajdhani-light-webfont.woff2') format('woff2'),
+    url('fonts/rajdhani-light-webfont.woff') format('woff'),
+    url('fonts/rajdhani-light-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-regular;
+  src: url('fonts/rajdhani-regular-webfont.eot');
+  src: url('fonts/rajdhani-regular-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/rajdhani-regular-webfont.woff2') format('woff2'),
+    url('fonts/rajdhani-regular-webfont.woff') format('woff'),
+    url('fonts/rajdhani-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-medium;
+  src: url('fonts/rajdhani-medium-webfont.eot');
+  src: url('fonts/rajdhani-medium-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/rajdhani-medium-webfont.woff2') format('woff2'),
+    url('fonts/rajdhani-medium-webfont.woff') format('woff'),
+    url('fonts/rajdhani-medium-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-semibold;
+  src: url('fonts/rajdhani-semibold-webfont.eot');
+  src: url('fonts/rajdhani-semibold-webfont.eot?#iefix')
+      format('embedded-opentype'),
+    url('fonts/rajdhani-semibold-webfont.woff2') format('woff2'),
+    url('fonts/rajdhani-semibold-webfont.woff') format('woff'),
+    url('fonts/rajdhani-semibold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-bold;
+  src: url('fonts/rajdhani-bold-webfont.eot');
+  src: url('fonts/rajdhani-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/rajdhani-bold-webfont.woff2') format('woff2'),
+    url('fonts/rajdhani-bold-webfont.woff') format('woff'),
+    url('fonts/rajdhani-bold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

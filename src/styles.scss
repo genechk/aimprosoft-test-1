@@ -1,0 +1,71 @@
+// Normalize SCSS Library
+@import '../node_modules/normalize-scss/sass/normalize';
+
+// Breakpoints
+@import 'breakpoints';
+
+// Fonts
+@import 'fonts';
+
+// Colors
+$bg-light: #fff;
+$bg-dark: #000;
+$light-grey: #d0d0d0;
+$medium-grey: #c5c5c5;
+$dark-grey: #1d1d1b;
+$text-light: #fff;
+$text-grey: #888;
+$text-dark: #000;
+$text-dark-ish: #393939;
+$footer-color: #f1f1f1;
+$submit-button-shadow: #4f5052;
+
+// Bullets
+$bullet-border: #929292;
+$bullet-active: #221f1f;
+
+// General
+html {
+  scroll-behavior: smooth;
+  padding: 0;
+  font-size: 62.5%; // Make 1rem 10px again
+}
+
+body {
+  font-size: 1.5em;
+  line-height: 1.6;
+  background: $bg-light;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+  overflow-x: hidden;
+  max-width: 320px; // Get rid of that after proceding to tablet
+}
+
+// Layout
+@import 'layout_mobile';
+
+// Typography
+* {
+  font-family: $font-regular;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.message {
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-family: $font-light;
+}
+
+.font-bold {
+  font-family: $font-bold;
+}
