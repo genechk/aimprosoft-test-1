@@ -1,30 +1,24 @@
-// Normalize SCSS Library
+// Normalize SCSS
 @import '../node_modules/normalize-scss/sass/normalize';
 
+//////////////////////////
+// Variables and mixins //
+//////////////////////////
+
 // Breakpoints
-@import 'breakpoints';
+@import 'variables/breakpoints';
 
 // Fonts
-@import 'fonts';
+@import 'variables/fonts';
 
 // Colors
-$bg-light: #fff;
-$bg-dark: #000;
-$light-grey: #d0d0d0;
-$medium-grey: #c5c5c5;
-$dark-grey: #1d1d1b;
-$text-light: #fff;
-$text-grey: #888;
-$text-dark: #000;
-$text-dark-ish: #393939;
-$footer-color: #f1f1f1;
-$submit-button-shadow: #4f5052;
+@import 'variables/colors';
 
-// Bullets
-$bullet-border: #929292;
-$bullet-active: #221f1f;
+////////////////////
+// General styles //
+////////////////////
 
-// General
+// Parent elements
 html {
   scroll-behavior: smooth;
   padding: 0;
@@ -42,9 +36,6 @@ body {
   min-width: $mobile;
   max-width: $tablet;
 }
-
-// Layout
-@import 'layout_mobile';
 
 // Typography
 * {
@@ -70,3 +61,29 @@ h2 {
 .font-bold {
   font-family: $font-bold;
 }
+
+////////////
+// Layout //
+////////////
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+// Top of the page / Above the fold
+// (header + hero / promotions sections)
+@import 'layout_top';
+
+// Main section
+// (products, categories, instagram, customers)
+@import 'layout_main';
+
+// Newsletter + Footer
+@import 'layout_footer';

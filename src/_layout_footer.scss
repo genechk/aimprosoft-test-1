@@ -1,0 +1,188 @@
+// Newsletter
+.newsletter {
+  // Inconsistent values in mockup
+  margin-bottom: 4.4rem;
+  padding: 3.2rem $mobile-gutter;
+  padding-bottom: 0;
+  text-align: center;
+
+  .subscription-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .news-header,
+  .form-field,
+  .form-button {
+    text-align: center;
+    margin: 0;
+    margin-right: 2.6rem;
+    margin-bottom: 0.6rem;
+    padding: 0.5rem $mobile-gutter;
+    font-size: 1.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .news-header {
+    background: $bg-dark;
+    color: $text-light;
+    position: relative;
+  }
+
+  .form-field {
+    color: $text-dark;
+    border: 2px solid $light-grey;
+    height: 2.7rem;
+  }
+
+  .form-button {
+    color: $text-light;
+    background: $light-grey;
+    height: 4rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.4rem;
+    border: none;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+  }
+
+  @include screenSize($tablet) {
+    padding: 3.2rem $tablet-gutter 0 $tablet-gutter;
+    margin-bottom: 3.6rem;
+    // For some reason, otherwise flexbox goes haywire
+    width: auto;
+
+    .subscription-form {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .news-header,
+    .form-field,
+    .form-button {
+      padding: 0;
+      font-size: 1.4rem;
+      margin-bottom: 0;
+    }
+
+    .news-header {
+      padding-top: 0.8rem;
+      margin-right: 1.6rem;
+      text-align: left;
+
+      // Propagate everywhere:
+      line-height: 1;
+      padding-left: 2rem;
+      height: 2.4rem;
+      min-width: 10.3rem;
+      width: 10.3rem;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 100%;
+        width: 0;
+        height: 0;
+        top: 0;
+        border-left: 1rem solid black;
+        border-top: 1.6rem solid transparent;
+        border-bottom: 1.6rem solid transparent;
+        border-right: 0 solid transparent;
+        pointer-events: none;
+      }
+    }
+
+    .form-field {
+      min-width: 22rem;
+      height: 2.8rem;
+      width: 50%;
+      margin-right: 0.4rem;
+    }
+
+    .form-button {
+      color: $text-dark;
+      height: 3rem;
+      min-width: 12.8rem;
+      width: 12.8rem;
+      margin-right: 0.4rem;
+      margin-left: 0.4rem;
+      box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  // Replace with aria-label
+  label {
+    display: none;
+  }
+}
+
+// Footer menu
+.footer-menu {
+  // text-align: center;
+  background: $footer-color;
+  height: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  .footer-nav {
+    display: none;
+  }
+
+  .footer-logo {
+    width: 7.9rem;
+  }
+
+  @include screenSize($tablet) {
+    background: $bg-dark;
+    height: 3.6rem;
+
+    .footer-nav {
+      display: flex;
+      width: 100%;
+      padding-left: $tablet-gutter;
+      justify-content: space-between;
+    }
+
+    .footer-links,
+    .footer-social {
+      display: flex;
+      list-style: none;
+
+      a {
+        color: $text-light;
+      }
+    }
+
+    .footer-links {
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      justify-content: space-between;
+      font-size: 1.4rem;
+      margin: auto 0;
+      padding: 0;
+
+      li {
+        margin-right: 3rem;
+      }
+    }
+
+    .footer-social {
+      margin: auto;
+      margin-right: 2.2rem;
+
+      li {
+        height: 2rem;
+        width: 2rem;
+        padding-left: 0.5rem;
+      }
+    }
+
+    .footer-logo {
+      display: none;
+    }
+  }
+}

@@ -49,6 +49,26 @@ body {
   min-width: 320px;
   max-width: 768px; }
 
+* {
+  font-family: "Rajdhani Regular";
+  text-decoration: none; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.message {
+  text-transform: uppercase; }
+
+h1,
+h2 {
+  font-family: "Rajdhani Light"; }
+
+.font-bold {
+  font-family: "Rajdhani Bold"; }
+
 .wrapper {
   display: flex;
   flex-direction: column; }
@@ -62,7 +82,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.8rem; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .above {
       margin-bottom: 1.9rem; } }
 
@@ -119,7 +139,7 @@ body {
       width: 1.9rem;
       height: 1.9rem;
       z-index: 100; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .navigation {
       order: 3;
       height: 3.8rem; }
@@ -161,7 +181,7 @@ body {
     letter-spacing: 0.4px;
     width: 100%;
     font-size: 1.4rem; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .messages {
       order: 1;
       height: 1.4rem; }
@@ -243,7 +263,7 @@ body {
     background-size: 175%;
     background-repeat: no-repeat;
     background-position: 30% 70%; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .hero {
       order: 2; }
       .hero .promo {
@@ -304,7 +324,7 @@ body {
       right: -5.2rem;
       background-image: url("img/arrow-right.svg"); }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .main .heading {
     margin-bottom: 1.5rem; }
     .main .heading h2 {
@@ -388,7 +408,7 @@ body {
       margin-top: -0.2rem;
       font-size: 1.7rem;
       font-family: "Rajdhani Semibold"; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .products {
       margin-bottom: 1.3rem; }
       .products .product {
@@ -439,7 +459,7 @@ body {
     color: #fff;
     text-shadow: 0 3px 1px #000;
     position: absolute; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .categories {
       padding-top: 5.9rem;
       display: grid;
@@ -485,7 +505,7 @@ body {
     display: none; }
   .instagram .insta-image {
     width: 100%; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .instagram {
       margin-bottom: 1.8rem; }
       .instagram .heading {
@@ -521,7 +541,7 @@ body {
     width: 100%; }
   .customers .customer-overlay {
     display: none; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .customers {
       margin-bottom: 0.8rem; }
       .customers .heading {
@@ -574,7 +594,7 @@ body {
     border: none;
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.75);
     cursor: pointer; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .newsletter {
       padding: 3.2rem 1.8rem 0 1.8rem;
       margin-bottom: 3.6rem;
@@ -636,7 +656,7 @@ body {
     display: none; }
   .footer-menu .footer-logo {
     width: 7.9rem; }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .footer-menu {
       background: #000;
       height: 3.6rem; }
@@ -670,23 +690,3 @@ body {
           padding-left: 0.5rem; }
       .footer-menu .footer-logo {
         display: none; } }
-
-* {
-  font-family: "Rajdhani Regular";
-  text-decoration: none; }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.message {
-  text-transform: uppercase; }
-
-h1,
-h2 {
-  font-family: "Rajdhani Light"; }
-
-.font-bold {
-  font-family: "Rajdhani Bold"; }
