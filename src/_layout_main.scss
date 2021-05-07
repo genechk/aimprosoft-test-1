@@ -1,5 +1,7 @@
 // Main section
 .main {
+  @include fitWithin($max-content-width);
+
   .heading {
     padding-top: 0;
     padding-left: $mobile-gutter;
@@ -65,6 +67,34 @@
       }
     }
   }
+
+  @include screenSize($desktop) {
+    .heading {
+      margin-bottom: 1.9rem;
+
+      h2,
+      h3 {
+        font-size: 2.4rem;
+        margin-left: -0.5rem;
+
+        &::before,
+        &::after {
+          top: 0.5rem;
+          width: 6.8rem;
+          height: 1.2rem;
+        }
+
+        &::before {
+          left: -9.2rem;
+        }
+
+        &::after {
+          // Inconsistent values in mockup
+          right: -8.8rem;
+        }
+      }
+    }
+  }
 }
 
 // Products
@@ -74,7 +104,7 @@
 
   .slider {
     padding-left: 0.6rem;
-    width: 1000px;
+    width: 2000px;
     display: flex;
   }
 
@@ -170,6 +200,50 @@
 
       &:not(.active) {
         opacity: 1;
+      }
+    }
+  }
+
+  @include screenSize($desktop) {
+    width: 100%;
+    margin-bottom: 6.8rem;
+
+    .slider {
+      padding-left: 1.5rem;
+    }
+
+    .product {
+      // TODO get rid of min in min-width,
+      min-width: 18.5rem;
+      margin-right: 0.8rem;
+      margin-left: 0.7rem;
+
+      &.discount .product-image {
+        &::before,
+        &::after {
+          // FixIt: According to the mockup, discounts don't display on wide screen
+          display: none;
+        }
+      }
+    }
+
+    .product-image {
+      height: 33rem;
+    }
+
+    .price {
+      p {
+        padding-top: 0.4rem;
+      }
+
+      .old-price {
+        text-decoration: none;
+        font-size: 1.4rem;
+      }
+
+      // FixIt: According to the mockup, discounts don't display on wide screen
+      .new-price {
+        display: none;
       }
     }
   }
@@ -276,6 +350,30 @@
       letter-spacing: 4px;
     }
   }
+
+  @include screenSize($desktop) {
+    padding-top: 7.4rem;
+    margin-bottom: 6.6rem;
+
+    &:before {
+      width: 15.9rem;
+      height: 3.7rem;
+    }
+
+    .categories-grid {
+      // No distinct pattern in numbers, just following the mockup
+      grid-template: repeat(3, 44.6rem) / 44.6rem 12.8rem 15.4rem 41.9rem;
+      column-gap: $desktop-gutter - 0.2rem;
+      row-gap: $desktop-gutter - 0.3rem;
+      padding-left: 0;
+      margin-right: 0;
+    }
+
+    .category-label {
+      font-size: 3.4rem;
+      letter-spacing: 5.4px;
+    }
+  }
 }
 
 // Instagram gallery
@@ -337,6 +435,32 @@
       }
     }
   }
+
+  @include screenSize($desktop) {
+    margin-bottom: 4.6rem;
+
+    .heading {
+      margin-left: 0.2rem;
+      margin-bottom: 3.3rem;
+
+      h3 {
+        letter-spacing: 0.6px;
+      }
+    }
+
+    .gallery {
+      // FixIt: Probably, should switch to display: block
+      justify-content: space-between;
+      padding-left: 0;
+    }
+
+    .photo {
+      width: 22.6rem;
+      height: 22.6rem;
+      padding-left: 0;
+      margin-right: 0;
+    }
+  }
 }
 
 // Customers
@@ -396,6 +520,28 @@
       &:not(.active) {
         opacity: 1;
       }
+    }
+  }
+
+  @include screenSize($desktop) {
+    margin-bottom: 4.1rem;
+
+    .heading {
+      margin-left: 0.3rem;
+      margin-bottom: 3.1rem;
+    }
+
+    .customer-cards {
+      // Switch to block or grid
+      padding-left: 0;
+      justify-content: space-between;
+    }
+
+    .customer {
+      width: 28.5rem;
+      height: 28.5rem;
+      padding-left: 0;
+      margin-right: 0;
     }
   }
 }

@@ -47,7 +47,7 @@ body {
   z-index: 0;
   overflow-x: hidden;
   min-width: 320px;
-  max-width: 768px; }
+  max-width: 1600px; }
 
 * {
   font-family: "Rajdhani Regular";
@@ -85,17 +85,22 @@ h2 {
   @media screen and (min-width: 768px) {
     .above {
       margin-bottom: 1.9rem; } }
+  @media screen and (min-width: 1600px) {
+    .above {
+      margin-bottom: 3rem; } }
 
 .navigation {
   order: 1;
-  height: 5rem; }
+  height: 5rem;
+  background: #000;
+  width: 100%; }
   .navigation .page-header {
+    max-width: 1231px;
+    margin: 0 auto;
     padding: 1.2rem 0 0 1.3rem;
-    margin: 0;
     height: 3.7rem;
     display: flex;
     justify-content: space-between;
-    background: #000;
     color: #fff; }
   .navigation .page-title {
     margin: 0;
@@ -168,12 +173,48 @@ h2 {
         letter-spacing: 1px; }
       .navigation .basket-icon {
         margin-left: 2rem; } }
+  @media screen and (min-width: 1600px) {
+    .navigation {
+      height: 4.6rem; }
+      .navigation .page-header {
+        padding: 0;
+        padding-top: 1.1rem; }
+      .navigation .menu-icon {
+        margin-top: -0.2rem;
+        width: 3rem;
+        height: 3rem; }
+      .navigation .page-title {
+        margin-left: 16rem;
+        margin-right: 16rem; }
+      .navigation .user-menu {
+        margin-right: -0.9rem;
+        top: 0.7rem; }
+      .navigation .login {
+        font-size: 2.6rem;
+        letter-spacing: 1.5px; }
+      .navigation .basket-icon {
+        width: 4.6rem;
+        margin-left: 2.8rem; }
+        .navigation .basket-icon .icon {
+          width: 3.5rem;
+          height: 2.9rem; }
+        .navigation .basket-icon .items {
+          font-size: 1.6rem;
+          padding-top: 0;
+          width: 2.3rem;
+          height: 2.3rem;
+          top: -0.2rem;
+          left: -0.3rem; } }
 
 .messages {
   order: 2;
   width: 100%;
   background: #d0d0d0;
   height: 2rem; }
+  .messages .messages-wrapper {
+    max-width: 1231px;
+    margin: 0 auto;
+    position: relative; }
   .messages .message {
     font-family: "Rajdhani Medium";
     color: #fff;
@@ -181,6 +222,24 @@ h2 {
     letter-spacing: 0.4px;
     width: 100%;
     font-size: 1.4rem; }
+  .messages .three-dots {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0.4rem 0;
+    margin-right: -0.2rem;
+    padding: 0;
+    list-style-type: none; }
+  .messages .bullet {
+    margin: 0 0.2rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border: 0.5px solid #000;
+    background: #d0d0d0;
+    border-radius: 50%; }
+    .messages .bullet.active {
+      background: #221f1f; }
   @media screen and (min-width: 768px) {
     .messages {
       order: 1;
@@ -193,6 +252,13 @@ h2 {
         padding: 0; }
         .messages .message .font-bold {
           font-size: 1.3rem; } }
+  @media screen and (min-width: 1600px) {
+    .messages {
+      height: 1.6rem; }
+      .messages .message {
+        margin-top: -0.1rem; }
+      .messages .three-dots {
+        display: flex; } }
 
 .hero {
   order: 3; }
@@ -270,10 +336,10 @@ h2 {
         height: 45.8rem; }
       .hero .caption {
         left: 4.8rem;
+        top: 18rem;
         justify-content: none;
         height: auto;
-        width: 20.5rem;
-        top: 18rem; }
+        width: 20.5rem; }
         .hero .caption h2 {
           font-size: 2.3rem;
           padding-bottom: 0.4rem;
@@ -292,60 +358,112 @@ h2 {
       .hero .cover {
         background-position: 51.8% 0%;
         background-size: 137.9%; } }
+  @media screen and (min-width: 1600px) {
+    .hero .promo {
+      height: 70.6rem; }
+    .hero .caption {
+      left: 23.6rem;
+      top: 27.6rem;
+      width: 31.5rem; }
+      .hero .caption h2 {
+        font-size: 3.5rem;
+        margin-bottom: 0.9rem;
+        padding-bottom: 0.7rem;
+        border-bottom: 2px solid #000;
+        letter-spacing: 1px; }
+      .hero .caption h3 {
+        font-size: 2.3rem;
+        letter-spacing: 1px;
+        margin-bottom: 3.8rem; }
+    .hero .call-to-action {
+      font-size: 2.5rem;
+      padding: 0.4rem 1.3rem;
+      margin-left: -2rem; }
+    .hero .bullets {
+      margin-right: 0;
+      bottom: 2.6rem; }
+    .hero .bullet {
+      height: 1.7rem;
+      width: 1.7rem;
+      margin: 0 0.4rem 0 0.3rem; }
+    .hero .cover {
+      background-position: 50% 50%;
+      background-size: 100%; } }
 
-.main .heading {
-  padding-top: 0;
-  padding-left: 1.3rem;
-  margin-bottom: 2.2rem;
-  margin-right: 1.3rem;
-  text-align: center; }
-  .main .heading h2,
-  .main .heading h3 {
-    font-size: 1.7rem;
-    letter-spacing: 1px;
-    color: #393939;
-    position: relative;
-    display: inline; }
-    .main .heading h2::before, .main .heading h2::after,
-    .main .heading h3::before,
-    .main .heading h3::after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0.5rem;
-      width: 4.2rem;
-      height: 0.7rem; }
-    .main .heading h2::before,
-    .main .heading h3::before {
-      left: -5.2rem;
-      background-image: url("img/arrow-left.svg"); }
-    .main .heading h2::after,
-    .main .heading h3::after {
-      right: -5.2rem;
-      background-image: url("img/arrow-right.svg"); }
-
-@media screen and (min-width: 768px) {
+.main {
+  max-width: 1231px;
+  margin: 0 auto; }
   .main .heading {
-    margin-bottom: 1.5rem; }
-    .main .heading h2 {
-      font-size: 2rem;
-      letter-spacing: 0.3px;
-      margin-left: -1rem; }
-      .main .heading h2::before, .main .heading h2::after {
-        top: 0.4rem;
-        width: 5.7rem;
-        height: 1.1rem; }
-      .main .heading h2::before {
-        left: -7.7rem; }
-      .main .heading h2::after {
-        right: -7.3rem; } }
+    padding-top: 0;
+    padding-left: 1.3rem;
+    margin-bottom: 2.2rem;
+    margin-right: 1.3rem;
+    text-align: center; }
+    .main .heading h2,
+    .main .heading h3 {
+      font-size: 1.7rem;
+      letter-spacing: 1px;
+      color: #393939;
+      position: relative;
+      display: inline; }
+      .main .heading h2::before, .main .heading h2::after,
+      .main .heading h3::before,
+      .main .heading h3::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0.5rem;
+        width: 4.2rem;
+        height: 0.7rem; }
+      .main .heading h2::before,
+      .main .heading h3::before {
+        left: -5.2rem;
+        background-image: url("img/arrow-left.svg"); }
+      .main .heading h2::after,
+      .main .heading h3::after {
+        right: -5.2rem;
+        background-image: url("img/arrow-right.svg"); }
+  @media screen and (min-width: 768px) {
+    .main .heading {
+      margin-bottom: 1.5rem; }
+      .main .heading h2 {
+        font-size: 2rem;
+        letter-spacing: 0.3px;
+        margin-left: -1rem; }
+        .main .heading h2::before, .main .heading h2::after {
+          top: 0.4rem;
+          width: 5.7rem;
+          height: 1.1rem; }
+        .main .heading h2::before {
+          left: -7.7rem; }
+        .main .heading h2::after {
+          right: -7.3rem; } }
+  @media screen and (min-width: 1600px) {
+    .main .heading {
+      margin-bottom: 1.9rem; }
+      .main .heading h2,
+      .main .heading h3 {
+        font-size: 2.4rem;
+        margin-left: -0.5rem; }
+        .main .heading h2::before, .main .heading h2::after,
+        .main .heading h3::before,
+        .main .heading h3::after {
+          top: 0.5rem;
+          width: 6.8rem;
+          height: 1.2rem; }
+        .main .heading h2::before,
+        .main .heading h3::before {
+          left: -9.2rem; }
+        .main .heading h2::after,
+        .main .heading h3::after {
+          right: -8.8rem; } }
 
 .products {
   width: 100%;
   margin-bottom: 4.4rem; }
   .products .slider {
     padding-left: 0.6rem;
-    width: 1000px;
+    width: 2000px;
     display: flex; }
   .products .product {
     margin-right: 0.7rem;
@@ -415,6 +533,27 @@ h2 {
         margin-right: 0.6rem; }
         .products .product:not(.active) {
           opacity: 1; } }
+  @media screen and (min-width: 1600px) {
+    .products {
+      width: 100%;
+      margin-bottom: 6.8rem; }
+      .products .slider {
+        padding-left: 1.5rem; }
+      .products .product {
+        min-width: 18.5rem;
+        margin-right: 0.8rem;
+        margin-left: 0.7rem; }
+        .products .product.discount .product-image::before, .products .product.discount .product-image::after {
+          display: none; }
+      .products .product-image {
+        height: 33rem; }
+      .products .price p {
+        padding-top: 0.4rem; }
+      .products .price .old-price {
+        text-decoration: none;
+        font-size: 1.4rem; }
+      .products .price .new-price {
+        display: none; } }
 
 .categories {
   margin-bottom: 1.8rem;
@@ -484,6 +623,22 @@ h2 {
         grid-column: 2 / 5; }
       .categories .category-label {
         letter-spacing: 4px; } }
+  @media screen and (min-width: 1600px) {
+    .categories {
+      padding-top: 7.4rem;
+      margin-bottom: 6.6rem; }
+      .categories:before {
+        width: 15.9rem;
+        height: 3.7rem; }
+      .categories .categories-grid {
+        grid-template: repeat(3, 44.6rem)/44.6rem 12.8rem 15.4rem 41.9rem;
+        column-gap: 2.8rem;
+        row-gap: 2.7rem;
+        padding-left: 0;
+        margin-right: 0; }
+      .categories .category-label {
+        font-size: 3.4rem;
+        letter-spacing: 5.4px; } }
 
 .instagram {
   margin-bottom: 2.4rem; }
@@ -520,6 +675,22 @@ h2 {
         margin-right: 0.2rem; }
         .instagram .photo:not(.active) {
           opacity: 1; } }
+  @media screen and (min-width: 1600px) {
+    .instagram {
+      margin-bottom: 4.6rem; }
+      .instagram .heading {
+        margin-left: 0.2rem;
+        margin-bottom: 3.3rem; }
+        .instagram .heading h3 {
+          letter-spacing: 0.6px; }
+      .instagram .gallery {
+        justify-content: space-between;
+        padding-left: 0; }
+      .instagram .photo {
+        width: 22.6rem;
+        height: 22.6rem;
+        padding-left: 0;
+        margin-right: 0; } }
 
 .customers {
   margin-bottom: 2.4rem; }
@@ -556,12 +727,28 @@ h2 {
         margin-right: 0.4rem; }
         .customers .customer:not(.active) {
           opacity: 1; } }
+  @media screen and (min-width: 1600px) {
+    .customers {
+      margin-bottom: 4.1rem; }
+      .customers .heading {
+        margin-left: 0.3rem;
+        margin-bottom: 3.1rem; }
+      .customers .customer-cards {
+        padding-left: 0;
+        justify-content: space-between; }
+      .customers .customer {
+        width: 28.5rem;
+        height: 28.5rem;
+        padding-left: 0;
+        margin-right: 0; } }
 
 .newsletter {
   margin-bottom: 4.4rem;
   padding: 3.2rem 1.3rem;
   padding-bottom: 0;
-  text-align: center; }
+  text-align: center;
+  max-width: 1231px;
+  margin: 0 auto; }
   .newsletter .subscription-form {
     width: 100%;
     display: flex;
@@ -643,6 +830,46 @@ h2 {
         margin-right: 0.4rem;
         margin-left: 0.4rem;
         box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.75); } }
+  @media screen and (min-width: 1600px) {
+    .newsletter {
+      margin-bottom: 5.3rem; }
+      .newsletter .news-header,
+      .newsletter .form-field,
+      .newsletter .form-button {
+        font-size: 1.9rem; }
+      .newsletter .news-header {
+        letter-spacing: 3.6px;
+        padding-top: 1.8rem;
+        padding-left: 3.8rem;
+        margin-right: 2.5rem;
+        height: 3.5rem;
+        min-width: 17.2rem;
+        width: 17.2rem; }
+        .newsletter .news-header::after {
+          border-left: 1.5rem solid black;
+          border-top: 2.6rem solid transparent;
+          border-bottom: 2.6rem solid transparent;
+          border-right: 0 solid transparent;
+          pointer-events: none; }
+      .newsletter .form-field {
+        min-width: 22rem;
+        height: 4.8rem;
+        width: 50%;
+        margin-right: 0.6rem;
+        padding-top: 0.1rem;
+        letter-spacing: 1px; }
+      .newsletter .form-button {
+        font-family: "Rajdhani Semibold";
+        color: #000;
+        height: 5rem;
+        min-width: 21.5rem;
+        width: 21.5rem;
+        margin-right: 0;
+        margin-left: 0.8rem;
+        padding-left: 2.2rem;
+        padding-top: 0.4rem;
+        letter-spacing: 4px;
+        box-shadow: 0 4px 0 rgba(0, 0, 0, 0.75); } }
   .newsletter label {
     display: none; }
 
@@ -653,6 +880,8 @@ h2 {
   justify-content: center;
   align-content: center; }
   .footer-menu .footer-nav {
+    max-width: 1231px;
+    margin: 0 auto;
     display: none; }
   .footer-menu .footer-logo {
     width: 7.9rem; }
@@ -690,3 +919,19 @@ h2 {
           padding-left: 0.5rem; }
       .footer-menu .footer-logo {
         display: none; } }
+  @media screen and (min-width: 1600px) {
+    .footer-menu .footer-nav {
+      padding-left: 0.8rem; }
+    .footer-menu .footer-links {
+      font-size: 1.5rem;
+      letter-spacing: 1px; }
+      .footer-menu .footer-links li {
+        margin-right: 4.1rem;
+        margin-top: -0.2rem; }
+    .footer-menu .footer-social {
+      margin-right: 0.2rem;
+      margin-top: 0.2rem; }
+      .footer-menu .footer-social li {
+        height: 2.8rem;
+        width: 2.8rem;
+        padding-left: 0.9rem; } }

@@ -5,6 +5,7 @@
   padding: 3.2rem $mobile-gutter;
   padding-bottom: 0;
   text-align: center;
+  @include fitWithin($max-content-width);
 
   .subscription-form {
     width: 100%;
@@ -113,7 +114,60 @@
     }
   }
 
-  // Replace with aria-label
+  @include screenSize($desktop) {
+    margin-bottom: 5.3rem;
+
+    .news-header,
+    .form-field,
+    .form-button {
+      font-size: 1.9rem;
+      // margin-bottom: 0;
+    }
+
+    .news-header {
+      letter-spacing: 3.6px;
+      padding-top: 1.8rem;
+      padding-left: 3.8rem;
+      margin-right: 2.5rem;
+
+      height: 3.5rem;
+      min-width: 17.2rem;
+      width: 17.2rem;
+
+      &::after {
+        border-left: 1.5rem solid black;
+        border-top: 2.6rem solid transparent;
+        border-bottom: 2.6rem solid transparent;
+        border-right: 0 solid transparent;
+        pointer-events: none;
+      }
+    }
+
+    .form-field {
+      min-width: 22rem;
+      height: 4.8rem;
+      width: 50%;
+      margin-right: 0.6rem;
+      padding-top: 0.1rem;
+      letter-spacing: 1px;
+    }
+
+    .form-button {
+      font-family: $font-semibold;
+      color: $text-dark;
+      height: 5rem;
+      min-width: 21.5rem;
+      width: 21.5rem;
+      margin-right: 0;
+      margin-left: 0.8rem;
+      padding-left: 2.2rem;
+      padding-top: 0.4rem;
+      letter-spacing: 4px;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  // TODO: Replace with aria-label
   label {
     display: none;
   }
@@ -129,6 +183,7 @@
   align-content: center;
 
   .footer-nav {
+    @include fitWithin($max-content-width);
     display: none;
   }
 
@@ -183,6 +238,33 @@
 
     .footer-logo {
       display: none;
+    }
+  }
+
+  @include screenSize($desktop) {
+    .footer-nav {
+      padding-left: 0.8rem;
+    }
+
+    .footer-links {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+
+      li {
+        margin-right: 4.1rem;
+        margin-top: -0.2rem;
+      }
+    }
+
+    .footer-social {
+      margin-right: 0.2rem;
+      margin-top: 0.2rem;
+
+      li {
+        height: 2.8rem;
+        width: 2.8rem;
+        padding-left: 0.9rem;
+      }
     }
   }
 }

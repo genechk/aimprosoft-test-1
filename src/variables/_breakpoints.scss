@@ -2,10 +2,20 @@
 $mobile: 320px;
 $tablet: 768px;
 $desktop: 1600px;
+// Actual breakpoint
+// $desktop: 1281px;
 
 // Spacings for each device
+$max-content-width: 1231px;
 $mobile-gutter: 1.3rem;
 $tablet-gutter: 1.8rem;
+$desktop-gutter: 3rem;
+$desktop-side-indent: 2.5rem;
+
+@mixin fitWithin($width) {
+  max-width: $width;
+  margin: 0 auto;
+}
 
 @mixin screenSize($device) {
   @media screen and (min-width: $device) {
