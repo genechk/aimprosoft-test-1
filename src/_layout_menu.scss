@@ -1,0 +1,357 @@
+@mixin stickToLeftEdge($padding) {
+  margin-left: -250rem;
+  padding-left: 250rem + $padding;
+}
+
+// Categories menu
+.menu-slideout {
+  display: none;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  z-index: 990;
+
+  &.open {
+    display: block;
+    top: 47.2rem;
+    left: 0;
+  }
+
+  .menu-wrapper {
+    width: 27.7rem;
+    position: absolute;
+    margin-left: 100%;
+    text-transform: uppercase;
+    border-bottom: 2px solid $bg-dark;
+    border-right: 2px solid $bg-dark;
+  }
+
+  .menu-header,
+  .menu-search-bar,
+  .menu-categories {
+    padding-left: 1.3rem;
+  }
+
+  .menu-header {
+    background: $bg-dark;
+    color: $text-light;
+
+    font-family: $font-medium;
+    height: 3.8rem;
+
+    h2 {
+      font-size: 1.7rem;
+      margin: 0;
+      padding-left: 1.5rem;
+      padding-top: 0.6rem;
+      letter-spacing: 0.6px;
+    }
+
+    .close {
+      display: none;
+      position: absolute;
+      top: -1.3rem;
+      right: -0.4rem;
+      border: none;
+      background: none;
+      font-size: 7rem;
+      color: $text-light;
+    }
+  }
+
+  .menu {
+    position: relative;
+    background: $bg-light;
+  }
+
+  .menu-search-bar {
+    height: 4.8rem;
+    background: $menu-grey;
+  }
+
+  .search {
+    padding: 0.6rem;
+    margin-right: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .search-field {
+    border: none;
+    height: 2.8rem;
+    width: 100%;
+    margin-right: 0.6rem;
+    padding: 0.3rem 1.2rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: $text-menu-grey;
+    letter-spacing: 0.4px;
+  }
+
+  .search-submit {
+    border: none;
+    background: $bg-dark;
+    height: 3.4rem;
+    min-width: 3.8rem;
+    width: 3.8rem;
+    background-image: url('img/icon-search.svg');
+    background-size: 1.7rem;
+    background-repeat: no-repeat;
+    background-position: 50% 45%;
+  }
+
+  .menu-categories,
+  .submenu,
+  .menu-social {
+    list-style-type: none;
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-category,
+  .menu-subcategory {
+    & > .menu-link {
+      font-family: $font-medium;
+      display: block;
+      letter-spacing: 0.3px;
+      position: relative;
+
+      &::after {
+        display: block;
+        position: absolute;
+      }
+    }
+  }
+
+  .menu-category {
+    & > .menu-link {
+      padding: 0.9rem 1rem 1rem 2.7rem;
+      height: 2.2rem;
+      background: $bg-light;
+      color: $text-menu-dark;
+      border-bottom: 1px solid $menu-grey;
+
+      &::after {
+        // background: $text-menu-dark;
+        content: '+';
+        right: 2.8rem;
+        top: 0.1rem;
+        width: 1rem;
+        height: 1rem;
+        font-size: 2.8rem;
+      }
+    }
+
+    .submenu {
+      // visibility: hidden;
+      transform: translateY(-100%);
+      display: none;
+    }
+
+    &.open {
+      .submenu {
+        // visibility: visible;
+        display: block;
+        transform: translateY(0);
+      }
+
+      & > .menu-link::after {
+        content: '–';
+        right: 2.7rem;
+      }
+    }
+  }
+
+  // TODO: Maybe merge with .menu-category
+  .menu-subcategory {
+    & > .menu-link {
+      background: $bg-dark;
+      color: $text-menu-light;
+      border-bottom: 1px solid $bg-light;
+      padding: 0.5rem 1rem 1.2rem 3.4rem;
+      height: 2.1rem;
+
+      &::after {
+        content: '';
+        top: 1.5rem;
+        right: 2rem;
+        height: 0.8rem;
+        width: 0.8rem;
+        border-right: 0.2rem solid $text-menu-light;
+        border-top: 0.2rem solid $text-menu-light;
+        transform: rotate(45deg);
+      }
+
+      &:last-child {
+        border-bottom: 1px solid $menu-grey;
+      }
+    }
+  }
+
+  .menu-footer {
+    background: $bg-light;
+  }
+
+  .menu-social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 0.4rem;
+    padding-bottom: 0.1rem;
+    margin-right: 1.3rem;
+    height: 3.4rem;
+
+    li {
+      height: 2.5rem;
+      width: 2.5rem;
+      padding-left: 0.6rem;
+    }
+
+    a {
+      color: $text-light;
+    }
+  }
+
+  @include screenSize($desktop) {
+    &.open {
+      display: block;
+      top: 72.2rem;
+      left: 15.4rem;
+    }
+
+    .menu-wrapper {
+      width: 44rem;
+      max-height: 65.8rem;
+
+      // Fit menu to screen edge
+      @include stickToLeftEdge(0);
+    }
+
+    .menu {
+      max-height: 61.2rem;
+      height: 61.2rem;
+      overflow-y: scroll;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      margin-left: -200rem;
+      padding-left: 200rem;
+    }
+
+    .menu-header {
+      height: 4.6rem;
+
+      // Fit menu to screen edge
+      @include stickToLeftEdge(1.3rem);
+
+      h2 {
+        font-size: 2rem;
+        padding-left: 1.8rem;
+        padding-top: 0.9rem;
+      }
+
+      .close {
+        display: block;
+      }
+    }
+
+    .menu-search-bar {
+      height: 6rem;
+      @include stickToLeftEdge(1.3rem);
+    }
+
+    .search {
+      padding-top: 0.8rem;
+      margin-right: 0.3rem;
+    }
+
+    .search-field {
+      height: 3.4rem;
+      margin-right: 1.2rem;
+      padding: 0.4rem 1.6rem;
+      font-size: 1.6rem;
+      letter-spacing: 0.7px;
+    }
+
+    .search-submit {
+      height: 4.2rem;
+      min-width: 4.6rem;
+      width: 4.6rem;
+      background-size: 1.8rem;
+    }
+
+    // .menu-categories,
+    // .menu-social {
+    //   @include stickToLeftEdge(0);
+    // }
+
+    .menu-category,
+    .menu-subcategory {
+      font-size: 2.2rem;
+
+      & > .menu-link {
+        letter-spacing: 0.8px;
+      }
+    }
+
+    .menu-category {
+      & > .menu-link {
+        padding: 2.1rem 1rem 1.6rem 2.9rem;
+        height: 3.2rem;
+        @include stickToLeftEdge(2.9rem);
+
+        &::after {
+          top: 0.6rem;
+          right: 3.2rem;
+          width: 1rem;
+          height: 1rem;
+          font-size: 3.8rem;
+        }
+      }
+
+      &.open {
+        .submenu {
+        }
+        & > .menu-link::after {
+          right: 3.1rem;
+        }
+      }
+    }
+
+    .menu-subcategory {
+      & > .menu-link {
+        padding: 0.9rem 1rem 1.1rem 2.8rem;
+        @include stickToLeftEdge(2.8rem);
+        height: 2.8rem;
+
+        &::after {
+          top: 2.1rem;
+          right: 3rem;
+          height: 0.9rem;
+          width: 0.9rem;
+        }
+      }
+    }
+
+    .menu-footer {
+      &.fixed {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    .menu-social {
+      padding-top: 0.4rem;
+      padding-bottom: 0.7rem;
+      margin-right: 1.2rem;
+      li {
+        height: 3.1rem;
+        width: 3.1rem;
+        padding-left: 0.8rem;
+      }
+    }
+  }
+}

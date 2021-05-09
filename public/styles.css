@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Rajdhani Light";
   src: url("fonts/rajdhani-light-webfont.eot");
@@ -50,7 +51,7 @@ body {
   max-width: 1600px; }
 
 * {
-  font-family: "Rajdhani Regular";
+  font-family: "Rajdhani Regular", "Verdana", sans-serif;
   text-decoration: none; }
 
 h1,
@@ -79,6 +80,7 @@ h2 {
   overflow: hidden; }
 
 .above {
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 1.8rem; }
@@ -388,9 +390,10 @@ h2 {
       margin: 0 0.4rem 0 0.3rem; }
     .hero .cover {
       background-position: 50% 50%;
-      background-size: 100%; } }
+      background-size: cover; } }
 
 .main {
+  width: 100%;
   max-width: 1231px;
   margin: 0 auto; }
   .main .heading {
@@ -629,7 +632,7 @@ h2 {
       margin-bottom: 6.6rem; }
       .categories:before {
         width: 15.9rem;
-        height: 3.7rem; }
+        height: 3.6rem; }
       .categories .categories-grid {
         grid-template: repeat(3, 44.6rem)/44.6rem 12.8rem 15.4rem 41.9rem;
         column-gap: 2.8rem;
@@ -769,7 +772,7 @@ h2 {
     color: #fff;
     position: relative; }
   .newsletter .form-field {
-    color: #000;
+    color: #393939;
     border: 2px solid #d0d0d0;
     height: 2.7rem; }
   .newsletter .form-button {
@@ -823,7 +826,7 @@ h2 {
         width: 50%;
         margin-right: 0.4rem; }
       .newsletter .form-button {
-        color: #000;
+        color: #393939;
         height: 3rem;
         min-width: 12.8rem;
         width: 12.8rem;
@@ -860,7 +863,6 @@ h2 {
         letter-spacing: 1px; }
       .newsletter .form-button {
         font-family: "Rajdhani Semibold";
-        color: #000;
         height: 5rem;
         min-width: 21.5rem;
         width: 21.5rem;
@@ -935,3 +937,236 @@ h2 {
         height: 2.8rem;
         width: 2.8rem;
         padding-left: 0.9rem; } }
+
+.menu-slideout {
+  display: none;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  z-index: 990; }
+  .menu-slideout.open {
+    display: block;
+    top: 47.2rem;
+    left: 0; }
+  .menu-slideout .menu-wrapper {
+    width: 27.7rem;
+    position: absolute;
+    margin-left: 100%;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000; }
+  .menu-slideout .menu-header,
+  .menu-slideout .menu-search-bar,
+  .menu-slideout .menu-categories {
+    padding-left: 1.3rem; }
+  .menu-slideout .menu-header {
+    background: #000;
+    color: #fff;
+    font-family: "Rajdhani Medium";
+    height: 3.8rem; }
+    .menu-slideout .menu-header h2 {
+      font-size: 1.7rem;
+      margin: 0;
+      padding-left: 1.5rem;
+      padding-top: 0.6rem;
+      letter-spacing: 0.6px; }
+    .menu-slideout .menu-header .close {
+      display: none;
+      position: absolute;
+      top: -1.3rem;
+      right: -0.4rem;
+      border: none;
+      background: none;
+      font-size: 7rem;
+      color: #fff; }
+  .menu-slideout .menu {
+    position: relative;
+    background: #fff; }
+  .menu-slideout .menu-search-bar {
+    height: 4.8rem;
+    background: #b1b1b1; }
+  .menu-slideout .search {
+    padding: 0.6rem;
+    margin-right: 0.6rem;
+    display: flex;
+    justify-content: space-between; }
+  .menu-slideout .search-field {
+    border: none;
+    height: 2.8rem;
+    width: 100%;
+    margin-right: 0.6rem;
+    padding: 0.3rem 1.2rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #585858;
+    letter-spacing: 0.4px; }
+  .menu-slideout .search-submit {
+    border: none;
+    background: #000;
+    height: 3.4rem;
+    min-width: 3.8rem;
+    width: 3.8rem;
+    background-image: url("img/icon-search.svg");
+    background-size: 1.7rem;
+    background-repeat: no-repeat;
+    background-position: 50% 45%; }
+  .menu-slideout .menu-categories,
+  .menu-slideout .submenu,
+  .menu-slideout .menu-social {
+    list-style-type: none;
+    font-size: 1.8rem;
+    margin: 0;
+    padding: 0; }
+  .menu-slideout .menu-category > .menu-link,
+  .menu-slideout .menu-subcategory > .menu-link {
+    font-family: "Rajdhani Medium";
+    display: block;
+    letter-spacing: 0.3px;
+    position: relative; }
+    .menu-slideout .menu-category > .menu-link::after,
+    .menu-slideout .menu-subcategory > .menu-link::after {
+      display: block;
+      position: absolute; }
+  .menu-slideout .menu-category > .menu-link {
+    padding: 0.9rem 1rem 1rem 2.7rem;
+    height: 2.2rem;
+    background: #fff;
+    color: #292929;
+    border-bottom: 1px solid #b1b1b1; }
+    .menu-slideout .menu-category > .menu-link::after {
+      content: '+';
+      right: 2.8rem;
+      top: 0.1rem;
+      width: 1rem;
+      height: 1rem;
+      font-size: 2.8rem; }
+  .menu-slideout .menu-category .submenu {
+    transform: translateY(-100%);
+    display: none; }
+  .menu-slideout .menu-category.open .submenu {
+    display: block;
+    transform: translateY(0); }
+  .menu-slideout .menu-category.open > .menu-link::after {
+    content: '–';
+    right: 2.7rem; }
+  .menu-slideout .menu-subcategory > .menu-link {
+    background: #000;
+    color: #efefef;
+    border-bottom: 1px solid #fff;
+    padding: 0.5rem 1rem 1.2rem 3.4rem;
+    height: 2.1rem; }
+    .menu-slideout .menu-subcategory > .menu-link::after {
+      content: '';
+      top: 1.5rem;
+      right: 2rem;
+      height: 0.8rem;
+      width: 0.8rem;
+      border-right: 0.2rem solid #efefef;
+      border-top: 0.2rem solid #efefef;
+      transform: rotate(45deg); }
+    .menu-slideout .menu-subcategory > .menu-link:last-child {
+      border-bottom: 1px solid #b1b1b1; }
+  .menu-slideout .menu-footer {
+    background: #fff; }
+  .menu-slideout .menu-social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 0.4rem;
+    padding-bottom: 0.1rem;
+    margin-right: 1.3rem;
+    height: 3.4rem; }
+    .menu-slideout .menu-social li {
+      height: 2.5rem;
+      width: 2.5rem;
+      padding-left: 0.6rem; }
+    .menu-slideout .menu-social a {
+      color: #fff; }
+  @media screen and (min-width: 1600px) {
+    .menu-slideout.open {
+      display: block;
+      top: 72.2rem;
+      left: 15.4rem; }
+    .menu-slideout .menu-wrapper {
+      width: 44rem;
+      max-height: 65.8rem;
+      margin-left: -250rem;
+      padding-left: 250rem; }
+    .menu-slideout .menu {
+      max-height: 61.2rem;
+      height: 61.2rem;
+      overflow-y: scroll;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: -200rem;
+      padding-left: 200rem; }
+    .menu-slideout .menu-header {
+      height: 4.6rem;
+      margin-left: -250rem;
+      padding-left: 251.3rem; }
+      .menu-slideout .menu-header h2 {
+        font-size: 2rem;
+        padding-left: 1.8rem;
+        padding-top: 0.9rem; }
+      .menu-slideout .menu-header .close {
+        display: block; }
+    .menu-slideout .menu-search-bar {
+      height: 6rem;
+      margin-left: -250rem;
+      padding-left: 251.3rem; }
+    .menu-slideout .search {
+      padding-top: 0.8rem;
+      margin-right: 0.3rem; }
+    .menu-slideout .search-field {
+      height: 3.4rem;
+      margin-right: 1.2rem;
+      padding: 0.4rem 1.6rem;
+      font-size: 1.6rem;
+      letter-spacing: 0.7px; }
+    .menu-slideout .search-submit {
+      height: 4.2rem;
+      min-width: 4.6rem;
+      width: 4.6rem;
+      background-size: 1.8rem; }
+    .menu-slideout .menu-category,
+    .menu-slideout .menu-subcategory {
+      font-size: 2.2rem; }
+      .menu-slideout .menu-category > .menu-link,
+      .menu-slideout .menu-subcategory > .menu-link {
+        letter-spacing: 0.8px; }
+    .menu-slideout .menu-category > .menu-link {
+      padding: 2.1rem 1rem 1.6rem 2.9rem;
+      height: 3.2rem;
+      margin-left: -250rem;
+      padding-left: 252.9rem; }
+      .menu-slideout .menu-category > .menu-link::after {
+        top: 0.6rem;
+        right: 3.2rem;
+        width: 1rem;
+        height: 1rem;
+        font-size: 3.8rem; }
+    .menu-slideout .menu-category.open > .menu-link::after {
+      right: 3.1rem; }
+    .menu-slideout .menu-subcategory > .menu-link {
+      padding: 0.9rem 1rem 1.1rem 2.8rem;
+      margin-left: -250rem;
+      padding-left: 252.8rem;
+      height: 2.8rem; }
+      .menu-slideout .menu-subcategory > .menu-link::after {
+        top: 2.1rem;
+        right: 3rem;
+        height: 0.9rem;
+        width: 0.9rem; }
+    .menu-slideout .menu-footer.fixed {
+      position: absolute;
+      right: 0;
+      bottom: 0; }
+    .menu-slideout .menu-social {
+      padding-top: 0.4rem;
+      padding-bottom: 0.7rem;
+      margin-right: 1.2rem; }
+      .menu-slideout .menu-social li {
+        height: 3.1rem;
+        width: 3.1rem;
+        padding-left: 0.8rem; } }

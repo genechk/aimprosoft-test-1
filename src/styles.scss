@@ -39,7 +39,7 @@ body {
 
 // Typography
 * {
-  font-family: $font-regular;
+  font-family: $font-regular, 'Verdana', sans-serif;
   text-decoration: none;
 }
 
@@ -87,3 +87,6 @@ h2 {
 
 // Newsletter + Footer
 @import 'layout_footer';
+
+// Menu + Cart
+@import 'layout_menu';

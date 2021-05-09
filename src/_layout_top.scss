@@ -1,5 +1,6 @@
 // Above the fold
 .above {
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 1.8rem;
@@ -443,7 +444,7 @@
 
     .cover {
       background-position: 50% 50%;
-      background-size: 100%;
+      background-size: cover;
     }
   }
 }

@@ -33,7 +33,7 @@
   }
 
   .form-field {
-    color: $text-dark;
+    color: $text-dark-ish;
     border: 2px solid $light-grey;
     height: 2.7rem;
   }
@@ -104,7 +104,7 @@
     }
 
     .form-button {
-      color: $text-dark;
+      color: $text-dark-ish;
       height: 3rem;
       min-width: 12.8rem;
       width: 12.8rem;
@@ -154,7 +154,6 @@
 
     .form-button {
       font-family: $font-semibold;
-      color: $text-dark;
       height: 5rem;
       min-width: 21.5rem;
       width: 21.5rem;
@@ -176,7 +175,7 @@
 // Footer menu
 .footer-menu {
   // text-align: center;
-  background: $footer-color;
+  background: $footer-mobile-background;
   height: 4.8rem;
   display: flex;
   justify-content: center;
