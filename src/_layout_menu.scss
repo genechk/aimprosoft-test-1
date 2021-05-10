@@ -20,6 +20,7 @@
   .menu-wrapper {
     width: 27.7rem;
     position: absolute;
+    // TODO: Check if necessary
     margin-left: 100%;
     text-transform: uppercase;
     border-bottom: 2px solid $bg-dark;
@@ -59,7 +60,7 @@
     }
   }
 
-  .menu {
+  .menu-content {
     position: relative;
     background: $bg-light;
   }
@@ -215,7 +216,6 @@
 
   @include screenSize($desktop) {
     &.open {
-      display: block;
       top: 72.2rem;
       left: 15.4rem;
     }
@@ -228,7 +228,7 @@
       @include stickToLeftEdge(0);
     }
 
-    .menu {
+    .menu-content {
       max-height: 61.2rem;
       height: 61.2rem;
       overflow-y: scroll;
@@ -236,8 +236,7 @@
       flex-direction: column;
       justify-content: space-between;
 
-      margin-left: -200rem;
-      padding-left: 200rem;
+      @include stickToLeftEdge(0);
     }
 
     .menu-header {

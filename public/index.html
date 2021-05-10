@@ -19,7 +19,7 @@
 
     <!-- Scripts
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script type="text/javascript" src="./scripts.js"></script>
+    <script type="text/javascript" src="./scripts/scripts.js"></script>
   </head>
 
   <body>
@@ -33,7 +33,7 @@
             <h1 class="page-title">Cloth & Fashion</h1>
             <div class="user-menu">
               <a href="#" class="login">Login</a>
-              <div class="basket-icon" id="basket-icon">
+              <div class="cart-icon" id="cart-icon">
                 <p class="items">88</p>
                 <img class="icon" src="img/icon-basket.svg" alt="Basket" />
               </div>
@@ -371,6 +371,7 @@
           </nav>
           <img class="footer-logo" src="img/enextgroup.svg" alt="eNextGroup" />
         </div>
+        <!-- / Footer menu -->
       </footer>
 
       <aside class="menu-slideout">
@@ -379,7 +380,9 @@
             <h2>Menu</h2>
             <button type="button" class="close">&times;</button>
           </header>
-          <nav class="menu">
+          <!-- / Menu header -->
+
+          <nav class="menu-content">
             <div class="menu-inner-wrapper">
               <div class="menu-search-bar">
                 <form action="" class="search">
@@ -391,6 +394,8 @@
                   <input type="submit" value="" class="search-submit" />
                 </form>
               </div>
+              <!-- / Search -->
+
               <ul class="menu-categories">
                 <li class="menu-category">
                   <a href="#" class="menu-link">Sobre</a>
@@ -473,6 +478,8 @@
                 </li>
               </ul>
             </div>
+            <!-- / Menu categories -->
+
             <div class="menu-footer">
               <ul class="menu-social">
                 <li>
@@ -486,70 +493,108 @@
                 </li>
               </ul>
             </div>
+            <!-- / Obligatory social links -->
           </nav>
+          <!-- / Menu contents -->
         </div>
+        <!-- / Menu wrapper -->
       </aside>
-      <!-- Menu and search -->
+      <!-- / Menu + search -->
 
       <aside class="cart-slideout open">
         <div class="cart-wrapper">
           <header class="cart-header">
             <h2 class="cart-title">Meu Carrinho</h2>
             <div class="cart-icon">
-              <img
-                class="cart-image"
-                src="img/icon-basket.svg"
-                alt="Carrinho"
-              />
-              <p class="cart-quantity">88</p>
+              <img class="icon" src="img/icon-basket.svg" alt="Carrinho" />
+              <p class="items">88</p>
             </div>
           </header>
+          <!-- / Cart header -->
           <div class="cart-content">
             <ul class="cart-products">
               <li class="cart-product">
-                <img src="img/product-03.jpg" alt="Black pants" />
-                <h3 class="product-name">Nome do Produto</h3>
-                <button class="remove">X</button>
-                <div class="counter">
-                  <button class="subtract">–</button>
-                  <input
-                    type="text"
-                    class="quantity"
-                    id="quantity-01"
-                    value="88"
-                    disabled
-                  />
-                  <button class="add">+</button>
+                <div class="product-wrapper">
+                  <div class="product-image">
+                    <img
+                      class="image"
+                      src="img/product-03.jpg"
+                      alt="Black pants"
+                    />
+                  </div>
+
+                  <div class="product-details">
+                    <h3 class="product-name">
+                      <a href="#">Nome do Produto</a>
+                    </h3>
+                    <div class="product-colors">
+                      <div class="color black selected"></div>
+                    </div>
+                  </div>
+                  <div class="remove-item">
+                    <button class="remove">X</button>
+                  </div>
+                  <div class="counter">
+                    <button class="subtract">–</button>
+                    <input
+                      type="text"
+                      class="quantity"
+                      id="quantity-01"
+                      value="88"
+                    />
+                    <button class="add">+</button>
+                  </div>
+                  <p class="price">R$88.88</p>
                 </div>
               </li>
               <li class="cart-product">
-                <img src="img/product-03.jpg" alt="Black pants" />
-                <h3 class="product-name">Nome do Produto</h3>
-                <button class="remove">X</button>
-                <div class="counter">
-                  <button class="subtract">–</button>
-                  <input
-                    type="text"
-                    class="quantity"
-                    id="quantity-02"
-                    value="88"
-                    disabled
-                  />
-                  <button class="add">+</button>
+                <div class="product-wrapper">
+                  <div class="product-image">
+                    <img
+                      class="image"
+                      src="img/product-03.jpg"
+                      alt="Black pants"
+                    />
+                  </div>
+                  <div class="product-details">
+                    <h3 class="product-name">
+                      <a href="#">Nome do Produto</a>
+                    </h3>
+                    <div class="product-colors">
+                      <div class="color black selected"></div>
+                    </div>
+                  </div>
+                  <div class="remove-item">
+                    <button class="remove">X</button>
+                  </div>
+                  <div class="counter">
+                    <button class="subtract">–</button>
+                    <input
+                      type="text"
+                      class="quantity"
+                      id="quantity-02"
+                      value="88"
+                    />
+                    <button class="add">+</button>
+                  </div>
+                  <p class="price">R$88.88</p>
                 </div>
-              </div>
-            </li>
-          </ul>
-          <div class="cart-total">
-            <p>Total</p>
-            <p>R$88,88</p>
+              </li>
+            </ul>
+            <div class="cart-total">
+              <p class="label">Total</p>
+              <p class="total-price">R$88,88</p>
+            </div>
+            <div class="cart-navigation">
+              <button class="secondary">Continuar Comprando</button>
+              <button class="primary">Checkout</button>
+            </div>
           </div>
-          <div class="cart-navigation">
-            <button class="secondary">Continuar Comprando</button>
-            <button class="primary">Checkout</button>
-          </div>
+          <!-- / Cart inner content -->
         </div>
+        <!-- / Cart wrapper -->
       </aside>
+      <!-- / Cart -->
     </div>
   </body>
 </html>

@@ -47,8 +47,7 @@ body {
   margin: 0;
   z-index: 0;
   overflow-x: hidden;
-  min-width: 320px;
-  max-width: 1600px; }
+  min-width: 320px; }
 
 * {
   font-family: "Rajdhani Regular", "Verdana", sans-serif;
@@ -72,7 +71,8 @@ h2 {
 
 .wrapper {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  max-width: 100%; }
 
 .container {
   position: relative;
@@ -87,7 +87,7 @@ h2 {
   @media screen and (min-width: 768px) {
     .above {
       margin-bottom: 1.9rem; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .above {
       margin-bottom: 3rem; } }
 
@@ -120,18 +120,18 @@ h2 {
     display: flex; }
   .navigation .login {
     display: none; }
-  .navigation .basket-icon {
+  .navigation .cart-icon {
     position: relative;
     margin: 0;
     width: 3.6rem; }
-    .navigation .basket-icon .icon {
+    .navigation .cart-icon .icon {
       position: absolute;
       top: 0;
       left: 0.5rem;
       width: 3rem;
       height: 2.5rem;
       z-index: 0; }
-    .navigation .basket-icon .items {
+    .navigation .cart-icon .items {
       position: absolute;
       top: -0.1rem;
       left: -0.1rem;
@@ -173,9 +173,9 @@ h2 {
         font-family: 'Rajdhani Medium';
         margin-top: -0.5rem;
         letter-spacing: 1px; }
-      .navigation .basket-icon {
+      .navigation .cart-icon {
         margin-left: 2rem; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .navigation {
       height: 4.6rem; }
       .navigation .page-header {
@@ -194,13 +194,13 @@ h2 {
       .navigation .login {
         font-size: 2.6rem;
         letter-spacing: 1.5px; }
-      .navigation .basket-icon {
+      .navigation .cart-icon {
         width: 4.6rem;
         margin-left: 2.8rem; }
-        .navigation .basket-icon .icon {
+        .navigation .cart-icon .icon {
           width: 3.5rem;
           height: 2.9rem; }
-        .navigation .basket-icon .items {
+        .navigation .cart-icon .items {
           font-size: 1.6rem;
           padding-top: 0;
           width: 2.3rem;
@@ -254,7 +254,7 @@ h2 {
         padding: 0; }
         .messages .message .font-bold {
           font-size: 1.3rem; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .messages {
       height: 1.6rem; }
       .messages .message {
@@ -360,7 +360,7 @@ h2 {
       .hero .cover {
         background-position: 51.8% 0%;
         background-size: 137.9%; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .hero .promo {
       height: 70.6rem; }
     .hero .caption {
@@ -441,7 +441,7 @@ h2 {
           left: -7.7rem; }
         .main .heading h2::after {
           right: -7.3rem; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .main .heading {
       margin-bottom: 1.9rem; }
       .main .heading h2,
@@ -536,7 +536,7 @@ h2 {
         margin-right: 0.6rem; }
         .products .product:not(.active) {
           opacity: 1; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .products {
       width: 100%;
       margin-bottom: 6.8rem; }
@@ -626,7 +626,7 @@ h2 {
         grid-column: 2 / 5; }
       .categories .category-label {
         letter-spacing: 4px; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .categories {
       padding-top: 7.4rem;
       margin-bottom: 6.6rem; }
@@ -678,7 +678,7 @@ h2 {
         margin-right: 0.2rem; }
         .instagram .photo:not(.active) {
           opacity: 1; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .instagram {
       margin-bottom: 4.6rem; }
       .instagram .heading {
@@ -730,7 +730,7 @@ h2 {
         margin-right: 0.4rem; }
         .customers .customer:not(.active) {
           opacity: 1; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .customers {
       margin-bottom: 4.1rem; }
       .customers .heading {
@@ -833,7 +833,7 @@ h2 {
         margin-right: 0.4rem;
         margin-left: 0.4rem;
         box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.75); } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .newsletter {
       margin-bottom: 5.3rem; }
       .newsletter .news-header,
@@ -921,7 +921,7 @@ h2 {
           padding-left: 0.5rem; }
       .footer-menu .footer-logo {
         display: none; } }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .footer-menu .footer-nav {
       padding-left: 0.8rem; }
     .footer-menu .footer-links {
@@ -979,7 +979,7 @@ h2 {
       background: none;
       font-size: 7rem;
       color: #fff; }
-  .menu-slideout .menu {
+  .menu-slideout .menu-content {
     position: relative;
     background: #fff; }
   .menu-slideout .menu-search-bar {
@@ -1082,9 +1082,8 @@ h2 {
       padding-left: 0.6rem; }
     .menu-slideout .menu-social a {
       color: #fff; }
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1281px) {
     .menu-slideout.open {
-      display: block;
       top: 72.2rem;
       left: 15.4rem; }
     .menu-slideout .menu-wrapper {
@@ -1092,15 +1091,15 @@ h2 {
       max-height: 65.8rem;
       margin-left: -250rem;
       padding-left: 250rem; }
-    .menu-slideout .menu {
+    .menu-slideout .menu-content {
       max-height: 61.2rem;
       height: 61.2rem;
       overflow-y: scroll;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      margin-left: -200rem;
-      padding-left: 200rem; }
+      margin-left: -250rem;
+      padding-left: 250rem; }
     .menu-slideout .menu-header {
       height: 4.6rem;
       margin-left: -250rem;
@@ -1170,3 +1169,290 @@ h2 {
         height: 3.1rem;
         width: 3.1rem;
         padding-left: 0.8rem; } }
+
+.cart-slideout {
+  display: none;
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  z-index: 1000; }
+  .cart-slideout.open {
+    display: block;
+    top: 47.2rem;
+    right: 0; }
+  .cart-slideout .cart-wrapper {
+    width: 27.7rem;
+    position: absolute;
+    margin-right: 100%;
+    right: 0;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000; }
+  .cart-slideout .cart-header {
+    background: #000;
+    color: #fff;
+    position: relative;
+    height: 3.8rem; }
+  .cart-slideout .cart-title {
+    font-size: 1.7rem;
+    margin: 0;
+    padding-left: 1.5rem;
+    padding-top: 0.6rem;
+    letter-spacing: 0.6px; }
+  .cart-slideout .cart-icon {
+    position: relative;
+    margin: 0;
+    width: 3.6rem; }
+    .cart-slideout .cart-icon .icon {
+      position: absolute;
+      top: 0;
+      left: 0.5rem;
+      width: 3rem;
+      height: 2.5rem;
+      z-index: 0; }
+    .cart-slideout .cart-icon .items {
+      position: absolute;
+      top: -0.1rem;
+      left: -0.1rem;
+      margin: 0;
+      padding-top: 0.1rem;
+      background: #fff;
+      color: #000;
+      font-size: 1.3rem;
+      font-family: "Rajdhani Medium";
+      text-align: center;
+      border-radius: 50%;
+      width: 1.9rem;
+      height: 1.9rem;
+      z-index: 100; }
+  .cart-slideout .cart-content {
+    position: relative;
+    background: #fff; }
+  .cart-slideout .cart-products {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  .cart-slideout .cart-product {
+    border-bottom: 1px solid #b1b1b1;
+    background: #fff; }
+  .cart-slideout .product-wrapper {
+    height: 11.8rem;
+    max-height: 11.8rem;
+    display: grid;
+    grid-gap: 1.3rem;
+    grid-template: auto 3.4rem / 6.6rem 1fr 10.7rem; }
+  .cart-slideout .product-image {
+    height: 11.8rem;
+    max-width: 6.6rem;
+    grid-row: 1 / 3;
+    grid-column: 1 / 2; }
+  .cart-slideout .image {
+    width: 100%;
+    max-width: 6.6rem; }
+  .cart-slideout .product-details {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column; }
+  .cart-slideout .product-name {
+    font-size: 1.8rem;
+    text-transform: none;
+    font-family: "Rajdhani Bold";
+    position: relative;
+    margin: 0;
+    margin-bottom: 0.1rem;
+    padding: 0; }
+    .cart-slideout .product-name a {
+      color: #000; }
+  .cart-slideout .product-colors .color {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 0.4rem; }
+    .cart-slideout .product-colors .color.black {
+      background: #000; }
+  .cart-slideout .remove-item {
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+    position: relative; }
+  .cart-slideout .remove {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.3rem; }
+  .cart-slideout .remove,
+  .cart-slideout .subtract,
+  .cart-slideout .add {
+    font-family: "Rajdhani Semibold";
+    color: #292929;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 1.6rem;
+    border: 2px solid #010202;
+    padding-top: 0; }
+  .cart-slideout .counter {
+    display: flex;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    width: 10.7rem; }
+  .cart-slideout .subtract {
+    margin-right: 0.4rem; }
+  .cart-slideout .quantity {
+    border: none;
+    background: #b1b1b1;
+    margin-right: 0.3rem;
+    width: 4rem;
+    height: 2.4rem;
+    text-align: center;
+    font-size: 2.4rem; }
+  .cart-slideout .price {
+    font-size: 1.4rem;
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+    text-align: right;
+    font-size: 2.4rem;
+    margin: 0;
+    margin-top: -0.5rem;
+    margin-right: 0.3rem; }
+  .cart-slideout .cart-total {
+    display: flex;
+    height: 4.4rem;
+    background: #dcdcdc;
+    justify-content: space-between;
+    padding-top: 0.7rem;
+    padding-left: 1.1rem; }
+  .cart-slideout .label,
+  .cart-slideout .total-price {
+    margin: 0; }
+  .cart-slideout .label {
+    font-family: "Rajdhani Semibold";
+    letter-spacing: 0.3px; }
+  .cart-slideout .total-price {
+    letter-spacing: 1px; }
+  .cart-slideout .cart-navigation {
+    margin: 0;
+    height: 8.4rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    background: #000; }
+  .cart-slideout .secondary,
+  .cart-slideout .primary {
+    border: none;
+    height: 100%;
+    font-size: 2.6rem;
+    font-family: "Rajdhani Bold";
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+    letter-spacing: 0.8px;
+    padding: 0.8rem 2.1rem 0.7rem 1rem;
+    line-height: 1.1; }
+  .cart-slideout .secondary {
+    color: #b1b1b1;
+    background: #fff;
+    min-width: 22.2rem;
+    width: 22.2rem; }
+  .cart-slideout .primary {
+    color: #fff;
+    background: #000;
+    position: relative;
+    width: 21.2rem;
+    padding-right: 4.7rem; }
+    .cart-slideout .primary::after {
+      content: '';
+      position: absolute;
+      top: auto;
+      bottom: auto;
+      right: 0;
+      margin-top: 0.6rem;
+      margin-right: 0.7rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-top: 3px solid #fff;
+      border-right: 3px solid #fff;
+      transform: rotate(45deg); }
+  @media screen and (min-width: 1281px) {
+    .cart-slideout.open {
+      top: 72.2rem;
+      right: 15.6rem; }
+    .cart-slideout .cart-wrapper {
+      width: 44.2rem;
+      max-height: 65.8rem;
+      margin-right: -14.8rem;
+      padding-right: 14.8rem; }
+    .cart-slideout .cart-header {
+      height: 4.6rem;
+      display: flex;
+      justify-content: space-between;
+      margin-right: -14.8rem;
+      padding-right: 17.3rem; }
+    .cart-slideout .cart-title {
+      font-size: 2rem;
+      padding-left: 2rem;
+      padding-top: 0.9rem;
+      letter-spacing: 1.7px; }
+    .cart-slideout .cart-icon {
+      width: 4.6rem;
+      margin-left: 2.8rem;
+      top: 0.7rem;
+      right: -0.6rem; }
+      .cart-slideout .cart-icon .icon {
+        width: 3.5rem;
+        height: 2.9rem; }
+      .cart-slideout .cart-icon .items {
+        font-size: 1.6rem;
+        padding-top: 0;
+        width: 2.3rem;
+        height: 2.3rem;
+        top: -0.2rem;
+        left: -0.3rem; }
+    .cart-slideout .cart-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: -14.8rem;
+      padding-right: 14.8rem; }
+    .cart-slideout .cart-products {
+      max-height: 47.6rem;
+      height: 47.6rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-right: -14.8rem;
+      padding-right: 14.8rem; }
+    .cart-slideout .cart-product {
+      margin-right: -14.8rem;
+      padding-right: 14.8rem; }
+    .cart-slideout .product-wrapper {
+      grid-gap: 1.3rem;
+      grid-template: auto 3.4rem / 6.6rem 1fr 10.7rem;
+      margin-right: -14.8rem;
+      padding-right: 17.3rem; }
+    .cart-slideout .product-name {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      padding-top: 0.9rem;
+      letter-spacing: 1.4px;
+      margin-bottom: 0.5rem; }
+    .cart-slideout .product-colors .color {
+      width: 2.3rem;
+      height: 2.2rem;
+      margin-right: 0.4rem; }
+      .cart-slideout .product-colors .color.black {
+        background: #000; }
+    .cart-slideout .remove,
+    .cart-slideout .subtract,
+    .cart-slideout .add {
+      width: 2.8rem;
+      height: 2.6rem;
+      font-size: 2.2rem;
+      text-align: center; }
+    .cart-slideout .cart-total {
+      margin-right: -14.8rem;
+      padding-right: 17.3rem;
+      padding-left: 1.3rem;
+      font-size: 2.2rem; }
+    .cart-slideout .total-price {
+      margin-right: 0.4rem; }
+    .cart-slideout .cart-navigation {
+      margin-right: -14.8rem;
+      padding-right: 17.3rem; } }

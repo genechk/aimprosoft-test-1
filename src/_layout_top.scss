@@ -1,3 +1,54 @@
+@mixin cartIconMobile() {
+  position: relative;
+  margin: 0;
+  width: 3.6rem;
+
+  .icon {
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    width: 3rem;
+    height: 2.5rem;
+    z-index: 0;
+  }
+
+  .items {
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    margin: 0;
+    padding-top: 0.1rem;
+    background: $bg-light;
+    color: $text-dark;
+    font-size: 1.3rem;
+    font-family: $font-medium;
+    text-align: center;
+    border-radius: 50%;
+    width: 1.9rem;
+    height: 1.9rem;
+    z-index: 100;
+  }
+}
+
+@mixin cartIconDesktop() {
+  width: 4.6rem;
+  margin-left: 2.8rem;
+
+  .icon {
+    width: 3.5rem;
+    height: 2.9rem;
+  }
+
+  .items {
+    font-size: 1.6rem;
+    padding-top: 0;
+    width: 2.3rem;
+    height: 2.3rem;
+    top: -0.2rem;
+    left: -0.3rem;
+  }
+}
+
 // Above the fold
 .above {
   width: 100%;
@@ -56,36 +107,8 @@
     display: none;
   }
 
-  .basket-icon {
-    position: relative;
-    margin: 0;
-    width: 3.6rem;
-
-    .icon {
-      position: absolute;
-      top: 0;
-      left: 0.5rem;
-      width: 3rem;
-      height: 2.5rem;
-      z-index: 0;
-    }
-
-    .items {
-      position: absolute;
-      top: -0.1rem;
-      left: -0.1rem;
-      margin: 0;
-      padding-top: 0.1rem;
-      background: $bg-light;
-      color: $text-dark;
-      font-size: 1.3rem;
-      font-family: $font-medium;
-      text-align: center;
-      border-radius: 50%;
-      width: 1.9rem;
-      height: 1.9rem;
-      z-index: 100;
-    }
+  .cart-icon {
+    @include cartIconMobile();
   }
 
   @include screenSize($tablet) {
@@ -125,7 +148,7 @@
       letter-spacing: 1px;
     }
 
-    .basket-icon {
+    .cart-icon {
       margin-left: 2rem;
     }
   }
@@ -159,23 +182,8 @@
       letter-spacing: 1.5px;
     }
 
-    .basket-icon {
-      width: 4.6rem;
-      margin-left: 2.8rem;
-
-      .icon {
-        width: 3.5rem;
-        height: 2.9rem;
-      }
-
-      .items {
-        font-size: 1.6rem;
-        padding-top: 0;
-        width: 2.3rem;
-        height: 2.3rem;
-        top: -0.2rem;
-        left: -0.3rem;
-      }
+    .cart-icon {
+      @include cartIconDesktop();
     }
   }
 }
