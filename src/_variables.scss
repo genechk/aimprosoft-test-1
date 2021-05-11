@@ -1,0 +1,61 @@
+/////////////////
+// Breakpoints //
+/////////////////
+$mobile: 320px;
+$tablet: 768px;
+$tablet-wide: 1001px;
+$desktop: 1281px;
+
+//////////////
+// Spacings //
+//////////////
+$max-content-width: 1231px;
+$mobile-gutter: 1.3rem;
+$tablet-gutter: 1.8rem;
+$desktop-gutter: 3rem;
+$desktop-side-indent: 2.5rem;
+
+////////////////
+// Font names //
+////////////////
+$font-light: 'Rajdhani Light';
+$font-regular: 'Rajdhani Regular';
+$font-medium: 'Rajdhani Medium';
+$font-semibold: 'Rajdhani Semibold';
+$font-bold: 'Rajdhani Bold';
+$font-monospace: 'Courier New';
+
+////////////
+// Colors //
+////////////
+
+// Background
+$bg-light: #fff;
+$bg-dark: #000;
+$light-grey: #d0d0d0;
+$medium-grey: #c5c5c5;
+$dark-grey: #1d1d1b;
+$menu-grey: #b1b1b1;
+$menu-bg-grey: #dcdcdc;
+$menu-secondary-button: #b3b3b3;
+
+// Text
+$text-light: #fff;
+$text-grey: #888;
+$text-dark: #000;
+$text-dark-ish: #393939;
+$text-menu-grey: #585858;
+$text-menu-dark: #292929;
+$text-menu-light: #efefef;
+
+// All other
+$footer-mobile-background: #f1f1f1;
+$submit-button-shadow: #4f5052;
+$bullet-border: #929292;
+$bullet-active: #221f1f;
+$menu-borders: #010202;
+
+///////////////
+// Animation //
+///////////////
+$duration-default: 300ms;

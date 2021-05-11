@@ -2,32 +2,28 @@
 // Vendors //
 /////////////
 
-// Normalize SCSS
+// Normalize SCSS (MIT)
 @import '../node_modules/normalize-scss/sass/normalize';
 
-// Slick carousel
-// @import '../node_modules/slick-carousel/slick/slick.scss';
-// @import '../node_modules/slick-carousel/slick/slick-theme.scss';
+// Uses Slick carousel (MIT). Styles are integrated into SCSS
 
 //////////////////////////
 // Variables and mixins //
 //////////////////////////
 
-// Breakpoints
-@import 'variables/breakpoints';
+// All variables.
+// Contains breakpoints, spacings fonts, colors and animation durations
+@import '_variables';
 
 // Fonts
-@import 'variables/fonts';
+@import '_fonts';
 
-// Colors
-@import 'variables/colors';
+// Mixins
+@import '_mixins';
 
-// Animation
-@import 'variables/animation';
-
-////////////////////
-// General styles //
-////////////////////
+///////////////////
+// Common styles //
+///////////////////
 
 // Parent elements
 html {
@@ -72,10 +68,11 @@ h2 {
   font-family: $font-bold;
 }
 
-////////////
-// Layout //
-////////////
+////////////////////////////
+// Cloth & Fashion Layout //
+////////////////////////////
 
+// More parent elements
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -91,20 +88,21 @@ h2 {
 
 // Top of the page / Above the fold
 // (header + hero / promotions sections)
-@import 'layout_top';
+@import 'layout/layout_top';
 
 // Main section
 // (products, categories, instagram, customers)
-@import 'layout_main';
+@import 'layout/layout_main';
 
 // Newsletter + Footer
-@import 'layout_footer';
+@import 'layout/layout_footer';
 
-// Menu
-@import 'layout_menu';
+// Sliders
+// (overrides some of the styles in order to make Slick carousel work)
+@import 'layout/layout_sliders';
+
+// Catalog menu
+@import 'layout/layout_menu';
 
 // Cart
-@import 'layout_cart';
-
-// Carousel
-@import 'layout_carousel';
+@import 'layout/layout_cart';

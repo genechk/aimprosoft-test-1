@@ -171,7 +171,15 @@
     }
   }
 
-  .product-link {
+  // .product-link {
+  //   display: block;
+  //   overflow: hidden;
+  //   padding-left: 0.5rem;
+  //   margin-left: -0.5rem;
+  // }
+
+  .product-image-wrapper {
+    position: relative;
     display: block;
     overflow: hidden;
     padding-left: 0.5rem;
@@ -447,7 +455,7 @@
 }
 
 // Instagram gallery
-.instagram {
+.instagram-gallery {
   // Inconsistent values in mockup
   margin-bottom: 2.4rem;
 
@@ -456,7 +464,7 @@
     margin-bottom: 2.5rem;
   }
 
-  .gallery {
+  .photos-slider {
     display: flex;
     justify-content: start;
     width: 100%;
@@ -489,7 +497,7 @@
       margin-bottom: 1.7rem;
     }
 
-    .gallery {
+    .photos-slider {
       width: 100%;
     }
 
@@ -559,7 +567,7 @@
       }
     }
 
-    .gallery {
+    .photos-slider {
       // display: block;
 
       // FixIt: Probably, should switch to display: block

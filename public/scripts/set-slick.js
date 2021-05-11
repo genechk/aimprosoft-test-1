@@ -6,10 +6,10 @@ $(document).ready(() => {
   };
 
   // Initiate all Slick carousels
-  setTimeout(() => window.setSlick(breakpoints));
+  setSlick(breakpoints);
 
   // Get links to behave predictably with carousel
-  setTimeout(() => window.fixLinks(breakpoints));
+  fixLinks(breakpoints);
 });
 
 /**
@@ -106,7 +106,7 @@ setSlick = (breakpoints) => {
     ],
   };
 
-  const galleryParams = {
+  const photoParams = {
     ...defaults,
     initialSlide: 2,
     responsive: [
@@ -137,7 +137,7 @@ setSlick = (breakpoints) => {
   // Set up Slick carousel
   $('.promotions-wrapper').slick(heroParams);
   $('.products-slider').slick(productParams);
-  $('.gallery').slick(galleryParams);
+  $('.photos-slider').slick(photoParams);
   $('.customers-slider').slick(customerParams);
 };
 
@@ -156,13 +156,13 @@ fixLinks = (breakpoints) => {
   // Updates links after user interactions
   const update = () => {
     // 1. Disable all links
-    $('.gallery').find('.photo-link').bind('click', disable);
+    $('.photos-slider').find('.photo-link').bind('click', disable);
     $('.customers-slider').find('.customer-link').bind('click', disable);
     $('.products-slider').find('.product-link').bind('click', disable);
 
     // 2. Enable active links
     setTimeout(() => {
-      $('.gallery')
+      $('.photos-slider')
         .find('.photo')
         .filter('.slick-current')
         .find('.photo-link')
@@ -199,9 +199,7 @@ fixLinks = (breakpoints) => {
  */
 function setListeners(update, enable, breakpoints) {
   const { tablet, tabletWide, desktop } = breakpoints;
-  // Listen to gallery resize events
-  $('.gallery, .customers-slider, .products-slider').on('afterChange', update);
-
+  // Choose action based on screen size
   $(window).resize(() => {
     if (window.innerWidth <= tablet) {
       setMobileListeners(update, enable);
@@ -216,24 +214,27 @@ function setListeners(update, enable, breakpoints) {
 
 /** Updates for screens < 768px */
 function setMobileListeners(update, enable) {
-  // Turn on Slick for .customers-slider and .gallery on mobile screens
+  // Turn on Slick for .customers-slider and .photos-slider on mobile screens
   // (it turns off automatically on wider screens)
-  $('.gallery, .customers-slider').slick('setOption', '', '', true);
+  $('.photos-slider, .customers-slider').slick('setOption', '', '', true);
 
   // Reset links every time any of carousels slide
-  $('.gallery, .customers-slider, .products-slider').on('afterChange', update);
+  $('.photos-slider, .customers-slider, .products-slider').on(
+    'afterChange',
+    update
+  );
 }
 
 /** Updates for screens < 1281px */
 function setTabletListeners(update, enable) {
-  // Turn on Slick for .gallery on tablet screens
-  $('.gallery').slick('setOption', '', '', true);
+  // Turn on Slick for .photos-slider on tablet screens
+  $('.photos-slider').slick('setOption', '', '', true);
 
   // Enable and stop updating hyperlinks on tablet
-  enable('.gallery', '.photo-link');
+  enable('.photos-slider', '.photo-link');
   enable('.customers-slider', '.customer-link');
   enable('.products-slider', '.product-link');
-  $('.gallery, .customers-slider, .products-slider').unbind(
+  $('.photos-slider, .customers-slider, .products-slider').unbind(
     'afterChange',
     update
   );
@@ -241,6 +242,9 @@ function setTabletListeners(update, enable) {
 
 /** Updates for screens >= 1281px */
 function setDesktopListeners(update, enable) {
-  // Stop updating hyperlinks on desktop
-  $('.gallery, .customers-slider').unbind('afterChange', update);
+  // Enable and stop updating hyperlinks on desktop
+  enable('.photos-slider', '.photo-link');
+  enable('.customers-slider', '.customer-link');
+  enable('.products-slider', '.product-link');
+  $('.photos-slider, .customers-slider').unbind('afterChange', update);
 }

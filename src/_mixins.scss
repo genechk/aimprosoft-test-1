@@ -1,0 +1,17 @@
+/**
+ *  Sets block element's max-width and centers it horizontally
+ */
+@mixin fitWithin($width) {
+  max-width: $width;
+  margin: 0 auto;
+}
+
+/**
+ *  Alias for @media created with assumption
+ *  that complexity is going to increase
+ */
+@mixin screenSize($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+} ;
