@@ -1,5 +1,13 @@
+/////////////
+// Vendors //
+/////////////
+
 // Normalize SCSS
 @import '../node_modules/normalize-scss/sass/normalize';
+
+// Slick carousel
+// @import '../node_modules/slick-carousel/slick/slick.scss';
+// @import '../node_modules/slick-carousel/slick/slick-theme.scss';
 
 //////////////////////////
 // Variables and mixins //
@@ -13,6 +21,9 @@
 
 // Colors
 @import 'variables/colors';
+
+// Animation
+@import 'variables/animation';
 
 ////////////////////
 // General styles //
@@ -69,6 +80,7 @@ h2 {
   display: flex;
   flex-direction: column;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .container {
@@ -93,3 +105,6 @@ h2 {
 
 // Cart
 @import 'layout_cart';
+
+// Carousel
+@import 'layout_carousel';

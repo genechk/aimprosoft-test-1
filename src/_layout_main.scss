@@ -102,32 +102,34 @@
 // Products
 .products {
   width: 100%;
-  margin-bottom: 4.4rem;
+  margin-bottom: 4.2rem;
 
-  .slider {
+  .heading {
+    margin-bottom: 1rem;
+  }
+
+  .products-slider {
     padding-left: 0.6rem;
-    width: 2000px;
+    width: 100%;
     display: flex;
+    margin-left: -26.4rem;
   }
 
   .product {
+    transition: opacity $duration-default;
     margin-right: 0.7rem;
     margin-left: 0.6rem;
     min-width: 15.5rem;
 
-    &:not(.active) {
-      opacity: 0.5;
-    }
-
     &.discount .product-image {
       &::before {
         content: '';
-        top: -14px;
-        left: -5px;
+        top: 0;
+        left: -0.5rem;
         display: block;
         position: absolute;
-        width: 55px;
-        height: 77px;
+        width: 5.5rem;
+        height: 7.7rem;
         background-image: url('img/ribbon.png');
       }
 
@@ -135,8 +137,8 @@
         content: '20%';
         display: block;
         position: absolute;
-        top: 4px;
-        left: 2px;
+        top: 1.8rem;
+        left: 0.2rem;
         font-family: $font-bold;
         letter-spacing: 1px;
         font-size: 1.7rem;
@@ -150,9 +152,11 @@
     position: relative;
     width: 100%;
     height: 27.7rem;
+    padding-top: 1.4rem;
 
     .image {
-      width: 100%;
+      height: 27.7rem;
+      width: auto;
     }
   }
 
@@ -196,13 +200,11 @@
 
   @include screenSize($tablet) {
     margin-bottom: 1.3rem;
-
+    .heading {
+      margin-bottom: 0.1rem;
+    }
     .product {
       margin-right: 0.6rem;
-
-      &:not(.active) {
-        opacity: 1;
-      }
     }
   }
 
@@ -210,8 +212,13 @@
     width: 100%;
     margin-bottom: 6.8rem;
 
-    .slider {
+    .heading {
+      margin-bottom: 0.5rem;
+    }
+
+    .products-slider {
       padding-left: 1.5rem;
+      margin-left: 0;
     }
 
     .product {
@@ -230,7 +237,10 @@
     }
 
     .product-image {
-      height: 33rem;
+      &,
+      & .image {
+        height: 33rem;
+      }
     }
 
     .price {
@@ -253,7 +263,7 @@
 
 // Categories
 .categories {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.9rem;
   padding-top: 6.4rem;
   text-align: center;
 
@@ -276,12 +286,10 @@
     row-gap: $mobile-gutter - 0.1rem;
     padding-left: $mobile-gutter;
     margin-right: $mobile-gutter + 0.1rem;
-    // width: 100%;
   }
 
   .category {
     margin: 0;
-    // TODO: Better positioning
     padding: 0;
     position: relative;
 
@@ -293,10 +301,12 @@
   .category-link,
   .category {
     display: flex;
+    width: 100%;
   }
 
   .category-image {
     width: 100%;
+    object-fit: cover;
   }
 
   .category-label {
@@ -320,7 +330,8 @@
 
     .categories-grid {
       // No distinct pattern in numbers, just following the mockup
-      grid-template: repeat(3, 26.4rem) / 26.5rem 7.5rem 8.9rem 24.9rem;
+      // grid-template: repeat(3, 26.4rem) / 26.5rem 7.5rem 8.9rem 24.9rem;
+      grid-template: repeat(3, 26.4rem) / 36.2% 10.2% 12.2% 1fr;
       column-gap: $tablet-gutter;
       row-gap: $tablet-gutter - 0.2rem;
       padding-left: $tablet-gutter;
@@ -385,13 +396,13 @@
 
   .heading {
     // Inconsistent values in mockup
-    margin-bottom: 2.6rem;
+    margin-bottom: 2.5rem;
   }
 
   .gallery {
     display: flex;
     justify-content: start;
-    width: 1000px;
+    width: 100%;
     padding-left: 0.6rem;
   }
 
@@ -400,10 +411,7 @@
     height: 13.3rem;
     padding-left: 0.7rem;
     margin-right: 0.7rem;
-
-    &:not(.active) {
-      opacity: 0.5;
-    }
+    transition: opacity $duration-default;
   }
 
   .likes {
@@ -431,10 +439,6 @@
       height: 13.5rem;
       padding-left: 1.2rem;
       margin-right: 0.2rem;
-
-      &:not(.active) {
-        opacity: 1;
-      }
     }
   }
 
@@ -451,8 +455,10 @@
     }
 
     .gallery {
+      // display: block;
+
       // FixIt: Probably, should switch to display: block
-      justify-content: space-between;
+      justify-content: center;
       padding-left: 0;
     }
 
@@ -460,7 +466,11 @@
       width: 22.6rem;
       height: 22.6rem;
       padding-left: 0;
-      margin-right: 0;
+      margin-right: 2.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -478,7 +488,7 @@
   .customer-cards {
     display: flex;
     justify-content: start;
-    width: 1000px;
+    width: 100%;
     padding-left: 0.5rem;
   }
 
@@ -487,10 +497,6 @@
     height: 17rem;
     padding-left: 0.8rem;
     margin-right: 0.9rem;
-
-    &:not(.active) {
-      opacity: 0.5;
-    }
   }
 
   .customer-image {
@@ -502,7 +508,7 @@
   }
 
   @include screenSize($tablet) {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.1rem;
 
     .heading {
       margin-left: -0.5rem;
@@ -511,16 +517,23 @@
 
     .customer-cards {
       width: 100%;
+      justify-content: center;
+      // padding-left: 0.5rem;
     }
 
     .customer {
-      width: 17rem;
-      height: 17rem;
+      flex-grow: 1;
+      min-width: 17rem;
+      min-height: 17rem;
+      width: 100%;
+      height: auto;
+      max-width: 28.5rem;
+      max-height: 28.5rem;
       padding-left: 1.3rem;
       margin-right: 0.4rem;
 
-      &:not(.active) {
-        opacity: 1;
+      &:last-child {
+        margin-right: 2.4rem;
       }
     }
   }
@@ -544,6 +557,10 @@
       height: 28.5rem;
       padding-left: 0;
       margin-right: 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }

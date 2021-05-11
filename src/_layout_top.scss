@@ -268,10 +268,19 @@
 .hero {
   order: 3;
 
-  .promo {
+  .promotions-wrapper {
     height: 19.5rem;
     overflow: hidden;
-    position: relative;
+
+    .promotion {
+      display: none;
+      position: relative;
+      height: 19.5rem;
+
+      &:first-child {
+        display: block;
+      }
+    }
   }
 
   .caption,
@@ -284,11 +293,11 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    // TODO: Better positioning
     margin-top: -0.5rem;
     justify-content: center;
     height: 100%;
-    left: $mobile-gutter;
+    left: 25%;
+    margin-left: -6.7rem;
 
     h2,
     h3 {
@@ -323,19 +332,19 @@
     padding: 0.2rem 0.8rem;
   }
 
+  // No-slick styles
   .bullets {
     padding: 0;
     margin: 0;
     bottom: 1rem;
     list-style-type: none;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
     z-index: 10;
   }
 
   .bullet {
+    display: none;
     margin: 0 0.1rem;
     width: 1.1rem;
     height: 1.1rem;
@@ -365,14 +374,19 @@
   @include screenSize($tablet) {
     order: 2;
 
-    .promo {
+    .promotions-wrapper {
       height: 45.8rem;
+      .promotion {
+        height: 45.8rem;
+      }
     }
 
     .caption {
-      left: 4.8rem;
       top: 18rem;
-      justify-content: none;
+      left: 4.8rem;
+      left: 15%;
+      margin-left: -6.6rem;
+      justify-content: normal;
       height: auto;
       width: 20.5rem;
 
@@ -409,13 +423,17 @@
   }
 
   @include screenSize($desktop) {
-    .promo {
+    .promotions-wrapper {
       height: 70.6rem;
+      .promotion {
+        height: 70.6rem;
+      }
     }
 
     .caption {
-      left: 23.6rem;
       top: 27.6rem;
+      left: 23.6rem;
+      margin-left: 0;
       width: 31.5rem;
 
       h2 {
@@ -442,6 +460,12 @@
     .bullets {
       margin-right: 0;
       bottom: 2.6rem;
+
+      li {
+        height: 1.7rem;
+        width: 1.7rem;
+        margin: 0 0.4rem 0 0.3rem;
+      }
     }
 
     .bullet {

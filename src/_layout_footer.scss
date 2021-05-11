@@ -1,11 +1,11 @@
 // Newsletter
 .newsletter {
-  // Inconsistent values in mockup
-  margin-bottom: 4.4rem;
+  text-align: center;
   padding: 3.2rem $mobile-gutter;
   padding-bottom: 0;
-  text-align: center;
   @include fitWithin($max-content-width);
+  // Inconsistent values in mockup
+  margin-bottom: 4.4rem;
 
   .subscription-form {
     width: 100%;
@@ -22,7 +22,7 @@
     margin-bottom: 0.6rem;
     padding: 0.5rem $mobile-gutter;
     font-size: 1.9rem;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.7px;
     text-transform: uppercase;
   }
 
@@ -30,12 +30,28 @@
     background: $bg-dark;
     color: $text-light;
     position: relative;
+    padding-top: 0.7rem;
+    padding-bottom: 0.3rem;
   }
 
   .form-field {
     color: $text-dark-ish;
     border: 2px solid $light-grey;
     height: 2.7rem;
+    border-radius: 0;
+
+    // FIXIT: Better get rid of those default styles
+    &::focus {
+      border-radius: 0 !important;
+      border-color: $bg-dark !important;
+      outline: none;
+    }
+
+    &::focus-visible {
+      border-radius: 0 !important;
+      border-color: $bg-dark !important;
+      outline: none;
+    }
   }
 
   .form-button {
@@ -66,17 +82,18 @@
       padding: 0;
       font-size: 1.4rem;
       margin-bottom: 0;
+      letter-spacing: 1.3px;
     }
 
     .news-header {
-      padding-top: 0.8rem;
+      padding-top: 0.9rem;
       margin-right: 1.6rem;
       text-align: left;
 
       // Propagate everywhere:
       line-height: 1;
       padding-left: 2rem;
-      height: 2.4rem;
+      height: 2.3rem;
       min-width: 10.3rem;
       width: 10.3rem;
 
@@ -180,6 +197,7 @@
   display: flex;
   justify-content: center;
   align-content: center;
+  padding-top: 0.2rem;
 
   .footer-nav {
     @include fitWithin($max-content-width);
@@ -193,6 +211,7 @@
   @include screenSize($tablet) {
     background: $bg-dark;
     height: 3.6rem;
+    padding-top: 0;
 
     .footer-nav {
       display: flex;
@@ -213,14 +232,14 @@
 
     .footer-links {
       text-transform: uppercase;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.9px;
       justify-content: space-between;
       font-size: 1.4rem;
       margin: auto 0;
       padding: 0;
 
       li {
-        margin-right: 3rem;
+        margin-right: 2.6rem;
       }
     }
 

@@ -16,10 +16,6 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="stylesheet" type="text/css" href="./styles.css" />
     <link rel="icon" type="image/png" href="img/favicon.ico" />
-
-    <!-- Scripts
-–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script type="text/javascript" src="./scripts/scripts.js"></script>
   </head>
 
   <body>
@@ -58,22 +54,57 @@
         <!-- / Messages, delivery information -->
 
         <div class="container hero" id="hero">
-          <div class="promo">
-            <div class="caption">
-              <div>
-                <h2><span class="font-bold">C&F</span> Clothing</h2>
-                <h3>Sports & Lifestyle</h3>
-                <a class="call-to-action" href="#">Confira</a>
+          <div class="promotions-wrapper">
+            <div class="promotion">
+              <div class="caption">
+                <div>
+                  <h2><span class="font-bold">C&F</span> Clothing</h2>
+                  <h3>Sports & Lifestyle</h3>
+                  <a class="call-to-action" href="#">Confira</a>
+                </div>
               </div>
+              <div class="cover"></div>
             </div>
-            <div class="cover"></div>
-            <ul class="bullets">
-              <li class="bullet"></li>
-              <li class="bullet"></li>
-              <li class="bullet active"></li>
-              <li class="bullet"></li>
-              <li class="bullet"></li>
-            </ul>
+            <div class="promotion">
+              <div class="caption">
+                <div>
+                  <h2><span class="font-bold">C&F</span> Clothing</h2>
+                  <h3>Sports & Lifestyle</h3>
+                  <a class="call-to-action" href="#">Confira</a>
+                </div>
+              </div>
+              <div class="cover"></div>
+            </div>
+            <div class="promotion">
+              <div class="caption">
+                <div>
+                  <h2><span class="font-bold">C&F</span> Clothing</h2>
+                  <h3>Sports & Lifestyle</h3>
+                  <a class="call-to-action" href="#">Confira</a>
+                </div>
+              </div>
+              <div class="cover"></div>
+            </div>
+            <div class="promotion">
+              <div class="caption">
+                <div>
+                  <h2><span class="font-bold">C&F</span> Clothing</h2>
+                  <h3>Sports & Lifestyle</h3>
+                  <a class="call-to-action" href="#">Confira</a>
+                </div>
+              </div>
+              <div class="cover"></div>
+            </div>
+            <div class="promotion">
+              <div class="caption">
+                <div>
+                  <h2><span class="font-bold">C&F</span> Clothing</h2>
+                  <h3>Sports & Lifestyle</h3>
+                  <a class="call-to-action" href="#">Confira</a>
+                </div>
+              </div>
+              <div class="cover"></div>
+            </div>
           </div>
         </div>
         <!-- / Promotions -->
@@ -85,8 +116,8 @@
           <div class="heading">
             <h2>Produtos Em Destaque</h2>
           </div>
-          <div class="slider">
-            <div class="product active">
+          <div class="products-slider">
+            <div class="product">
               <div class="product-image">
                 <img class="image" src="img/product-01.jpg" alt="White shirt" />
                 <a class="buy" href="#">Comprar</a>
@@ -154,6 +185,28 @@
                 <p class="new-price">2X R&thinsp;$44,44</p>
               </div>
             </div>
+          </div>
+          <div class="product-arrows">
+            <button
+              class="slick-prev slick-arrow"
+              id="arrow-prev"
+              aria-label="Previous"
+              type="button"
+              style=""
+              disabled
+            >
+              Previous
+            </button>
+            <button
+              class="slick-next slick-arrow"
+              id="arrow-next"
+              aria-label="Next"
+              type="button"
+              style=""
+              disabled
+            >
+              Next
+            </button>
           </div>
         </div>
         <!-- / Products  -->
@@ -328,20 +381,20 @@
         <div class="container newsletter" id="newsletter">
           <form class="subscription-form" action="">
             <h2 class="news-header">Newsletter</h2>
-            <label for="name">Nome</label>
             <input
               class="form-field"
               type="text"
               id="name"
               name="name"
+              aria-label="Nome"
               placeholder="Nome"
             />
-            <label for="email">Endereço De Email</label>
             <input
               class="form-field"
               type="email"
               id="email"
               name="email"
+              aria-label="Endereço De Email"
               placeholder="Endereço De Email"
             />
             <input class="form-button" type="submit" value="Cadastrar" />
@@ -389,6 +442,7 @@
                   <input
                     class="search-field"
                     type="text"
+                    aria-label="O Que Está Procurando?"
                     placeholder="O Que Está Procurando?"
                   />
                   <input type="submit" value="" class="search-submit" />
@@ -501,7 +555,7 @@
       </aside>
       <!-- / Menu + search -->
 
-      <aside class="cart-slideout open">
+      <aside class="cart-slideout">
         <div class="cart-wrapper">
           <header class="cart-header">
             <h2 class="cart-title">Meu Carrinho</h2>
@@ -596,5 +650,16 @@
       </aside>
       <!-- / Cart -->
     </div>
+
+    <!-- JS Libraries -->
+    <!-- TODO: Switch to node modules + module bundler -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script> -->
+
+    <!-- Scripts
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script type="text/javascript" src="./scripts/scripts.js"></script>
+    <script></script>
   </body>
 </html>
