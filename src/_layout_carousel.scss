@@ -23,7 +23,7 @@
     }
   }
 
-  .customers &.customer-cards {
+  .customers &.customers-slider {
     padding-left: 0;
     .customer:not(.slick-current) {
       opacity: 0.5;
@@ -33,7 +33,7 @@
   .hero &.promotions-wrapper,
   .products &.products-slider,
   .instagram &.gallery,
-  .customers &.customer-cards {
+  .customers &.customers-slider {
     position: relative;
     display: block;
     box-sizing: border-box;
@@ -71,7 +71,7 @@
       }
     }
 
-    .customers &.customer-cards {
+    .customers &.customers-slider {
       .customer:not(.slick-current) {
         opacity: 1;
       }

@@ -1,6 +1,23 @@
 $(document).ready(() => {
-  const tabletWidth = 767;
-  const desktopWidth = 1280;
+  const breakpoints = {
+    tablet: 767,
+    tabletWide: 1000,
+    desktop: 1280,
+  };
+
+  // Initiate all Slick carousels
+  setTimeout(() => window.setSlick(breakpoints));
+
+  // Get links to behave predictably with carousel
+  setTimeout(() => window.fixLinks(breakpoints));
+});
+
+/**
+ *  Setup for each Slick carousel on the page
+ *  (Promotions, Products, Categories, Instagram, Customers)
+ */
+setSlick = (breakpoints) => {
+  const { tablet, tabletWide, desktop } = breakpoints;
 
   // Set up parameters for Slick
   const tabletDefaults = {
@@ -35,11 +52,11 @@ $(document).ready(() => {
     slidesToScroll: 1,
     responsive: [
       {
-        breakpoint: tabletWidth,
+        breakpoint: tablet,
         settings: tabletDefaults,
       },
       {
-        breakpoint: desktopWidth,
+        breakpoint: desktop,
         settings: desktopDefaults,
       },
     ],
@@ -64,7 +81,7 @@ $(document).ready(() => {
     initialSlide: 2,
     responsive: [
       {
-        breakpoint: tabletWidth,
+        breakpoint: tablet,
         settings: {
           ...tabletDefaults,
           initialSlide: 1,
@@ -73,9 +90,9 @@ $(document).ready(() => {
           // prevArrow: $('#arrow-prev'),
         },
       },
-      // Avoids duplicate products but makes extra breakpoint
+      // Avoids duplicate products but creates extra breakpoint
       {
-        breakpoint: 1000,
+        breakpoint: tabletWide,
         settings: {
           slidesToShow: 6,
           initialSlide: 0,
@@ -83,7 +100,7 @@ $(document).ready(() => {
         },
       },
       {
-        breakpoint: desktopWidth,
+        breakpoint: desktop,
         settings: { ...desktopDefaults },
       },
     ],
@@ -94,13 +111,13 @@ $(document).ready(() => {
     initialSlide: 2,
     responsive: [
       {
-        breakpoint: tabletWidth,
+        breakpoint: tablet,
         settings: {
           ...tabletDefaults,
         },
       },
       {
-        breakpoint: desktopWidth,
+        breakpoint: desktop,
         settings: 'unslick',
       },
     ],
@@ -111,7 +128,7 @@ $(document).ready(() => {
     initialSlide: 1,
     responsive: [
       {
-        breakpoint: tabletWidth,
+        breakpoint: tablet,
         settings: 'unslick',
       },
     ],
@@ -121,39 +138,109 @@ $(document).ready(() => {
   $('.promotions-wrapper').slick(heroParams);
   $('.products-slider').slick(productParams);
   $('.gallery').slick(galleryParams);
-  $('.customer-cards').slick(customerParams);
+  $('.customers-slider').slick(customerParams);
+};
 
-  // Disable 'inactive' links to prevent them from scrolling to top of the page
-  const disableLinks = (event) => event.preventDefault();
-  const enableLinks = () => {
-    $('.gallery').find('.photo-link').unbind('click', disableLinks);
+/**
+ *  Disables hyperlinks with ambiguous behavior
+ *  (like scrolling to top of the page)
+ *  on smaller screens. Enables them back on larger ones
+ */
+fixLinks = (breakpoints) => {
+  // Noop
+  const disable = (event) => event.preventDefault();
+  const enable = (sliderTag, linkTag) => {
+    $(sliderTag).find(linkTag).unbind('click', disable);
   };
 
-  const updateDisabledLinks = () => {
-    $('.gallery').find('.photo-link').bind('click', disableLinks);
+  // Updates links after user interactions
+  const update = () => {
+    // 1. Disable all links
+    $('.gallery').find('.photo-link').bind('click', disable);
+    $('.customers-slider').find('.customer-link').bind('click', disable);
+    $('.products-slider').find('.product-link').bind('click', disable);
+
+    // 2. Enable active links
     setTimeout(() => {
       $('.gallery')
         .find('.photo')
         .filter('.slick-current')
         .find('.photo-link')
-        .unbind('click', disableLinks);
+        .unbind('click', disable);
+
+      $('.customers-slider')
+        .find('.customer')
+        .filter('.slick-current')
+        .find('.customer-link')
+        .unbind('click', disable);
+
+      $('.products-slider')
+        .find('.product')
+        .filter('.slick-current')
+        .find('.product-link')
+        .unbind('click', disable);
     });
   };
 
-  // Call function once and make sure it is called after each change
-  updateDisabledLinks();
-  $('.gallery').on('afterChange', updateDisabledLinks);
+  // Call update once, then make sure it is called after each change
+  // update();
+  setListeners(update, enable, breakpoints);
+
+  return {
+    disable,
+    enable,
+    update,
+  };
+};
+
+/**
+ *  Updates the page when it is resized
+ *  or when active slides are changed
+ */
+function setListeners(update, enable, breakpoints) {
+  const { tablet, tabletWide, desktop } = breakpoints;
+  // Listen to gallery resize events
+  $('.gallery, .customers-slider, .products-slider').on('afterChange', update);
 
   $(window).resize(() => {
-    if (window.innerWidth <= tabletWidth) {
-      $('.customer-cards').slick('setOption', '', '', true);
-      $('.gallery').on('afterChange', updateDisabledLinks);
+    if (window.innerWidth <= tablet) {
+      setMobileListeners(update, enable);
+      return;
+    } else if (window.innerWidth <= desktop) {
+      setTabletListeners(update, enable);
       return;
     }
-    $('.gallery').unbind('afterChange', updateDisabledLinks);
-
-    if (window.innerWidth <= desktopWidth) {
-      $('.gallery').slick('setOption', '', '', true);
-    }
+    setDesktopListeners(update, enable);
   });
-});
+}
+
+/** Updates for screens < 768px */
+function setMobileListeners(update, enable) {
+  // Turn on Slick for .customers-slider and .gallery on mobile screens
+  // (it turns off automatically on wider screens)
+  $('.gallery, .customers-slider').slick('setOption', '', '', true);
+
+  // Reset links every time any of carousels slide
+  $('.gallery, .customers-slider, .products-slider').on('afterChange', update);
+}
+
+/** Updates for screens < 1281px */
+function setTabletListeners(update, enable) {
+  // Turn on Slick for .gallery on tablet screens
+  $('.gallery').slick('setOption', '', '', true);
+
+  // Enable and stop updating hyperlinks on tablet
+  enable('.gallery', '.photo-link');
+  enable('.customers-slider', '.customer-link');
+  enable('.products-slider', '.product-link');
+  $('.gallery, .customers-slider, .products-slider').unbind(
+    'afterChange',
+    update
+  );
+}
+
+/** Updates for screens >= 1281px */
+function setDesktopListeners(update, enable) {
+  // Stop updating hyperlinks on desktop
+  $('.gallery, .customers-slider').unbind('afterChange', update);
+}

@@ -43,13 +43,7 @@
     // FIXIT: Better get rid of those default styles
     &::focus {
       border-radius: 0 !important;
-      border-color: $bg-dark !important;
-      outline: none;
-    }
-
-    &::focus-visible {
-      border-radius: 0 !important;
-      border-color: $bg-dark !important;
+      border-color: $medium-grey !important;
       outline: none;
     }
   }

@@ -513,6 +513,11 @@ h2 {
       font-size: 1.7rem;
       color: #fff;
       transform: rotate(-45deg); }
+  .products .product-link {
+    display: block;
+    overflow: hidden;
+    padding-left: 0.5rem;
+    margin-left: -0.5rem; }
   .products .product-image {
     position: relative;
     width: 100%;
@@ -522,19 +527,7 @@ h2 {
       height: 27.7rem;
       width: auto; }
   .products .buy {
-    display: none;
-    opacity: 0;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: "Rajdhani Semibold";
-    color: #fff;
-    font-size: 1.6rem;
-    padding: 0.8rem 0;
-    height: 2rem;
-    background: rgba(0, 0, 0, 0.66); }
+    display: none; }
   .products .price {
     text-align: center; }
     .products .price p {
@@ -549,6 +542,8 @@ h2 {
     .products .price .new-price {
       margin-top: -0.2rem;
       font-size: 1.7rem;
+      color: #000;
+      text-decoration: none;
       font-family: "Rajdhani Semibold"; }
   @media screen and (min-width: 768px) {
     .products {
@@ -556,7 +551,30 @@ h2 {
       .products .heading {
         margin-bottom: 0.1rem; }
       .products .product {
-        margin-right: 0.6rem; } }
+        margin-right: 0.6rem; }
+      .products .buy {
+        display: block;
+        opacity: 0;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        font-family: 'Rajdhani Semibold';
+        font-size: 1.6rem;
+        line-height: 1rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-align: center;
+        color: #fff;
+        max-height: 2rem;
+        padding: 1rem 0 0.8rem 0;
+        margin: 0;
+        background: rgba(0, 0, 0, 0.66);
+        z-index: 1;
+        transition: all 300ms;
+        transform: translateY(100%); }
+      .products .product-link:hover .buy {
+        opacity: 1;
+        transform: translateY(0); } }
   @media screen and (min-width: 1281px) {
     .products {
       width: 100%;
@@ -614,6 +632,20 @@ h2 {
   .categories .category {
     display: flex;
     width: 100%; }
+  .categories .category-link:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0);
+    transition: background 300ms;
+    z-index: 2; }
+  .categories .category-link:hover:before {
+    background: rgba(0, 0, 0, 0.6); }
   .categories .category-image {
     width: 100%;
     object-fit: cover; }
@@ -622,6 +654,7 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 10;
     font-family: "Rajdhani Semibold";
     font-size: 2rem;
     letter-spacing: 2.5px;
@@ -680,6 +713,7 @@ h2 {
     width: 100%;
     padding-left: 0.6rem; }
   .instagram .photo {
+    position: relative;
     width: 13.3rem;
     height: 13.3rem;
     padding-left: 0.7rem;
@@ -688,7 +722,8 @@ h2 {
   .instagram .likes {
     display: none; }
   .instagram .insta-image {
-    width: 100%; }
+    width: 100%;
+    z-index: 1; }
   @media screen and (min-width: 768px) {
     .instagram {
       margin-bottom: 1.8rem; }
@@ -697,11 +732,56 @@ h2 {
         margin-bottom: 1.7rem; }
       .instagram .gallery {
         width: 100%; }
+      .instagram .photo-link {
+        position: relative;
+        display: flex; }
+        .instagram .photo-link:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          background: rgba(0, 0, 0, 0);
+          transition: background 300ms;
+          z-index: 2; }
+        .instagram .photo-link:hover:before {
+          background: rgba(0, 0, 0, 0.66); }
       .instagram .photo {
         width: 13.5rem;
         height: 13.5rem;
         padding-left: 1.2rem;
-        margin-right: 0.2rem; } }
+        margin-right: 0.2rem; }
+      .instagram .likes {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 10;
+        transition: opacity 300ms; }
+        .instagram .likes .likes-count {
+          color: #fff;
+          font-size: 1.8rem;
+          font-family: "Rajdhani Semibold";
+          letter-spacing: 0.5px;
+          margin-right: 1rem; }
+        .instagram .likes .like-icon {
+          width: 2.6rem;
+          height: auto;
+          margin-bottom: 0.8rem;
+          margin-left: -0.6rem;
+          margin-top: -0.2rem; }
+      .instagram .photo-link:hover .likes {
+        opacity: 1; } }
   @media screen and (min-width: 1281px) {
     .instagram {
       margin-bottom: 4.6rem; }
@@ -719,18 +799,29 @@ h2 {
         padding-left: 0;
         margin-right: 2.5rem; }
         .instagram .photo:last-child {
-          margin-right: 0; } }
+          margin-right: 0; }
+      .instagram .likes .likes-count {
+        font-size: 2.4rem;
+        letter-spacing: 1px;
+        margin-right: 1rem; }
+      .instagram .likes .like-icon {
+        width: 3.4rem;
+        height: auto;
+        margin-bottom: 1rem;
+        margin-left: -1.1rem;
+        margin-top: -0.4rem; } }
 
 .customers {
   margin-bottom: 2.4rem; }
   .customers .heading {
     margin-bottom: 1.4rem; }
-  .customers .customer-cards {
+  .customers .customers-slider {
     display: flex;
     justify-content: start;
     width: 100%;
     padding-left: 0.5rem; }
   .customers .customer {
+    position: relative;
     width: 17rem;
     height: 17rem;
     padding-left: 0.8rem;
@@ -745,7 +836,7 @@ h2 {
       .customers .heading {
         margin-left: -0.5rem;
         margin-bottom: 1.7rem; }
-      .customers .customer-cards {
+      .customers .customers-slider {
         width: 100%;
         justify-content: center; }
       .customers .customer {
@@ -759,14 +850,51 @@ h2 {
         padding-left: 1.3rem;
         margin-right: 0.4rem; }
         .customers .customer:last-child {
-          margin-right: 2.4rem; } }
+          margin-right: 2.4rem; }
+      .customers .customer-link {
+        display: flex;
+        width: 100%;
+        position: relative; }
+        .customers .customer-link:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          background: rgba(0, 0, 0, 0);
+          transition: background 300ms;
+          z-index: 2; }
+        .customers .customer-link:hover:before {
+          background: rgba(0, 0, 0, 0.66); }
+      .customers .customer-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        letter-spacing: 0.6px;
+        font-family: "Rajdhani Semibold";
+        color: #fff;
+        opacity: 0;
+        transition: opacity 300ms;
+        z-index: 10; }
+      .customers .customer-link:hover .customer-overlay {
+        opacity: 1; } }
   @media screen and (min-width: 1281px) {
     .customers {
       margin-bottom: 4.1rem; }
       .customers .heading {
         margin-left: 0.3rem;
         margin-bottom: 3.1rem; }
-      .customers .customer-cards {
+      .customers .customers-slider {
         padding-left: 0;
         justify-content: space-between; }
       .customers .customer {
@@ -775,7 +903,9 @@ h2 {
         padding-left: 0;
         margin-right: 0; }
         .customers .customer:last-child {
-          margin-right: 0; } }
+          margin-right: 0; }
+      .customers .customer-link {
+        font-size: 2.4rem; } }
 
 .newsletter {
   text-align: center;
@@ -812,11 +942,7 @@ h2 {
     border-radius: 0; }
     .newsletter .form-field::focus {
       border-radius: 0 !important;
-      border-color: #000 !important;
-      outline: none; }
-    .newsletter .form-field::focus-visible {
-      border-radius: 0 !important;
-      border-color: #000 !important;
+      border-color: #c5c5c5 !important;
       outline: none; }
   .newsletter .form-button {
     color: #fff;
@@ -1517,15 +1643,15 @@ h2 {
   .instagram .slick-slider.gallery .photo:not(.slick-current) {
     opacity: 0.5; }
 
-.customers .slick-slider.customer-cards {
+.customers .slick-slider.customers-slider {
   padding-left: 0; }
-  .customers .slick-slider.customer-cards .customer:not(.slick-current) {
+  .customers .slick-slider.customers-slider .customer:not(.slick-current) {
     opacity: 0.5; }
 
 .hero .slick-slider.promotions-wrapper,
 .products .slick-slider.products-slider,
 .instagram .slick-slider.gallery,
-.customers .slick-slider.customer-cards {
+.customers .slick-slider.customers-slider {
   position: relative;
   display: block;
   box-sizing: border-box;
@@ -1544,8 +1670,8 @@ h2 {
   .products .slick-slider.products-slider .slick-list,
   .instagram .slick-slider.gallery .slick-track,
   .instagram .slick-slider.gallery .slick-list,
-  .customers .slick-slider.customer-cards .slick-track,
-  .customers .slick-slider.customer-cards .slick-list {
+  .customers .slick-slider.customers-slider .slick-track,
+  .customers .slick-slider.customers-slider .slick-list {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
@@ -1557,7 +1683,7 @@ h2 {
     opacity: 1; }
   .instagram .slick-slider.gallery .photo:not(.slick-current) {
     opacity: 1; }
-  .customers .slick-slider.customer-cards .customer:not(.slick-current) {
+  .customers .slick-slider.customers-slider .customer:not(.slick-current) {
     opacity: 1; } }
 
 .slick-list {
