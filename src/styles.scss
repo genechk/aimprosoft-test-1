@@ -5,14 +5,15 @@
 // Normalize SCSS (MIT)
 @import '../node_modules/normalize-scss/sass/normalize';
 
-// Uses Slick carousel (MIT). Styles are integrated into SCSS
+// Uses Slick carousel (MIT).
+// Styles are integrated into SCSS
 
 //////////////////////////
 // Variables and mixins //
 //////////////////////////
 
 // All variables.
-// Contains breakpoints, spacings fonts, colors and animation durations
+// (breakpoints, spacings fonts, colors and animation durations)
 @import '_variables';
 
 // Fonts

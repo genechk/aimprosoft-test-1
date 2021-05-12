@@ -135,7 +135,7 @@ setSlick = (breakpoints) => {
   };
 
   // Set up Slick carousel
-  $('.promotions-wrapper').slick(heroParams);
+  $('.promotions-slider').slick(heroParams);
   $('.products-slider').slick(productParams);
   $('.photos-slider').slick(photoParams);
   $('.customers-slider').slick(customerParams);

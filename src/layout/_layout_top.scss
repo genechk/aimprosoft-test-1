@@ -1,54 +1,3 @@
-@mixin cartIconMobile() {
-  position: relative;
-  margin: 0;
-  width: 3.6rem;
-
-  .icon {
-    position: absolute;
-    top: 0;
-    left: 0.5rem;
-    width: 3rem;
-    height: 2.5rem;
-    z-index: 0;
-  }
-
-  .items {
-    position: absolute;
-    top: -0.1rem;
-    left: -0.1rem;
-    margin: 0;
-    padding-top: 0.1rem;
-    background: $bg-light;
-    color: $text-dark;
-    font-size: 1.3rem;
-    font-family: $font-medium;
-    text-align: center;
-    border-radius: 50%;
-    width: 1.9rem;
-    height: 1.9rem;
-    z-index: 100;
-  }
-}
-
-@mixin cartIconDesktop() {
-  width: 4.6rem;
-  margin-left: 2.8rem;
-
-  .icon {
-    width: 3.5rem;
-    height: 2.9rem;
-  }
-
-  .items {
-    font-size: 1.6rem;
-    padding-top: 0;
-    width: 2.3rem;
-    height: 2.3rem;
-    top: -0.2rem;
-    left: -0.3rem;
-  }
-}
-
 // Above the fold
 .above {
   width: 100%;
@@ -61,6 +10,7 @@
     margin-bottom: 1.9rem;
   }
 
+  // Same as @media (min-width: 1281px)
   @include screenSize($desktop) {
     margin-bottom: 3rem;
   }
@@ -72,7 +22,6 @@
   height: 5rem;
   background: $bg-dark;
   width: 100%;
-  // text-align: center;
 
   .page-header {
     @include fitWithin($max-content-width);
@@ -211,27 +160,10 @@
 
   .three-dots {
     display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 0.4rem 0;
-    margin-right: -0.2rem;
-    padding: 0;
-    list-style-type: none;
   }
 
-  // TODO: Mixin
   .bullet {
-    margin: 0 0.2rem;
-    width: 0.6rem;
-    height: 0.6rem;
-    border: 0.5px solid $bg-dark;
-    background: $light-grey;
-    border-radius: 50%;
-
-    &.active {
-      background: $bullet-active;
-    }
+    @include messageBullet();
   }
 
   @include screenSize($tablet) {
@@ -260,6 +192,13 @@
 
     .three-dots {
       display: flex;
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 0.4rem 0;
+      margin-right: -0.2rem;
+      padding: 0;
+      list-style-type: none;
     }
   }
 }
@@ -268,15 +207,17 @@
 .hero {
   order: 3;
 
-  .promotions-wrapper {
+  .promotions-slider {
     height: 19.5rem;
     overflow: hidden;
 
-    .promotion {
+    // Hide all inactive promotions
+    .promo {
       display: none;
       position: relative;
       height: 19.5rem;
 
+      // Show just the first promo until Slick is initialized
       &:first-child {
         display: block;
       }
@@ -289,13 +230,13 @@
     height: 100%;
   }
 
-  .caption,
+  .promo-caption,
   .bullets {
     position: absolute;
     background: none;
   }
 
-  .caption {
+  .promo-caption {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -305,15 +246,15 @@
     left: 25%;
     margin-left: -6.7rem;
 
-    h2,
-    h3 {
+    .promo-title,
+    .promo-subhead {
       color: $text-dark;
       margin: 0;
       padding: 0;
       line-height: 1;
     }
 
-    h2 {
+    .promo-title {
       border-bottom: 1px solid $text-dark;
       margin-bottom: 0.4rem;
       padding-bottom: 0.3rem;
@@ -321,7 +262,7 @@
       letter-spacing: 0.4px;
     }
 
-    h3 {
+    .promo-subhead {
       font-family: $font-monospace, monospace;
       letter-spacing: 0.5px;
       font-size: 1.1rem;
@@ -330,6 +271,7 @@
   }
 
   .call-to-action {
+    display: inline;
     color: $text-dark;
     text-transform: uppercase;
     font-family: $font-medium;
@@ -339,7 +281,7 @@
     padding: 0.2rem 0.8rem;
   }
 
-  // No-slick styles
+  // No Slick styles, check _layout_sliders.scss for overrides
   .bullets {
     padding: 0;
     margin: 0;
@@ -352,16 +294,7 @@
 
   .bullet {
     display: none;
-    margin: 0 0.1rem;
-    width: 1.1rem;
-    height: 1.1rem;
-    border: 0.5px solid $bullet-border;
-    background: $bg-light;
-    border-radius: 50%;
-
-    &.active {
-      background: $bullet-active;
-    }
+    @include sliderBullet();
   }
 
   .cover {
@@ -377,18 +310,17 @@
     // background-position: 50% 50%;
   }
 
-  // Same as @media (min-width: 768px)
   @include screenSize($tablet) {
     order: 2;
 
-    .promotions-wrapper {
+    .promotions-slider {
       height: 45.8rem;
-      .promotion {
+      .promo {
         height: 45.8rem;
       }
     }
 
-    .caption {
+    .promo-caption {
       top: 18rem;
       left: 4.8rem;
       left: 15%;
@@ -397,13 +329,13 @@
       height: auto;
       width: 20.5rem;
 
-      h2 {
+      .promo-title {
         font-size: 2.3rem;
         padding-bottom: 0.4rem;
         margin-bottom: 0.6rem;
       }
 
-      h3 {
+      .promo-subhead {
         font-size: 1.5rem;
         margin-bottom: 2.6rem;
       }
@@ -419,8 +351,7 @@
     }
 
     .bullet {
-      border: 0px solid $bg-light;
-      margin: 0 0.2rem 0 0.3rem;
+      @include sliderBulletTablet();
     }
 
     .cover {
@@ -430,20 +361,20 @@
   }
 
   @include screenSize($desktop) {
-    .promotions-wrapper {
+    .promotions-slider {
       height: 70.6rem;
-      .promotion {
+      .promo {
         height: 70.6rem;
       }
     }
 
-    .caption {
+    .promo-caption {
       top: 27.6rem;
       left: 23.6rem;
       margin-left: 0;
       width: 31.5rem;
 
-      h2 {
+      .promo-title {
         font-size: 3.5rem;
         margin-bottom: 0.9rem;
         padding-bottom: 0.7rem;
@@ -451,7 +382,7 @@
         letter-spacing: 1px;
       }
 
-      h3 {
+      .promo-subhead {
         font-size: 2.3rem;
         letter-spacing: 1px;
         margin-bottom: 3.8rem;
@@ -467,12 +398,6 @@
     .bullets {
       margin-right: 0;
       bottom: 2.6rem;
-
-      li {
-        height: 1.7rem;
-        width: 1.7rem;
-        margin: 0 0.4rem 0 0.3rem;
-      }
     }
 
     .bullet {

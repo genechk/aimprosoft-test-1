@@ -54,61 +54,71 @@
         <!-- / Messages, delivery information -->
 
         <div class="container hero" id="hero">
-          <div class="promotions-wrapper">
-            <div class="promotion">
-              <a href="#" class="promotion-link">
-                <div class="caption">
+          <div class="promotions-slider">
+            <div class="promo">
+              <a href="#" class="promo-link">
+                <div class="promo-caption">
                   <div>
-                    <h2><span class="font-bold">C&F</span> Clothing</h2>
-                    <h3>Sports & Lifestyle</h3>
+                    <h2 class="promo-title">
+                      <span class="font-bold">C&F</span> Clothing
+                    </h2>
+                    <h3 class="promo-subhead">Sports & Lifestyle</h3>
                     <div class="call-to-action" href="#">Confira</div>
                   </div>
                 </div>
                 <div class="cover"></div>
               </a>
             </div>
-            <div class="promotion">
-              <a href="#" class="promotion-link">
-                <div class="caption">
+            <div class="promo">
+              <a href="#" class="promo-link">
+                <div class="promo-caption">
                   <div>
-                    <h2><span class="font-bold">C&F</span> Clothing</h2>
-                    <h3>Sports & Lifestyle</h3>
+                    <h2 class="promo-title">
+                      <span class="font-bold">C&F</span> Clothing
+                    </h2>
+                    <h3 class="promo-subhead">Sports & Lifestyle</h3>
                     <div class="call-to-action" href="#">Confira</div>
                   </div>
                 </div>
                 <div class="cover"></div>
               </a>
             </div>
-            <div class="promotion">
-              <a href="#" class="promotion-link">
-                <div class="caption">
+            <div class="promo">
+              <a href="#" class="promo-link">
+                <div class="promo-caption">
                   <div>
-                    <h2><span class="font-bold">C&F</span> Clothing</h2>
-                    <h3>Sports & Lifestyle</h3>
+                    <h2 class="promo-title">
+                      <span class="font-bold">C&F</span> Clothing
+                    </h2>
+                    <h3 class="promo-subhead">Sports & Lifestyle</h3>
                     <div class="call-to-action" href="#">Confira</div>
                   </div>
                 </div>
                 <div class="cover"></div>
               </a>
             </div>
-            <div class="promotion">
-              <a href="#" class="promotion-link">
-                <div class="caption">
+            <div class="promo">
+              <a href="#" class="promo-link">
+                <div class="promo-caption">
                   <div>
-                    <h2><span class="font-bold">C&F</span> Clothing</h2>
-                    <h3>Sports & Lifestyle</h3>
+                    <h2 class="promo-title">
+                      <span class="font-bold">C&F</span> Clothing
+                    </h2>
+                    <h3 class="promo-subhead">Sports & Lifestyle</h3>
                     <div class="call-to-action" href="#">Confira</div>
                   </div>
                 </div>
                 <div class="cover"></div>
               </a>
             </div>
-            <div class="promotion">
-              <a href="#" class="promotion-link">
-                <div class="caption">
+            <div class="promo">
+              <a href="#" class="promo-link">
+                <div class="promo-caption">
                   <div>
-                    <h2><span class="font-bold">C&F</span> Clothing</h2>
-                    <h3>Sports & Lifestyle</h3>
+                    <h2 class="promo-title">
+                      <span class="font-bold">C&F</span> Clothing
+                    </h2>
+                    <h3 class="promo-subhead">Sports & Lifestyle</h3>
                     <div class="call-to-action" href="#">Confira</div>
                   </div>
                 </div>
@@ -514,11 +524,11 @@
         <!-- / Footer menu -->
       </footer>
 
-      <aside class="menu-slideout">
+      <aside class="menu-slideout" id="menu-slideout">
         <div class="menu-wrapper">
           <header class="menu-header">
             <h2>Menu</h2>
-            <button type="button" class="close">&times;</button>
+            <button type="button" class="close" id="close-menu">&times;</button>
           </header>
           <!-- / Menu header -->
 
@@ -538,7 +548,7 @@
               <!-- / Search -->
 
               <ul class="menu-catalog" id="menu-catalog">
-                <li class="menu-category">
+                <li class="menu-category" id="menu-category-01">
                   <a href="#" class="menu-link">Sobre</a>
                   <ul class="submenu">
                     <li class="menu-subcategory">
@@ -555,7 +565,7 @@
                     </li>
                   </ul>
                 </li>
-                <li class="menu-category">
+                <li class="menu-category" id="menu-category-02">
                   <a href="#" class="menu-link">Coleções</a>
                   <ul class="submenu">
                     <li class="menu-subcategory">
@@ -569,7 +579,7 @@
                     </li>
                   </ul>
                 </li>
-                <li class="menu-category">
+                <li class="menu-category" id="menu-category-03">
                   <a href="#" class="menu-link">Categoria</a>
                   <ul class="submenu">
                     <li class="menu-subcategory">
@@ -586,7 +596,7 @@
                     </li>
                   </ul>
                 </li>
-                <li class="menu-category">
+                <li class="menu-category" id="menu-category-04">
                   <a href="#" class="menu-link">Looks</a>
                   <ul class="submenu">
                     <li class="menu-subcategory">
@@ -600,7 +610,7 @@
                     </li>
                   </ul>
                 </li>
-                <li class="menu-category">
+                <li class="menu-category" id="menu-category-05">
                   <a href="#" class="menu-link">Contato</a>
                   <ul class="submenu">
                     <li class="menu-subcategory">
@@ -642,11 +652,11 @@
       </aside>
       <!-- / Menu + search -->
 
-      <aside class="cart-slideout" id="cart-slideout">
+      <aside class="cart-slideout open" id="cart-slideout">
         <div class="cart-wrapper">
           <header class="cart-header">
             <h2 class="cart-title">Meu Carrinho</h2>
-            <div class="cart-icon">
+            <div class="cart-icon" id="close-cart">
               <img class="icon" src="img/icon-basket.svg" alt="Carrinho" />
               <p class="items">88</p>
             </div>

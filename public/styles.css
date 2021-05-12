@@ -35,12 +35,26 @@
   font-style: normal; }
 
 /**
- *  Sets block element's max-width and centers it horizontally
- */
-/**
  *  Alias for @media created with assumption
  *  that complexity is going to increase
  */
+/**
+ *  Sets block element's max-width and centers it horizontally
+ */
+/**
+ *   Elongates menu items from their left edge
+ *   to the edge of the screen
+ */
+/**
+ *   Elongates cart items from their right edge
+ *   to the edge of the screen
+ */
+/** Sets <a> elements to show background overlay on mouseover */
+/**
+ *  Sets div as a hidden overlay text
+ *  To show set opacity to 1;
+ */
+/** Overlay font styles */
 html {
   scroll-behavior: smooth;
   padding: 0;
@@ -233,14 +247,7 @@ h2 {
     width: 100%;
     font-size: 1.4rem; }
   .messages .three-dots {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 0.4rem 0;
-    margin-right: -0.2rem;
-    padding: 0;
-    list-style-type: none; }
+    display: none; }
   .messages .bullet {
     margin: 0 0.2rem;
     width: 0.6rem;
@@ -268,28 +275,35 @@ h2 {
       .messages .message {
         margin-top: -0.1rem; }
       .messages .three-dots {
-        display: flex; } }
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0.4rem 0;
+        margin-right: -0.2rem;
+        padding: 0;
+        list-style-type: none; } }
 
 .hero {
   order: 3; }
-  .hero .promotions-wrapper {
+  .hero .promotions-slider {
     height: 19.5rem;
     overflow: hidden; }
-    .hero .promotions-wrapper .promotion {
+    .hero .promotions-slider .promo {
       display: none;
       position: relative;
       height: 19.5rem; }
-      .hero .promotions-wrapper .promotion:first-child {
+      .hero .promotions-slider .promo:first-child {
         display: block; }
   .hero .promo-link {
     display: block;
     width: 100%;
     height: 100%; }
-  .hero .caption,
+  .hero .promo-caption,
   .hero .bullets {
     position: absolute;
     background: none; }
-  .hero .caption {
+  .hero .promo-caption {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -298,24 +312,25 @@ h2 {
     height: 100%;
     left: 25%;
     margin-left: -6.7rem; }
-    .hero .caption h2,
-    .hero .caption h3 {
+    .hero .promo-caption .promo-title,
+    .hero .promo-caption .promo-subhead {
       color: #000;
       margin: 0;
       padding: 0;
       line-height: 1; }
-    .hero .caption h2 {
+    .hero .promo-caption .promo-title {
       border-bottom: 1px solid #000;
       margin-bottom: 0.4rem;
       padding-bottom: 0.3rem;
       font-size: 1.4rem;
       letter-spacing: 0.4px; }
-    .hero .caption h3 {
+    .hero .promo-caption .promo-subhead {
       font-family: "Courier New", monospace;
       letter-spacing: 0.5px;
       font-size: 1.1rem;
       margin-bottom: 1.2rem; }
   .hero .call-to-action {
+    display: inline;
     color: #000;
     text-transform: uppercase;
     font-family: "Rajdhani Medium";
@@ -352,11 +367,11 @@ h2 {
   @media screen and (min-width: 768px) {
     .hero {
       order: 2; }
-      .hero .promotions-wrapper {
+      .hero .promotions-slider {
         height: 45.8rem; }
-        .hero .promotions-wrapper .promotion {
+        .hero .promotions-slider .promo {
           height: 45.8rem; }
-      .hero .caption {
+      .hero .promo-caption {
         top: 18rem;
         left: 4.8rem;
         left: 15%;
@@ -364,11 +379,11 @@ h2 {
         justify-content: normal;
         height: auto;
         width: 20.5rem; }
-        .hero .caption h2 {
+        .hero .promo-caption .promo-title {
           font-size: 2.3rem;
           padding-bottom: 0.4rem;
           margin-bottom: 0.6rem; }
-        .hero .caption h3 {
+        .hero .promo-caption .promo-subhead {
           font-size: 1.5rem;
           margin-bottom: 2.6rem; }
       .hero .call-to-action {
@@ -383,22 +398,22 @@ h2 {
         background-position: 51.8% 0%;
         background-size: 137.9%; } }
   @media screen and (min-width: 1281px) {
-    .hero .promotions-wrapper {
+    .hero .promotions-slider {
       height: 70.6rem; }
-      .hero .promotions-wrapper .promotion {
+      .hero .promotions-slider .promo {
         height: 70.6rem; }
-    .hero .caption {
+    .hero .promo-caption {
       top: 27.6rem;
       left: 23.6rem;
       margin-left: 0;
       width: 31.5rem; }
-      .hero .caption h2 {
+      .hero .promo-caption .promo-title {
         font-size: 3.5rem;
         margin-bottom: 0.9rem;
         padding-bottom: 0.7rem;
         border-bottom: 2px solid #000;
         letter-spacing: 1px; }
-      .hero .caption h3 {
+      .hero .promo-caption .promo-subhead {
         font-size: 2.3rem;
         letter-spacing: 1px;
         margin-bottom: 3.8rem; }
@@ -409,10 +424,6 @@ h2 {
     .hero .bullets {
       margin-right: 0;
       bottom: 2.6rem; }
-      .hero .bullets li {
-        height: 1.7rem;
-        width: 1.7rem;
-        margin: 0 0.4rem 0 0.3rem; }
     .hero .bullet {
       height: 1.7rem;
       width: 1.7rem;
@@ -782,10 +793,10 @@ h2 {
         z-index: 10;
         transition: opacity 300ms; }
         .instagram-gallery .likes .likes-count {
-          color: #fff;
-          font-size: 1.8rem;
           font-family: "Rajdhani Semibold";
           letter-spacing: 0.5px;
+          color: #fff;
+          font-size: 1.8rem;
           margin-right: 1rem; }
         .instagram-gallery .likes .like-icon {
           width: 2.6rem;
@@ -815,8 +826,7 @@ h2 {
           margin-right: 0; }
       .instagram-gallery .likes .likes-count {
         font-size: 2.4rem;
-        letter-spacing: 1px;
-        margin-right: 1rem; }
+        letter-spacing: 1px; }
       .instagram-gallery .likes .like-icon {
         width: 3.4rem;
         height: auto;
@@ -883,22 +893,22 @@ h2 {
         .customers .customer-link:hover:before {
           background: rgba(0, 0, 0, 0.66); }
       .customers .customer-overlay {
+        opacity: 0;
         position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        font-size: 1.8rem;
-        letter-spacing: 0.6px;
-        font-family: "Rajdhani Semibold";
-        color: #fff;
-        opacity: 0;
         transition: opacity 300ms;
-        z-index: 10; }
+        z-index: 10;
+        font-family: "Rajdhani Semibold";
+        letter-spacing: 0.5px;
+        color: #fff;
+        font-size: 1.8rem; }
       .customers .customer-link:hover .customer-overlay {
         opacity: 1; } }
   @media screen and (min-width: 1281px) {
@@ -917,7 +927,7 @@ h2 {
         margin-right: 0; }
         .customers .customer:last-child {
           margin-right: 0; }
-      .customers .customer-link {
+      .customers .customer-overlay {
         font-size: 2.4rem; } }
 
 .subscription {
@@ -1055,8 +1065,6 @@ h2 {
         padding-top: 0.4rem;
         letter-spacing: 4px;
         box-shadow: 0 4px 0 rgba(0, 0, 0, 0.75); } }
-  .subscription label {
-    display: none; }
 
 .footer-menu {
   background: #f1f1f1;
@@ -1123,7 +1131,7 @@ h2 {
         width: 2.8rem;
         padding-left: 0.9rem; } }
 
-.hero .slick-slider.promotions-wrapper .promotion {
+.hero .slick-slider.promotions-slider .promo {
   display: block; }
 
 .products .slick-slider.products-slider {
@@ -1142,7 +1150,7 @@ h2 {
   .customers .slick-slider.customers-slider .customer:not(.slick-current) {
     opacity: 0.5; }
 
-.hero .slick-slider.promotions-wrapper,
+.hero .slick-slider.promotions-slider,
 .products .slick-slider.products-slider,
 .instagram-gallery .slick-slider.photos-slider,
 .customers .slick-slider.customers-slider {
@@ -1158,8 +1166,8 @@ h2 {
   -ms-touch-action: pan-y;
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent; }
-  .hero .slick-slider.promotions-wrapper .slick-track,
-  .hero .slick-slider.promotions-wrapper .slick-list,
+  .hero .slick-slider.promotions-slider .slick-track,
+  .hero .slick-slider.promotions-slider .slick-list,
   .products .slick-slider.products-slider .slick-track,
   .products .slick-slider.products-slider .slick-list,
   .instagram-gallery .slick-slider.photos-slider .slick-track,
@@ -1415,7 +1423,6 @@ h2 {
   .menu-slideout .menu-wrapper {
     width: 27.7rem;
     position: absolute;
-    margin-left: 100%;
     text-transform: uppercase;
     border-bottom: 2px solid #000;
     border-right: 2px solid #000; }
@@ -1638,7 +1645,7 @@ h2 {
   display: none;
   position: absolute;
   top: -100%;
-  left: -100%;
+  right: -100%;
   z-index: 1000; }
   .cart-slideout.open {
     display: block;
@@ -1647,7 +1654,6 @@ h2 {
   .cart-slideout .cart-wrapper {
     width: 27.7rem;
     position: absolute;
-    margin-right: 100%;
     right: 0;
     text-transform: uppercase;
     border-bottom: 2px solid #000;
@@ -1662,7 +1668,8 @@ h2 {
     margin: 0;
     padding-left: 1.5rem;
     padding-top: 0.6rem;
-    letter-spacing: 0.6px; }
+    letter-spacing: 0.6px;
+    font-family: "Rajdhani Medium"; }
   .cart-slideout .cart-icon {
     position: relative;
     margin: 0;
@@ -1852,7 +1859,7 @@ h2 {
       font-size: 2rem;
       padding-left: 2rem;
       padding-top: 0.9rem;
-      letter-spacing: 1.7px; }
+      letter-spacing: 1.6px; }
     .cart-slideout .cart-icon {
       width: 4.6rem;
       margin-left: 2.8rem;

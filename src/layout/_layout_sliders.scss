@@ -1,9 +1,11 @@
-// Overrides default slick slider
+// Integrating styles for default slick slider
+// Original styles: ../node_modules/slick-carousel/slick/slick.scss
 // License: MIT
 
 .slick-slider {
-  .hero &.promotions-wrapper {
-    .promotion {
+  .hero &.promotions-slider {
+    // Shows hidden promotions when Slick is initialized
+    .promo {
       display: block;
     }
   }
@@ -30,7 +32,7 @@
     }
   }
 
-  .hero &.promotions-wrapper,
+  .hero &.promotions-slider,
   .products &.products-slider,
   .instagram-gallery &.photos-slider,
   .customers &.customers-slider {
@@ -141,10 +143,6 @@
     .products & {
       left: 0;
     }
-
-    .photos-slider & {
-      // left: 0.6rem;
-    }
   }
 }
 
@@ -186,19 +184,8 @@
   display: none;
 }
 
-// Dots from Slick Theme]
-// $slick-font-family: "slick" !default;\
-$slick-arrow-color: white !default;
-$slick-dot-color: black !default;
-$slick-dot-color-active: $slick-dot-color !default;
-$slick-prev-character: '\2190' !default;
-$slick-next-character: '\2192' !default;
-$slick-dot-character: '\2022' !default;
-$slick-dot-size: 6px !default;
-$slick-opacity-default: 0.75 !default;
-$slick-opacity-on-hover: 1 !default;
-$slick-opacity-not-active: 0.25 !default;
-
+// Integrating bullet (dot) styles from slick-theme.scss
+// Overrides defaults from layout/_layout_top.scss
 .bullets {
   position: absolute;
   bottom: -1rem;
@@ -239,15 +226,15 @@ $slick-opacity-not-active: 0.25 !default;
         position: absolute;
         top: 0;
         left: 0;
-        content: $slick-dot-character;
+        content: $bullet-character;
         width: 1.1rem;
         height: 1.1rem;
         font-family: $font-regular;
-        font-size: $slick-dot-size;
+        font-size: $bullet-size;
         line-height: 20px;
         text-align: center;
         color: $bg-light;
-        opacity: $slick-opacity-not-active;
+        opacity: $opacity-not-active;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -292,11 +279,7 @@ $slick-opacity-not-active: 0.25 !default;
   }
 }
 
-// Arrows from Slick theme
-// .slick-arrow {
-
-// }
-
+// Integrating some arrow styles from slick-theme.scss
 .products {
   .product-arrows {
     position: absolute;
@@ -355,8 +338,6 @@ $slick-opacity-not-active: 0.25 !default;
   &:after {
     box-shadow: -3px 3px $bg-dark;
     left: 1.8rem;
-    // border-left: 0.3rem solid $bg-dark;
-    // border-bottom: 0.3rem solid $bg-dark;
   }
 
   &:disabled {

@@ -1,9 +1,4 @@
-@mixin stickToLeftEdge($padding) {
-  margin-left: -250rem;
-  padding-left: 250rem + $padding;
-}
-
-// Categories menu
+// Catalog menu
 .menu-slideout {
   display: none;
   position: absolute;
@@ -20,8 +15,6 @@
   .menu-wrapper {
     width: 27.7rem;
     position: absolute;
-    // TODO: Check if necessary
-    margin-left: 100%;
     text-transform: uppercase;
     border-bottom: 2px solid $bg-dark;
     border-right: 2px solid $bg-dark;
@@ -134,7 +127,6 @@
       border-bottom: 1px solid $menu-grey;
 
       &::after {
-        // background: $text-menu-dark;
         content: '+';
         right: 2.8rem;
         top: 0.1rem;
@@ -164,7 +156,7 @@
     }
   }
 
-  // TODO: Maybe merge with .menu-category
+  // TODO: Create mixin
   .menu-subcategory {
     & > .menu-link {
       background: $bg-dark;
@@ -224,7 +216,7 @@
       width: 44rem;
       max-height: 65.8rem;
 
-      // Fit menu to screen edge
+      // Fits menu to screen edge
       @include stickToLeftEdge(0);
     }
 
@@ -242,7 +234,7 @@
     .menu-header {
       height: 4.6rem;
 
-      // Fit menu to screen edge
+      // Fits menu to screen edge
       @include stickToLeftEdge(1.3rem);
 
       h2 {
@@ -280,11 +272,6 @@
       width: 4.6rem;
       background-size: 1.8rem;
     }
-
-    // .menu-catalog,
-    // .menu-social {
-    //   @include stickToLeftEdge(0);
-    // }
 
     .menu-category,
     .menu-subcategory {

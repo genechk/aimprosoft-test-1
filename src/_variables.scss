@@ -15,6 +15,17 @@ $tablet-gutter: 1.8rem;
 $desktop-gutter: 3rem;
 $desktop-side-indent: 2.5rem;
 
+//////////////////////////////////
+// Absolute positions and sizes //
+//////////////////////////////////
+$menu-top-mobile: 0;
+$menu-top-tablet: 47.2rem;
+$menu-top-desktop: 72.2rem;
+
+$menu-max-height-desktop: 65.8rem;
+$menu-width-desktop: 44rem;
+$cart-width-desktop: $menu-width-desktop + 0.2rem;
+
 ////////////////
 // Font names //
 ////////////////
@@ -54,6 +65,13 @@ $submit-button-shadow: #4f5052;
 $bullet-border: #929292;
 $bullet-active: #221f1f;
 $menu-borders: #010202;
+
+/////////////////
+// Slick theme //
+/////////////////
+$bullet-character: '\2022' !default;
+$bullet-size: 6px !default;
+$opacity-not-active: 0.25 !default;
 
 ///////////////
 // Animation //

@@ -22,8 +22,6 @@
   .cart-wrapper {
     width: 27.7rem;
     position: absolute;
-    // TODO: Check if necessary
-    margin-right: 100%;
     right: 0;
     text-transform: uppercase;
     border-bottom: 2px solid $bg-dark;
@@ -34,8 +32,6 @@
     background: $bg-dark;
     color: $text-light;
     position: relative;
-
-    // font-family: $font-medium;
     height: 3.8rem;
   }
 
@@ -45,10 +41,10 @@
     padding-left: 1.5rem;
     padding-top: 0.6rem;
     letter-spacing: 0.6px;
+    font-family: $font-medium;
   }
 
   .cart-icon {
-    // padding-top: 0.3rem;
     @include cartIconMobile();
   }
 
@@ -151,7 +147,6 @@
 
   .counter {
     display: flex;
-    // justify-content: space-between;
     grid-row: 2 / 3;
     grid-column: 2 / 3;
     width: 10.7rem;
@@ -189,8 +184,6 @@
     justify-content: space-between;
     padding-top: 0.7rem;
     padding-left: 1.1rem;
-    // letter-spacing: 1px;
-    // font-size: 2.2rem;
   }
 
   .label,
@@ -205,7 +198,6 @@
 
   .total-price {
     letter-spacing: 1px;
-    // margin-right: 0.4rem;
   }
 
   .cart-navigation {
@@ -275,7 +267,7 @@
       width: 44.2rem;
       max-height: 65.8rem;
 
-      // Fit cart to right edge
+      // Fits cart to the right edge
       @include stickToRightEdge(0);
     }
 
@@ -291,11 +283,10 @@
       padding-left: 2rem;
       padding-top: 0.9rem;
 
-      letter-spacing: 1.7px;
+      letter-spacing: 1.6px;
     }
 
     .cart-icon {
-      // display: block;
       @include cartIconDesktop();
       top: 0.7rem;
       right: -0.6rem;
@@ -312,7 +303,6 @@
       max-height: 47.6rem;
       height: 47.6rem;
       overflow-y: auto;
-      // overflow-x: hidden;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -365,7 +355,6 @@
     }
 
     .total-price {
-      // letter-spacing: 1px;
       margin-right: 0.4rem;
     }
 
