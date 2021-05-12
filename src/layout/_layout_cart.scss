@@ -1,336 +1,97 @@
-@mixin stickToRightEdge($padding) {
-  // FIXIT: This hack doesn’t seem to work
-  margin-right: -14.8rem;
-  padding-right: 14.8rem + $padding;
-}
-
-// Cart popover
+// Cart menu
 .cart-slideout {
-  display: none;
-  position: absolute;
+  @include menuContainerPositioning();
+  @include menuContainerAnimation();
 
-  top: -100%;
-  left: -100%;
-  z-index: 1000;
-
+  // Starts slide animation when class '.open' is added
   &.open {
-    display: block;
-    top: 47.2rem;
-    right: 0;
-  }
-
-  .cart-wrapper {
-    width: 27.7rem;
-    position: absolute;
-    right: 0;
-    text-transform: uppercase;
-    border-bottom: 2px solid $bg-dark;
-    border-left: 2px solid $bg-dark;
-  }
-
-  .cart-header {
-    background: $bg-dark;
-    color: $text-light;
-    position: relative;
-    height: 3.8rem;
-  }
-
-  .cart-title {
-    font-size: 1.7rem;
-    margin: 0;
-    padding-left: 1.5rem;
-    padding-top: 0.6rem;
-    letter-spacing: 0.6px;
-    font-family: $font-medium;
-  }
-
-  .cart-icon {
-    @include cartIconMobile();
-  }
-
-  .cart-content {
-    position: relative;
-    background: $bg-light;
-  }
-
-  .cart-products {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .cart-product {
-    border-bottom: 1px solid $menu-grey;
-    background: $bg-light;
-  }
-
-  .cart-product-wrapper {
-    height: 11.8rem;
-    max-height: 11.8rem;
-    display: grid;
-    grid-gap: 1.3rem;
-    grid-template: auto 3.4rem / 6.6rem 1fr 10.7rem;
-  }
-
-  .cart-product-image {
-    height: 11.8rem;
-    max-width: 6.6rem;
-
-    grid-row: 1 / 3;
-    grid-column: 1 / 2;
-  }
-
-  .image {
-    width: 100%;
-    max-width: 6.6rem;
-  }
-
-  .cart-product-details {
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cart-product-name {
-    font-size: 1.8rem;
-    text-transform: none;
-    font-family: $font-bold;
-    position: relative;
-    margin: 0;
-    margin-bottom: 0.1rem;
-    padding: 0;
-
-    a {
-      color: $text-dark;
+    .cart-wrapper {
+      transform: translateX(0);
     }
   }
 
-  .cart-product-colors {
-    .color {
-      width: 1.6rem;
-      height: 1.6rem;
-      margin-right: 0.4rem;
+  // Pseudo-style, expands to .cart-wrapper, .cart-header etc
+  .cart {
+    @include setMenu(left);
 
-      &.black {
-        background: $bg-dark;
+    &-icon {
+      @include cartIconMobile();
+    }
+
+    &-content {
+      position: relative;
+      background: $bg-light;
+    }
+
+    &-products {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    &-product {
+      border-bottom: 1px solid $menu-grey;
+      background: $bg-light;
+
+      .remove,
+      .subtract,
+      .add {
+        font-family: $font-semibold;
+        color: $text-menu-dark;
+        width: 1.6rem;
+        height: 1.6rem;
+        font-size: 1.6rem;
+        border: 2px solid $menu-borders;
+        padding-top: 0;
       }
     }
-  }
 
-  .remove-item {
-    grid-row: 1 / 2;
-    grid-column: 3 / 4;
-    position: relative;
-  }
-
-  .remove {
-    position: absolute;
-    top: 0.9rem;
-    right: 0.3rem;
-  }
-
-  .cart-product-colors {
-  }
-
-  .remove,
-  .subtract,
-  .add {
-    font-family: $font-semibold;
-    color: $text-menu-dark;
-    width: 1.6rem;
-    height: 1.6rem;
-    font-size: 1.6rem;
-    border: 2px solid $menu-borders;
-    padding-top: 0;
-  }
-
-  .counter {
-    display: flex;
-    grid-row: 2 / 3;
-    grid-column: 2 / 3;
-    width: 10.7rem;
-  }
-
-  .subtract {
-    margin-right: 0.4rem;
-  }
-
-  .quantity {
-    border: none;
-    background: $menu-grey;
-    margin-right: 0.3rem;
-    width: 4rem;
-    height: 2.4rem;
-    text-align: center;
-    font-size: 2.4rem;
-  }
-
-  .price {
-    font-size: 1.4rem;
-    grid-row: 2 / 3;
-    grid-column: 3 / 4;
-    text-align: right;
-    font-size: 2.4rem;
-    margin: 0;
-    margin-top: -0.5rem;
-    margin-right: 0.3rem;
-  }
-
-  .cart-total {
-    display: flex;
-    height: 4.4rem;
-    background: $menu-bg-grey;
-    justify-content: space-between;
-    padding-top: 0.7rem;
-    padding-left: 1.1rem;
-  }
-
-  .label,
-  .total-price {
-    margin: 0;
-  }
-
-  .label {
-    font-family: $font-semibold;
-    letter-spacing: 0.3px;
-  }
-
-  .total-price {
-    letter-spacing: 1px;
-  }
-
-  .cart-navigation {
-    margin: 0;
-    height: 8.4rem;
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-start;
-    background: $bg-dark;
-  }
-
-  .secondary,
-  .primary {
-    border: none;
-    height: 100%;
-    font-size: 2.6rem;
-    font-family: $font-bold;
-    text-transform: uppercase;
-    overflow-wrap: break-word;
-    letter-spacing: 0.8px;
-    padding: 0.8rem 2.1rem 0.7rem 1rem;
-    line-height: 1.1;
-  }
-
-  .secondary {
-    color: $menu-grey;
-    background: $bg-light;
-    min-width: 22.2rem;
-    width: 22.2rem;
-  }
-
-  .primary {
-    color: $text-light;
-    background: $bg-dark;
-    position: relative;
-    width: 21.2rem;
-    padding-right: 4.7rem;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: auto;
-      bottom: auto;
-      right: 0;
-      margin-top: 0.6rem;
-      margin-right: 0.7rem;
-      width: 1.2rem;
-      height: 1.2rem;
-      border-top: 3px solid $text-light;
-      border-right: 3px solid $text-light;
-      transform: rotate(45deg);
-    }
-  }
-
-  @include screenSize($desktop) {
-    &.open {
-      top: 72.2rem;
-      right: 15.6rem;
-
-      // FIXIT: Find the way to change slideout size
-      // width: 100%;
-      // height: 65.8rem;
-      // overflow: hidden;
-    }
-
-    .cart-wrapper {
-      width: 44.2rem;
-      max-height: 65.8rem;
-
-      // Fits cart to the right edge
-      @include stickToRightEdge(0);
-    }
-
-    .cart-header {
-      height: 4.6rem;
-      display: flex;
-      justify-content: space-between;
-      @include stickToRightEdge(2.5rem);
-    }
-
-    .cart-title {
-      font-size: 2rem;
-      padding-left: 2rem;
-      padding-top: 0.9rem;
-
-      letter-spacing: 1.6px;
-    }
-
-    .cart-icon {
-      @include cartIconDesktop();
-      top: 0.7rem;
-      right: -0.6rem;
-    }
-
-    .cart-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      @include stickToRightEdge(0);
-    }
-
-    .cart-products {
-      max-height: 47.6rem;
-      height: 47.6rem;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      @include stickToRightEdge(0);
-    }
-
-    .cart-product {
-      @include stickToRightEdge(0);
-    }
-
-    .cart-product-wrapper {
+    &-product-wrapper {
+      height: 11.8rem;
+      max-height: 11.8rem;
+      display: grid;
       grid-gap: 1.3rem;
       grid-template: auto 3.4rem / 6.6rem 1fr 10.7rem;
-      @include stickToRightEdge(2.5rem);
     }
 
-    .cart-product-name {
-      font-size: 2.2rem;
-      line-height: 1.2;
-      padding-top: 0.9rem;
-      letter-spacing: 1.4px;
-      margin-bottom: 0.5rem;
+    &-product-image {
+      height: 11.8rem;
+      max-width: 6.6rem;
+
+      grid-row: 1 / 3;
+      grid-column: 1 / 2;
+
+      .image {
+        width: 100%;
+        max-width: 6.6rem;
+      }
     }
 
-    .cart-product-colors {
+    &-product-details {
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-product-name {
+      font-size: 1.8rem;
+      text-transform: none;
+      font-family: $font-bold;
+      position: relative;
+      margin: 0;
+      margin-bottom: 0.1rem;
+      padding: 0;
+
+      a {
+        color: $text-dark;
+      }
+    }
+
+    &-product-colors {
       .color {
-        width: 2.3rem;
-        height: 2.2rem;
+        width: 1.6rem;
+        height: 1.6rem;
         margin-right: 0.4rem;
 
         &.black {
@@ -339,27 +100,227 @@
       }
     }
 
-    .remove,
-    .subtract,
-    .add {
-      width: 2.8rem;
-      height: 2.6rem;
-      font-size: 2.2rem;
-      text-align: center;
+    &-remove-item {
+      grid-row: 1 / 2;
+      grid-column: 3 / 4;
+      position: relative;
+      .remove {
+        position: absolute;
+        top: 0.9rem;
+        right: 0.3rem;
+      }
     }
 
-    .cart-total {
-      @include stickToRightEdge(2.5rem);
-      padding-left: 1.3rem;
-      font-size: 2.2rem;
+    &-counter {
+      display: flex;
+      grid-row: 2 / 3;
+      grid-column: 2 / 3;
+      width: 10.7rem;
+
+      .subtract {
+        margin-right: 0.4rem;
+      }
+
+      .quantity {
+        border: none;
+        background: $menu-grey;
+        margin-right: 0.3rem;
+        width: 4rem;
+        height: 2.4rem;
+        text-align: center;
+        font-size: 2.4rem;
+      }
     }
 
-    .total-price {
-      margin-right: 0.4rem;
+    &-price {
+      font-size: 1.4rem;
+      grid-row: 2 / 3;
+      grid-column: 3 / 4;
+      text-align: right;
+      font-size: 2.4rem;
+      margin: 0;
+      margin-top: -0.5rem;
+      margin-right: 0.3rem;
     }
 
-    .cart-navigation {
-      @include stickToRightEdge(2.5rem);
+    &-total {
+      display: flex;
+      height: 4.4rem;
+      background: $menu-bg-grey;
+      justify-content: space-between;
+      padding-top: 0.7rem;
+      padding-left: 1.1rem;
+    }
+
+    &-label,
+    &-total-price {
+      margin: 0;
+    }
+
+    &-label {
+      font-family: $font-semibold;
+      letter-spacing: 0.3px;
+    }
+
+    &-total-price {
+      letter-spacing: 1px;
+    }
+
+    &-navigation {
+      margin: 0;
+      height: 8.4rem;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      background: $bg-dark;
+
+      .secondary,
+      .primary {
+        border: none;
+        height: 100%;
+        font-size: 2.6rem;
+        font-family: $font-bold;
+        text-transform: uppercase;
+        overflow-wrap: break-word;
+        letter-spacing: 0.8px;
+        padding: 0.8rem 2.1rem 0.7rem 1rem;
+        line-height: 1.1;
+      }
+
+      .secondary {
+        color: $menu-grey;
+        background: $bg-light;
+        min-width: 22.2rem;
+        width: 22.2rem;
+      }
+
+      .primary {
+        color: $text-light;
+        background: $bg-dark;
+        position: relative;
+        width: 21.2rem;
+        padding-right: 4.7rem;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: auto;
+          bottom: auto;
+          right: 0;
+          margin-top: 0.6rem;
+          margin-right: 0.7rem;
+          width: 1.2rem;
+          height: 1.2rem;
+          border-top: 3px solid $text-light;
+          border-right: 3px solid $text-light;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  @include screenSize($desktop) {
+    top: $menu-top-desktop;
+
+    // Expands to .cart-wrapper, .cart-header, .cart-title etc.
+    .cart {
+      &-wrapper {
+        width: $cart-width-desktop;
+        max-height: $menu-max-height-desktop;
+
+        // Fits cart to the right edge
+        @include stickToRightEdge(0);
+      }
+
+      &-header {
+        @include stickToRightEdge(2.5rem);
+        height: 4.6rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      &-title {
+        font-size: 2rem;
+        padding-left: 2rem;
+        padding-top: 0.9rem;
+        letter-spacing: 1.6px;
+      }
+
+      &-icon {
+        @include cartIconDesktop();
+        top: 0.7rem;
+        right: -0.6rem;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include stickToRightEdge(0);
+      }
+
+      &-products {
+        max-height: 47.6rem;
+        height: 47.6rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        @include stickToRightEdge(0);
+      }
+
+      &-product {
+        @include stickToRightEdge(0);
+
+        .remove,
+        .subtract,
+        .add {
+          width: 2.8rem;
+          height: 2.6rem;
+          font-size: 2.2rem;
+          text-align: center;
+        }
+      }
+
+      &-product-wrapper {
+        grid-gap: 1.3rem;
+        grid-template: auto 3.4rem / 6.6rem 1fr 10.7rem;
+        @include stickToRightEdge(2.5rem);
+      }
+
+      &-product-name {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        padding-top: 0.9rem;
+        letter-spacing: 1.4px;
+        margin-bottom: 0.5rem;
+      }
+
+      &-product-colors {
+        .color {
+          width: 2.3rem;
+          height: 2.2rem;
+          margin-right: 0.4rem;
+
+          &.black {
+            background: $bg-dark;
+          }
+        }
+      }
+
+      &-total {
+        @include stickToRightEdge(2.5rem);
+        padding-left: 1.3rem;
+        font-size: 2.2rem;
+      }
+
+      &-total-price {
+        margin-right: 0.4rem;
+      }
+
+      &-navigation {
+        @include stickToRightEdge(2.5rem);
+      }
     }
   }
 }

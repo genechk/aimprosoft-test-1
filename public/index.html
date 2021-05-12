@@ -527,7 +527,7 @@
       <aside class="menu-slideout" id="menu-slideout">
         <div class="menu-wrapper">
           <header class="menu-header">
-            <h2>Menu</h2>
+            <h2 class="menu-title">Menu</h2>
             <button type="button" class="close" id="close-menu">&times;</button>
           </header>
           <!-- / Menu header -->
@@ -550,7 +550,7 @@
               <ul class="menu-catalog" id="menu-catalog">
                 <li class="menu-category" id="menu-category-01">
                   <a href="#" class="menu-link">Sobre</a>
-                  <ul class="submenu">
+                  <ul class="menu-submenu">
                     <li class="menu-subcategory">
                       <a href="#" class="menu-link">Sub Categoria</a>
                     </li>
@@ -567,7 +567,7 @@
                 </li>
                 <li class="menu-category" id="menu-category-02">
                   <a href="#" class="menu-link">Coleções</a>
-                  <ul class="submenu">
+                  <ul class="menu-submenu">
                     <li class="menu-subcategory">
                       <a href="#" class="menu-link">Sub Categoria</a>
                     </li>
@@ -581,7 +581,7 @@
                 </li>
                 <li class="menu-category" id="menu-category-03">
                   <a href="#" class="menu-link">Categoria</a>
-                  <ul class="submenu">
+                  <ul class="menu-submenu">
                     <li class="menu-subcategory">
                       <a href="#" class="menu-link">Categoria</a>
                     </li>
@@ -598,7 +598,7 @@
                 </li>
                 <li class="menu-category" id="menu-category-04">
                   <a href="#" class="menu-link">Looks</a>
-                  <ul class="submenu">
+                  <ul class="menu-submenu">
                     <li class="menu-subcategory">
                       <a href="#" class="menu-link">Sub Categoria</a>
                     </li>
@@ -612,7 +612,7 @@
                 </li>
                 <li class="menu-category" id="menu-category-05">
                   <a href="#" class="menu-link">Contato</a>
-                  <ul class="submenu">
+                  <ul class="menu-submenu">
                     <li class="menu-subcategory">
                       <a href="#" class="menu-link">Sub Categoria</a>
                     </li>
@@ -649,6 +649,7 @@
           <!-- / Menu contents -->
         </div>
         <!-- / Menu wrapper -->
+        <div class="lightbox-overlay"></div>
       </aside>
       <!-- / Menu + search -->
 
@@ -682,10 +683,10 @@
                       <div class="color black selected"></div>
                     </div>
                   </div>
-                  <div class="remove-item">
+                  <div class="cart-remove-item">
                     <button class="remove">X</button>
                   </div>
-                  <div class="counter">
+                  <div class="cart-counter">
                     <button class="subtract">–</button>
                     <input
                       type="text"
@@ -695,7 +696,7 @@
                     />
                     <button class="add">+</button>
                   </div>
-                  <p class="price">R$88.88</p>
+                  <p class="cart-price">R$88.88</p>
                 </div>
               </li>
               <li class="cart-product">
@@ -715,10 +716,10 @@
                       <div class="color black selected"></div>
                     </div>
                   </div>
-                  <div class="remove-item">
+                  <div class="cart-remove-item">
                     <button class="remove">X</button>
                   </div>
-                  <div class="counter">
+                  <div class="cart-counter">
                     <button class="subtract">–</button>
                     <input
                       type="text"
@@ -728,13 +729,13 @@
                     />
                     <button class="add">+</button>
                   </div>
-                  <p class="price">R$88.88</p>
+                  <p class="cart-price">R$88.88</p>
                 </div>
               </li>
             </ul>
             <div class="cart-total">
-              <p class="label">Total</p>
-              <p class="total-price">R$88,88</p>
+              <p class="cart-label">Total</p>
+              <p class="cart-total-price">R$88,88</p>
             </div>
             <div class="cart-navigation">
               <button class="secondary">Continuar Comprando</button>
@@ -744,6 +745,7 @@
           <!-- / Cart inner content -->
         </div>
         <!-- / Cart wrapper -->
+        <div class="lightbox-overlay"></div>
       </aside>
       <!-- / Cart -->
     </div>

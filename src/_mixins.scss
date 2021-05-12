@@ -2,51 +2,18 @@
 // Common mixins //
 ///////////////////
 
-/**
- *  Alias for @media created with assumption
- *  that complexity is going to increase
- */
+// Alias for @media created with assumption
+// that complexity is going to increase
 @mixin screenSize($device) {
   @media screen and (min-width: $device) {
     @content;
   }
 }
 
-/**
- *  Sets block element's max-width and centers it horizontally
- */
+// Sets block element's max-width and centers it horizontally
 @mixin fitWithin($width) {
   max-width: $width;
   margin: 0 auto;
-}
-
-///////////////////
-// Menu and Cart //
-///////////////////
-
-/**
- *   Elongates menu items from their left edge
- *   to the edge of the screen
- */
-@mixin stickToLeftEdge($padding) {
-  margin-left: -250rem;
-  padding-left: 250rem + $padding;
-}
-
-/**
- *   Elongates cart items from their right edge
- *   to the edge of the screen
- */
-@mixin stickToRightEdge($padding) {
-  // FIXIT: This hack doesn’t seem to work
-  margin-right: -14.8rem;
-  padding-right: 14.8rem + $padding;
-}
-
-@mixin menuPositioning() {
-  display: none;
-  position: absolute;
-  top: -100%;
 }
 
 ////////////////////
@@ -145,7 +112,7 @@
 // Main section //
 //////////////////
 
-/** Sets <a> elements to show background overlay on mouseover */
+// Sets <a> elements to show background overlay on mouseover
 @mixin imageLinkHover($opacity) {
   &:before {
     content: '';
@@ -168,10 +135,9 @@
   }
 }
 
-/**
- *  Sets div as a hidden overlay text
- *  To show set opacity to 1;
- */
+// Sets div as a hidden overlay text.
+// To show set element’s opacity to 1;
+
 @mixin hiddenOverlay() {
   opacity: 0;
   position: absolute;
@@ -187,9 +153,101 @@
   z-index: 10;
 }
 
-/** Overlay font styles */
+// Text overlay
 @mixin overlayFont() {
   font-family: $font-semibold;
   letter-spacing: 0.5px;
   color: $text-light;
+}
+
+///////////////////
+// Menu and Cart //
+///////////////////
+
+// Elongates menu items from their left edge
+// to the edge of the screen
+@mixin stickToLeftEdge($padding) {
+  margin-left: -200rem;
+  padding-left: 200rem + $padding;
+}
+
+// Elongates cart items from their right edge
+// to the edge of the screen
+@mixin stickToRightEdge($padding) {
+  margin-right: -200rem;
+  padding-right: 200rem + $padding;
+}
+
+// Positioning for menu containers
+@mixin menuContainerPositioning() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: $menu-top-tablet;
+  // Added space for bottom border
+  height: $menu-max-height + 0.2rem;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+// Common styles related to animation (container elements)
+@mixin menuContainerAnimation() {
+  opacity: 0;
+  transition: opacity $duration-menu-overlay;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+// Common styles related to animation (menu itself)
+@mixin menuAnimation($slide-width) {
+  transition: all $duration-menu-slide;
+  transform: translateX($slide-width);
+}
+
+// Positioning for menus
+@mixin menuPositioning($direction) {
+  position: absolute;
+  @if $direction == left {
+    right: 0;
+  } @else if $direction == right {
+    left: 0;
+  }
+  width: $menu-width-tablet;
+  z-index: 1;
+}
+
+// Assembles most common styles together
+@mixin setMenu($direction) {
+  &-wrapper {
+    @include menuPositioning($direction);
+    @if $direction == left {
+      border-left: 2px solid $bg-dark;
+      @include menuAnimation(100%);
+    } @else if $direction == right {
+      border-right: 2px solid $bg-dark;
+      @include menuAnimation(-100%);
+    }
+    border-bottom: 2px solid $bg-dark;
+    text-transform: uppercase;
+  }
+
+  &-header {
+    background: $bg-dark;
+    color: $text-light;
+    position: relative;
+    height: 3.8rem;
+  }
+
+  &-title {
+    font-size: 1.7rem;
+    margin: 0;
+    padding-left: 1.5rem;
+    padding-top: 0.6rem;
+    letter-spacing: 0.6px;
+    font-family: $font-medium;
+  }
 }

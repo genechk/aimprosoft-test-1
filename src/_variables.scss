@@ -22,9 +22,13 @@ $menu-top-mobile: 0;
 $menu-top-tablet: 47.2rem;
 $menu-top-desktop: 72.2rem;
 
+$menu-max-height: 65.8rem;
 $menu-max-height-desktop: 65.8rem;
+$menu-width-tablet: 27.7rem;
 $menu-width-desktop: 44rem;
 $cart-width-desktop: $menu-width-desktop + 0.2rem;
+
+$menu-header-height-desktop: 4.6rem;
 
 ////////////////
 // Font names //
@@ -77,3 +81,5 @@ $opacity-not-active: 0.25 !default;
 // Animation //
 ///////////////
 $duration-default: 300ms;
+$duration-menu-overlay: 500ms;
+$duration-menu-slide: 600ms ease-in-out;
