@@ -1,8 +1,5 @@
 // Cart menu
 .cart-slideout {
-  @include menuContainerPositioning();
-  @include menuContainerAnimation();
-
   // Starts slide animation when class '.open' is added
   &.open {
     .cart-wrapper {
@@ -12,15 +9,14 @@
 
   // Pseudo-style, expands to .cart-wrapper, .cart-header etc
   .cart {
-    @include setMenu(left);
+    // Borders + translateX
+    @include setSidenavRight();
 
     &-icon {
       @include cartIconMobile();
-    }
-
-    &-content {
-      position: relative;
-      background: $bg-light;
+      position: absolute;
+      top: 1.2rem;
+      right: 0.8rem;
     }
 
     &-products {
@@ -38,11 +34,18 @@
       .add {
         font-family: $font-semibold;
         color: $text-menu-dark;
-        width: 1.6rem;
-        height: 1.6rem;
-        font-size: 1.6rem;
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 2rem;
         border: 2px solid $menu-borders;
-        padding-top: 0;
+        padding: 0;
+        line-height: 1.8rem;
+        cursor: pointer;
+        transition: all $duration-default;
+        opacity: 1;
+        &:hover {
+          opacity: 0.9;
+        }
       }
     }
 
@@ -50,8 +53,9 @@
       height: 11.8rem;
       max-height: 11.8rem;
       display: grid;
-      grid-gap: 1.3rem;
-      grid-template: auto 3.4rem / 6.6rem 1fr 10.7rem;
+      grid-gap: $mobile-gutter;
+      grid-template: auto 3.4rem / 6.6rem 1fr minmax(7.5rem, 20%);
+      padding-right: 1.5rem;
     }
 
     &-product-image {
@@ -77,11 +81,13 @@
     &-product-name {
       font-size: 1.8rem;
       text-transform: none;
+      line-height: 1.15;
       font-family: $font-bold;
       position: relative;
       margin: 0;
-      margin-bottom: 0.1rem;
       padding: 0;
+      padding-top: 1rem;
+      margin-bottom: 0.5rem;
 
       a {
         color: $text-dark;
@@ -90,9 +96,9 @@
 
     &-product-colors {
       .color {
-        width: 1.6rem;
-        height: 1.6rem;
-        margin-right: 0.4rem;
+        width: 2.1rem;
+        height: 2.1rem;
+        cursor: pointer;
 
         &.black {
           background: $bg-dark;
@@ -104,10 +110,12 @@
       grid-row: 1 / 2;
       grid-column: 3 / 4;
       position: relative;
+      margin-top: 1.3rem;
+
       .remove {
         position: absolute;
-        top: 0.9rem;
-        right: 0.3rem;
+        top: 0;
+        right: 0;
       }
     }
 
@@ -117,8 +125,14 @@
       grid-column: 2 / 3;
       width: 10.7rem;
 
+      .add,
+      .subtract {
+        font-size: 2.4rem;
+      }
+
       .subtract {
         margin-right: 0.4rem;
+        padding-top: 0.1rem;
       }
 
       .quantity {
@@ -126,34 +140,42 @@
         background: $menu-grey;
         margin-right: 0.3rem;
         width: 4rem;
-        height: 2.4rem;
+        height: 2rem;
         text-align: center;
-        font-size: 2.4rem;
+        font-size: 1.7rem;
+        transition: all $duration-default;
+
+        &:hover,
+        &:focus {
+          border-radius: 0;
+          border: none;
+          outline: none;
+          background: lighten($menu-grey, 5%);
+        }
       }
     }
 
     &-price {
-      font-size: 1.4rem;
+      font-size: 2rem;
       grid-row: 2 / 3;
       grid-column: 3 / 4;
       text-align: right;
-      font-size: 2.4rem;
       margin: 0;
-      margin-top: -0.5rem;
-      margin-right: 0.3rem;
+      margin-top: 0.1rem;
     }
 
     &-total {
       display: flex;
-      height: 4.4rem;
+      height: $menu-header-height-mobile;
       background: $menu-bg-grey;
       justify-content: space-between;
-      padding-top: 0.7rem;
-      padding-left: 1.1rem;
+      align-items: center;
+      padding: 0 1.3rem;
     }
 
     &-label,
     &-total-price {
+      font-size: 1.7rem;
       margin: 0;
     }
 
@@ -168,7 +190,7 @@
 
     &-navigation {
       margin: 0;
-      height: 8.4rem;
+      height: 8.6rem;
       display: flex;
       align-items: stretch;
       justify-content: flex-start;
@@ -178,36 +200,35 @@
       .primary {
         border: none;
         height: 100%;
-        font-size: 2.6rem;
+        font-size: 2rem;
         font-family: $font-bold;
         text-transform: uppercase;
         overflow-wrap: break-word;
         letter-spacing: 0.8px;
-        padding: 0.8rem 2.1rem 0.7rem 1rem;
         line-height: 1.1;
+        min-width: 16rem;
+        width: 50%;
+        padding: 1.3rem;
+        cursor: pointer;
+        transition: all $duration-default;
       }
 
       .secondary {
         color: $menu-grey;
         background: $bg-light;
-        min-width: 22.2rem;
-        width: 22.2rem;
       }
 
       .primary {
         color: $text-light;
         background: $bg-dark;
         position: relative;
-        width: 21.2rem;
-        padding-right: 4.7rem;
+        padding-right: 3.5rem;
 
-        &::after {
+        &:after {
           content: '';
           position: absolute;
-          top: auto;
-          bottom: auto;
-          right: 0;
-          margin-top: 0.6rem;
+          right: 1.3rem;
+          margin: 0.4rem;
           margin-right: 0.7rem;
           width: 1.2rem;
           height: 1.2rem;
@@ -219,44 +240,51 @@
     }
   }
 
-  @include screenSize($desktop) {
-    top: $menu-top-desktop;
+  @include screenSize($tablet) {
+    .cart {
+      &-wrapper {
+        width: $cart-width-tablet;
+        right: 0;
+        left: auto;
+      }
 
+      &-icon {
+        right: 1.2rem;
+        top: 0.5rem;
+      }
+    }
+  }
+
+  @include screenSize($desktop) {
     // Expands to .cart-wrapper, .cart-header, .cart-title etc.
     .cart {
       &-wrapper {
         width: $cart-width-desktop;
-        max-height: $menu-max-height-desktop;
 
         // Fits cart to the right edge
-        @include stickToRightEdge(0);
+        @include stickToRightEdge();
       }
 
       &-header {
         @include stickToRightEdge(2.5rem);
-        height: 4.6rem;
         display: flex;
         justify-content: space-between;
       }
 
       &-title {
-        font-size: 2rem;
-        padding-left: 2rem;
-        padding-top: 0.9rem;
+        padding-left: 0.8rem;
         letter-spacing: 1.6px;
       }
 
       &-icon {
         @include cartIconDesktop();
+        position: relative;
         top: 0.7rem;
         right: -0.6rem;
       }
 
       &-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        @include stickToRightEdge(0);
+        @include stickToRightEdge();
       }
 
       &-products {
@@ -266,11 +294,11 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        @include stickToRightEdge(0);
+        @include stickToRightEdge();
       }
 
       &-product {
-        @include stickToRightEdge(0);
+        @include stickToRightEdge();
 
         .remove,
         .subtract,
@@ -308,10 +336,42 @@
         }
       }
 
+      &-remove-item {
+        margin-top: 0;
+        .remove {
+          top: 0.9rem;
+          right: 0.3rem;
+        }
+      }
+
+      &-counter {
+        .subtract {
+          margin-right: 0.4rem;
+        }
+
+        .quantity {
+          height: 2.4rem;
+          font-size: 2.4rem;
+        }
+      }
+
+      &-price {
+        font-size: 2.4rem;
+        margin-right: 0.3rem;
+      }
+
       &-total {
         @include stickToRightEdge(2.5rem);
-        padding-left: 1.3rem;
+        padding-left: 1.4rem;
+      }
+
+      &-label,
+      &-total-price {
         font-size: 2.2rem;
+      }
+
+      &-label {
+        margin-bottom: 0.3rem;
       }
 
       &-total-price {
@@ -320,6 +380,26 @@
 
       &-navigation {
         @include stickToRightEdge(2.5rem);
+
+        .secondary,
+        .primary {
+          font-size: 2.6rem;
+          padding: 0.8rem 2.1rem 0.7rem 1rem;
+        }
+
+        .secondary {
+          width: 22.2rem;
+        }
+
+        .primary {
+          width: 19.5rem;
+          padding-right: 4.7rem;
+
+          &:after {
+            right: 0;
+            margin-top: 0.5rem;
+          }
+        }
       }
     }
   }

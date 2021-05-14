@@ -1,0 +1,27 @@
+.scroll-initiated {
+  @include screenSize($desktop) {
+    &.extended {
+      .menu-wrapper {
+        padding-right: 0.6rem;
+        box-shadow: inset -6px 0 $bg-dark;
+      }
+    }
+  }
+
+  .cursors,
+  .nicescroll-cursors {
+    width: 0.5rem;
+    background: $bg-dark;
+    border-radius: 0;
+    border: none;
+    opacity: 1;
+  }
+
+  .rails,
+  .nicescroll-rails {
+    background: $bg-light;
+    border: 1px solid $bg-dark;
+    width: 0.8rem;
+    opacity: 1;
+  }
+}

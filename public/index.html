@@ -57,8 +57,8 @@
           <div class="promotions-slider">
             <div class="promo">
               <a href="#" class="promo-link">
-                <div class="promo-caption">
-                  <div>
+                <div class="promo-wrapper">
+                  <div class="promo-caption">
                     <h2 class="promo-title">
                       <span class="font-bold">C&F</span> Clothing
                     </h2>
@@ -71,8 +71,8 @@
             </div>
             <div class="promo">
               <a href="#" class="promo-link">
-                <div class="promo-caption">
-                  <div>
+                <div class="promo-wrapper">
+                  <div class="promo-caption">
                     <h2 class="promo-title">
                       <span class="font-bold">C&F</span> Clothing
                     </h2>
@@ -85,8 +85,8 @@
             </div>
             <div class="promo">
               <a href="#" class="promo-link">
-                <div class="promo-caption">
-                  <div>
+                <div class="promo-wrapper">
+                  <div class="promo-caption">
                     <h2 class="promo-title">
                       <span class="font-bold">C&F</span> Clothing
                     </h2>
@@ -99,8 +99,8 @@
             </div>
             <div class="promo">
               <a href="#" class="promo-link">
-                <div class="promo-caption">
-                  <div>
+                <div class="promo-wrapper">
+                  <div class="promo-caption">
                     <h2 class="promo-title">
                       <span class="font-bold">C&F</span> Clothing
                     </h2>
@@ -113,8 +113,8 @@
             </div>
             <div class="promo">
               <a href="#" class="promo-link">
-                <div class="promo-caption">
-                  <div>
+                <div class="promo-wrapper">
+                  <div class="promo-caption">
                     <h2 class="promo-title">
                       <span class="font-bold">C&F</span> Clothing
                     </h2>
@@ -524,15 +524,17 @@
         <!-- / Footer menu -->
       </footer>
 
-      <aside class="menu-slideout" id="menu-slideout">
-        <div class="menu-wrapper">
-          <header class="menu-header">
-            <h2 class="menu-title">Menu</h2>
-            <button type="button" class="close" id="close-menu">&times;</button>
+      <aside class="menu-slideout sidenav" id="menu-slideout">
+        <div class="menu-wrapper sidenav-wrapper">
+          <header class="menu-header sidenav-header">
+            <h2 class="menu-title sidenav-title clickable">Menu</h2>
+            <button type="button" class="close clickable" id="close-menu">
+              &times;
+            </button>
           </header>
           <!-- / Menu header -->
 
-          <nav class="menu-content">
+          <nav class="menu-content sidenav-content">
             <div class="menu-inner-wrapper">
               <div class="menu-search-bar">
                 <form action="" class="search">
@@ -631,7 +633,7 @@
             </div>
             <!-- / Menu categories -->
 
-            <div class="menu-footer">
+            <div class="menu-footer sidenav-footer">
               <ul class="menu-social">
                 <li>
                   <a href="#"><img src="img/fb.svg" alt="Facebook" /></a>
@@ -653,17 +655,17 @@
       </aside>
       <!-- / Menu + search -->
 
-      <aside class="cart-slideout open" id="cart-slideout">
-        <div class="cart-wrapper">
-          <header class="cart-header">
-            <h2 class="cart-title">Meu Carrinho</h2>
-            <div class="cart-icon" id="close-cart">
+      <aside class="cart-slideout sidenav" id="cart-slideout">
+        <div class="cart-wrapper sidenav-wrapper">
+          <header class="cart-header sidenav-header">
+            <h2 class="cart-title sidenav-title clickable">Meu Carrinho</h2>
+            <div class="cart-icon clickable" id="close-cart">
               <img class="icon" src="img/icon-basket.svg" alt="Carrinho" />
               <p class="items">88</p>
             </div>
           </header>
           <!-- / Cart header -->
-          <div class="cart-content">
+          <div class="cart-content sidenav-content">
             <ul class="cart-products">
               <li class="cart-product">
                 <div class="cart-product-wrapper">
@@ -733,13 +735,15 @@
                 </div>
               </li>
             </ul>
-            <div class="cart-total">
-              <p class="cart-label">Total</p>
-              <p class="cart-total-price">R$88,88</p>
-            </div>
-            <div class="cart-navigation">
-              <button class="secondary">Continuar Comprando</button>
-              <button class="primary">Checkout</button>
+            <div class="cart-footer sidenav-footer">
+              <div class="cart-total">
+                <p class="cart-label">Total</p>
+                <p class="cart-total-price">R$88,88</p>
+              </div>
+              <div class="cart-navigation">
+                <button class="secondary">Continuar Comprando</button>
+                <button class="primary">Checkout</button>
+              </div>
             </div>
           </div>
           <!-- / Cart inner content -->

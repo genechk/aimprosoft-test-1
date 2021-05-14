@@ -1,0 +1,102 @@
+// Parent elements
+html {
+  scroll-behavior: smooth;
+  padding: 0;
+  font-size: 62.5%; // Make 1rem 10px again
+}
+
+body {
+  font-size: 1.5em;
+  line-height: 1;
+  background: $bg-light;
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+  overflow-x: hidden;
+  min-width: $mobile;
+}
+
+// Typography
+* {
+  font-family: $font-regular, 'Verdana', sans-serif;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.message {
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+h1,
+h2 {
+  font-family: $font-light;
+}
+
+.font-bold {
+  font-family: $font-bold;
+}
+
+// More parent elements
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+// Selection styles
+::selection {
+  @at-root {
+    .main .heading *#{&},
+    .cart-slideout .cart-product *#{&},
+    .cart-slideout .cart-footer *#{&},
+    .menu-slideout .menu-content *#{&},
+    .subscription-form *#{&},
+    .messages *#{&} {
+      background: $bg-dark;
+      color: $text-light;
+      padding: 0.5rem 0.1rem;
+    }
+
+    .footer .footer-menu *#{&},
+    .above .page-header *#{&},
+    .subscription .form-header#{&},
+    .category .category-link *#{&},
+    .instagram-gallery .photo-link *#{&},
+    .customers .customer-link *#{&},
+    .menu-slideout .menu-header *#{&},
+    .cart-slideout .cart-header *#{&},
+    .cart-slideout .cart-footer .primary#{&} {
+      background: $bg-light;
+      color: $text-dark;
+      padding: 0.5rem 0.1rem;
+    }
+  }
+}
+
+// Other common styles
+.clickable {
+  cursor: pointer;
+}
+
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($bg-light, 0.6);
+}

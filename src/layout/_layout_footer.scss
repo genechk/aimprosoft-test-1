@@ -30,8 +30,8 @@
     background: $bg-dark;
     color: $text-light;
     position: relative;
-    padding-top: 0.7rem;
-    padding-bottom: 0.3rem;
+    padding-top: 1.2rem;
+    padding-bottom: 0.9rem;
   }
 
   .form-field {
@@ -39,11 +39,12 @@
     border: 2px solid $light-grey;
     height: 2.7rem;
     border-radius: 0;
+    transition: all $duration-default;
 
-    // FIXIT: Get rid of default browser styles
-    &::focus {
-      border-radius: 0 !important;
-      border-color: $medium-grey !important;
+    &:hover,
+    &:focus {
+      border-radius: 0;
+      border-color: darken($light-grey, 25%);
       outline: none;
     }
   }
@@ -57,6 +58,10 @@
     border: none;
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.75);
     cursor: pointer;
+    transition: all $duration-default;
+    &:hover {
+      background: lighten($light-grey, 5%);
+    }
   }
 
   @include screenSize($tablet) {
@@ -193,6 +198,7 @@
 
   .footer-logo {
     width: 7.9rem;
+    @include notDraggable();
   }
 
   @include screenSize($tablet) {
@@ -233,6 +239,7 @@
     .footer-social {
       margin: auto;
       margin-right: 2.2rem;
+      @include notDraggable();
 
       li {
         height: 2rem;

@@ -1,54 +1,40 @@
 // Catalog menu
 .menu-slideout {
-  @include menuContainerPositioning();
-  @include menuContainerAnimation();
-
+  // Starts slide animation when class '.open' is added
   &.open {
     .menu-wrapper {
       transform: translateX(0);
     }
   }
 
-  // Pseudo-style, expands to .cart-wrapper, .cart-header and .cart-title
+  // Pseudo-style, expands to .cart-wrapper, .cart-header, .cart-title etc.
   .menu {
-    @include setMenu(right);
+    // Borders + translateX
+    @include setSidenavLeft();
 
-    &-header,
     &-search-bar,
     &-catalog {
       padding-left: 1.3rem;
     }
 
     &-header {
-      background: $bg-dark;
-      color: $text-light;
-
-      height: 3.8rem;
-
       .close {
-        display: none;
+        display: block;
         position: absolute;
-        top: -1.3rem;
-        right: -0.4rem;
+        top: -0.2rem;
+        right: 0.5rem;
         border: none;
         background: none;
-        font-size: 7rem;
+        font-size: 5.2rem;
         color: $text-light;
+        opacity: 1;
+        transition: opacity $duration-default;
+        @include notDraggable();
       }
     }
 
     &-title {
-      font-size: 1.7rem;
-      margin: 0;
       padding-left: 1.5rem;
-      padding-top: 0.6rem;
-      letter-spacing: 0.6px;
-      font-family: $font-medium;
-    }
-
-    &-content {
-      position: relative;
-      background: $bg-light;
     }
 
     &-search-bar {
@@ -84,6 +70,7 @@
         background-size: 1.7rem;
         background-repeat: no-repeat;
         background-position: 50% 45%;
+        @include menuButtonHover();
       }
     }
 
@@ -92,6 +79,7 @@
     &-social {
       list-style-type: none;
       font-size: 1.8rem;
+      line-height: 1.5;
       margin: 0;
       padding: 0;
     }
@@ -104,46 +92,66 @@
         letter-spacing: 0.3px;
         position: relative;
 
-        &::after {
+        &:after {
           display: block;
           position: absolute;
         }
       }
     }
-  }
 
-  .menu-category {
-    & > .menu-link {
-      padding: 0.9rem 1rem 1rem 2.7rem;
-      height: 2.2rem;
-      background: $bg-light;
-      color: $text-menu-dark;
-      border-bottom: 1px solid $menu-grey;
+    &-category {
+      & > .menu-link {
+        padding: 1rem;
+        padding-left: 2.6rem;
+        height: 2.2rem;
+        background: $bg-light;
+        color: $text-menu-dark;
+        border-bottom: 1px solid $menu-grey;
 
-      &::after {
-        content: '+';
-        right: 2.8rem;
-        top: 0.1rem;
-        width: 1rem;
-        height: 1rem;
-        font-size: 2.8rem;
+        &:after {
+          content: '+';
+          right: 2.8rem;
+          top: 0.1rem;
+          width: 1rem;
+          height: 1rem;
+          font-size: 2.8rem;
+        }
       }
-    }
 
-    .menu-submenu {
-      transform: translateY(-100%);
-      display: none;
-    }
-
-    &.open {
       .menu-submenu {
-        display: block;
-        transform: translateY(0);
+        transition: opacity $duration-menu-accordion;
+        opacity: 0;
       }
 
-      & > .menu-link::after {
-        content: '–';
-        right: 2.7rem;
+      &.open {
+        .menu-submenu {
+          opacity: 1;
+        }
+
+        // Accordion animation
+        .menu-subcategory {
+          & > .menu-link {
+            padding: 0.6rem 1rem 1.1rem 3.4rem;
+            height: 2rem;
+            font-size: 1.8rem;
+            border-bottom: 1px solid $bg-light;
+
+            &:after {
+              content: '';
+            }
+          }
+
+          &:last-child {
+            & > .menu-link {
+              border-bottom: 1px solid $menu-grey;
+            }
+          }
+        }
+
+        & > .menu-link:after {
+          content: '–';
+          right: 2.7rem;
+        }
       }
     }
 
@@ -151,12 +159,13 @@
       & > .menu-link {
         background: $bg-dark;
         color: $text-menu-light;
-        border-bottom: 1px solid $bg-light;
-        padding: 0.5rem 1rem 1.2rem 3.4rem;
-        height: 2.1rem;
+        border: none;
+        font-size: 0;
+        padding: 0;
+        height: 0;
+        transition: all ease $duration-default;
 
-        &::after {
-          content: '';
+        &:after {
           top: 1.5rem;
           right: 2rem;
           height: 0.8rem;
@@ -165,76 +174,104 @@
           border-top: 0.2rem solid $text-menu-light;
           transform: rotate(45deg);
         }
-
-        &:last-child {
-          border-bottom: 1px solid $menu-grey;
-        }
       }
     }
 
-    .menu-footer {
+    &-footer {
       background: $bg-light;
+      width: 100%;
+      display: flex;
+      box-shadow: 0 -1px $menu-grey;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &-social {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-top: 0.4rem;
+      padding-bottom: 0.4rem;
+      margin-right: 1.3rem;
+      height: 3.4rem;
+
+      @include notDraggable();
+
+      li {
+        height: 2.5rem;
+        width: 2.5rem;
+        padding-left: 0.7rem;
+      }
+
+      a {
+        color: $text-light;
+      }
     }
   }
 
-  .menu-social {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-top: 0.4rem;
-    padding-bottom: 0.1rem;
-    margin-right: 1.3rem;
-    height: 3.4rem;
-
-    li {
-      height: 2.5rem;
-      width: 2.5rem;
-      padding-left: 0.6rem;
-    }
-
-    a {
-      color: $text-light;
-    }
-  }
-
-  @include screenSize($desktop) {
-    top: $menu-top-desktop;
-
+  @include screenSize($tablet) {
     .menu {
       &-wrapper {
-        width: $menu-width-desktop;
-        max-height: $menu-max-height-desktop;
-
-        // Fits menu to screen edge
-        @include stickToLeftEdge(0);
-      }
-
-      &-content {
-        max-height: 61.2rem;
-        height: 61.2rem;
-        overflow-y: scroll;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        @include stickToLeftEdge(0);
+        left: 0;
+        right: auto;
       }
 
       &-header {
-        height: $menu-header-height-desktop;
-
-        // Fits menu to screen edge
-        @include stickToLeftEdge(1.3rem);
-
         .close {
-          display: block;
+          opacity: 0;
+          top: -1.3rem;
+          right: -0.4rem;
+          font-size: 7rem;
         }
       }
 
       &-title {
-        font-size: 2rem;
+        padding-left: 1.4rem;
+      }
+
+      &-footer {
+        height: $menu-footer-height-tablet;
+        min-height: $menu-footer-height-tablet;
+      }
+
+      &-social {
+        padding-bottom: 0.2rem;
+        padding-top: 0.2rem;
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  @include screenSize($desktop) {
+    .menu {
+      &-wrapper {
+        // Fits menu to screen edge
+        @include stickToLeftEdge();
+      }
+
+      &-header {
+        // Fits menu to screen edge
+        @include stickToLeftEdge(1.3rem);
+
+        .close {
+          opacity: 1;
+          top: 0;
+          right: -0.4rem;
+          font-size: 7rem;
+          line-height: $menu-header-height-desktop;
+          max-height: $menu-header-height-desktop;
+        }
+      }
+
+      &-title {
         padding-left: 1.8rem;
-        padding-top: 0.9rem;
+      }
+
+      &-content {
+        @include stickToLeftEdge();
+        max-height: $menu-max-height-desktop - $menu-header-height-desktop;
+        height: $menu-max-height-desktop - $menu-header-height-desktop;
+        overflow-y: auto;
       }
 
       &-search-bar {
@@ -264,20 +301,19 @@
 
       &-category,
       &-subcategory {
-        font-size: 2.2rem;
-
         & > .menu-link {
           letter-spacing: 0.8px;
         }
       }
 
       &-category {
+        font-size: 2.2rem;
         & > .menu-link {
           padding: 2.1rem 1rem 1.6rem 2.9rem;
           height: 3.2rem;
           @include stickToLeftEdge(2.9rem);
 
-          &::after {
+          &:after {
             top: 0.6rem;
             right: 3.2rem;
             width: 1rem;
@@ -289,28 +325,30 @@
         &.open {
           .menu-submenu {
           }
-          & > .menu-link::after {
+          & > .menu-link:after {
             right: 3.1rem;
           }
-        }
-      }
+          // Accordion animation
+          .menu-subcategory {
+            & > .menu-link {
+              font-size: 2.2rem;
+              padding: 0.9rem 1rem 1.1rem 2.8rem;
+              @include stickToLeftEdge(2.8rem);
+              height: 2.8rem;
 
-      &-subcategory {
-        & > .menu-link {
-          padding: 0.9rem 1rem 1.1rem 2.8rem;
-          @include stickToLeftEdge(2.8rem);
-          height: 2.8rem;
-
-          &::after {
-            top: 2.1rem;
-            right: 3rem;
-            height: 0.9rem;
-            width: 0.9rem;
+              &:after {
+                top: 2.1rem;
+                right: 3rem;
+                height: 0.9rem;
+                width: 0.9rem;
+              }
+            }
           }
         }
       }
 
       &-footer {
+        @include stickToLeftEdge();
         &.fixed {
           position: absolute;
           right: 0;
@@ -319,7 +357,7 @@
       }
 
       &-social {
-        padding-top: 0.4rem;
+        padding-top: 0.5rem;
         padding-bottom: 0.7rem;
         margin-right: 1.2rem;
         li {

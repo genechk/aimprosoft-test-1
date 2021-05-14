@@ -26,66 +26,12 @@
 // Common styles //
 ///////////////////
 
-// Parent elements
-html {
-  scroll-behavior: smooth;
-  padding: 0;
-  font-size: 62.5%; // Make 1rem 10px again
-}
-
-body {
-  font-size: 1.5em;
-  line-height: 1.6;
-  background: $bg-light;
-  padding: 0;
-  margin: 0;
-  z-index: 0;
-  overflow-x: hidden;
-  min-width: $mobile;
-}
-
-// Typography
-* {
-  font-family: $font-regular, 'Verdana', sans-serif;
-  text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.message {
-  text-transform: uppercase;
-}
-
-h1,
-h2 {
-  font-family: $font-light;
-}
-
-.font-bold {
-  font-family: $font-bold;
-}
+// Typography, html, body, .wrapper etc.
+@import '_common';
 
 ////////////////////////////
 // Cloth & Fashion Layout //
 ////////////////////////////
-
-// More parent elements
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
 
 // Top of the page / Above the fold
 // (header + hero / promotions sections)
@@ -102,8 +48,14 @@ h2 {
 // (overrides some of the styles in order to make Slick carousel work)
 @import 'layout/layout_sliders';
 
+// Sidenav menus (catalog + cart)
+@import 'layout/layout_sidenav';
+
 // Catalog menu
 @import 'layout/layout_menu';
+
+// Scrollbar
+@import 'layout/layout_scroll';
 
 // Cart
 @import 'layout/layout_cart';

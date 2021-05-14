@@ -18,17 +18,26 @@ $desktop-side-indent: 2.5rem;
 //////////////////////////////////
 // Absolute positions and sizes //
 //////////////////////////////////
+$page-header-height-mobile: 5rem;
+$page-header-height-tablet: 3.8rem;
+$page-header-height-desktop: 4.6rem;
+
 $menu-top-mobile: 0;
 $menu-top-tablet: 47.2rem;
 $menu-top-desktop: 72.2rem;
 
 $menu-max-height: 65.8rem;
 $menu-max-height-desktop: 65.8rem;
-$menu-width-tablet: 27.7rem;
+$menu-width-tablet: 27.8rem;
 $menu-width-desktop: 44rem;
+$cart-width-tablet: $mobile;
 $cart-width-desktop: $menu-width-desktop + 0.2rem;
 
-$menu-header-height-desktop: 4.6rem;
+$menu-header-height-mobile: $page-header-height-mobile;
+$menu-header-height-tablet: $page-header-height-tablet;
+$menu-header-height-desktop: $page-header-height-desktop;
+
+$menu-footer-height-tablet: $menu-header-height-desktop;
 
 ////////////////
 // Font names //
@@ -81,5 +90,6 @@ $opacity-not-active: 0.25 !default;
 // Animation //
 ///////////////
 $duration-default: 300ms;
+$duration-menu-accordion: 500ms;
 $duration-menu-overlay: 500ms;
 $duration-menu-slide: 600ms ease-in-out;

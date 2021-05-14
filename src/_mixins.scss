@@ -16,9 +16,48 @@
   margin: 0 auto;
 }
 
+@mixin notDraggable() {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 ////////////////////
 // Above the fold //
 ////////////////////
+
+@mixin stickyHeader($mobile-padding, $tablet-padding, $desktop-padding) {
+  transition: all $duration-default;
+
+  &.sticky-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 200;
+
+    @at-root {
+      body.sticky-header {
+        padding-top: $mobile-padding;
+      }
+
+      @include screenSize($tablet-padding) {
+        body.sticky-header {
+          padding-top: $tablet-padding;
+        }
+      }
+
+      @include screenSize($desktop-padding) {
+        body.sticky-header {
+          padding-top: $desktop-padding;
+        }
+      }
+    }
+  }
+}
 
 @mixin messageBullet() {
   margin: 0 0.2rem;
@@ -61,6 +100,7 @@
   position: relative;
   margin: 0;
   width: 3.6rem;
+  @include notDraggable();
 
   .icon {
     position: absolute;
@@ -73,10 +113,12 @@
 
   .items {
     position: absolute;
-    top: -0.1rem;
+    top: 0;
     left: -0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0;
-    padding-top: 0.1rem;
     background: $bg-light;
     color: $text-dark;
     font-size: 1.3rem;
@@ -103,7 +145,7 @@
     padding-top: 0;
     width: 2.3rem;
     height: 2.3rem;
-    top: -0.2rem;
+    top: -0.1rem;
     left: -0.3rem;
   }
 }
@@ -166,88 +208,61 @@
 
 // Elongates menu items from their left edge
 // to the edge of the screen
-@mixin stickToLeftEdge($padding) {
+@mixin stickToLeftEdge($padding: 0) {
   margin-left: -200rem;
   padding-left: 200rem + $padding;
 }
 
 // Elongates cart items from their right edge
 // to the edge of the screen
-@mixin stickToRightEdge($padding) {
+@mixin stickToRightEdge($padding: 0) {
   margin-right: -200rem;
   padding-right: 200rem + $padding;
 }
 
 // Positioning for menu containers
-@mixin menuContainerPositioning() {
-  position: absolute;
+@mixin sidenavContainerPositioning() {
+  position: fixed;
   left: 0;
   right: 0;
-  top: $menu-top-tablet;
-  // Added space for bottom border
-  height: $menu-max-height + 0.2rem;
+  top: 0;
+  height: 100%;
   overflow: hidden;
   z-index: 1000;
 }
 
-// Common styles related to animation (container elements)
-@mixin menuContainerAnimation() {
-  opacity: 0;
-  transition: opacity $duration-menu-overlay;
-  pointer-events: none;
-
-  &.open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-
-// Common styles related to animation (menu itself)
-@mixin menuAnimation($slide-width) {
+// Animation styles (sidenav content)
+@mixin sidenavAnimation($slide-width) {
   transition: all $duration-menu-slide;
   transform: translateX($slide-width);
 }
 
-// Positioning for menus
-@mixin menuPositioning($direction) {
-  position: absolute;
-  @if $direction == left {
-    right: 0;
-  } @else if $direction == right {
-    left: 0;
+// Borders and animations for left sidenav menu
+@mixin setSidenavLeft() {
+  &-wrapper {
+    @include sidenavAnimation(-100%);
+    border-right: 2px solid $bg-dark;
+    border-bottom: 2px solid $bg-dark;
   }
-  width: $menu-width-tablet;
-  z-index: 1;
 }
 
-// Assembles most common styles together
-@mixin setMenu($direction) {
+// Borders and animations for right sidenav menu
+@mixin setSidenavRight() {
   &-wrapper {
-    @include menuPositioning($direction);
-    @if $direction == left {
-      border-left: 2px solid $bg-dark;
-      @include menuAnimation(100%);
-    } @else if $direction == right {
-      border-right: 2px solid $bg-dark;
-      @include menuAnimation(-100%);
-    }
+    @include sidenavAnimation(100%);
+    border-left: 2px solid $bg-dark;
     border-bottom: 2px solid $bg-dark;
-    text-transform: uppercase;
   }
+}
 
-  &-header {
-    background: $bg-dark;
-    color: $text-light;
-    position: relative;
-    height: 3.8rem;
-  }
+// Hover effect for menu buttons (i.e. search)
+@mixin menuButtonHover() {
+  box-shadow: inset 5rem 5rem rgba($bg-light, 0);
+  cursor: pointer;
+  transition: all $duration-default;
+  position: relative;
 
-  &-title {
-    font-size: 1.7rem;
-    margin: 0;
-    padding-left: 1.5rem;
-    padding-top: 0.6rem;
-    letter-spacing: 0.6px;
-    font-family: $font-medium;
+  &:hover {
+    box-shadow: inset 5rem 5rem rgba($bg-light, 0.2);
   }
 }
