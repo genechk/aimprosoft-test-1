@@ -16,7 +16,7 @@ $(document).ready(() => {
  *  Setup for each Slick carousel on the page
  *  (Promotions, Products, Categories, Instagram, Customers)
  */
-setSlick = (breakpoints) => {
+function setSlick(breakpoints) {
   const { tablet, tabletWide, desktop } = breakpoints;
 
   // Set up parameters for Slick
@@ -139,14 +139,14 @@ setSlick = (breakpoints) => {
   $('.products-slider').slick(productParams);
   $('.photos-slider').slick(photoParams);
   $('.customers-slider').slick(customerParams);
-};
+}
 
 /**
  *  Disables hyperlinks with ambiguous behavior
  *  (like scrolling to top of the page)
  *  on smaller screens. Enables them back on larger ones
  */
-fixLinks = (breakpoints) => {
+function fixLinks(breakpoints) {
   // Noop
   const disable = (event) => event.preventDefault();
   const enable = (sliderTag, linkTag) => {
@@ -191,7 +191,7 @@ fixLinks = (breakpoints) => {
     enable,
     update,
   };
-};
+}
 
 /**
  *  Updates the page when it is resized
