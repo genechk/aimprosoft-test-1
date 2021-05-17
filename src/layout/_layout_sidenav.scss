@@ -66,6 +66,11 @@
     position: absolute;
     top: $menu-top-tablet;
 
+    @at-root body.sticky-header & {
+      position: fixed;
+      top: 0;
+    }
+
     // Added space to fit bottom border
     height: $menu-max-height + 0.2rem;
 
@@ -97,6 +102,11 @@
 
   @include screenSize($desktop) {
     top: $menu-top-desktop;
+
+    @at-root body.sticky-header & {
+      position: fixed;
+      right: 0;
+    }
 
     .sidenav {
       &-wrapper {
